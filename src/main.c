@@ -6,7 +6,7 @@
  */
 
 int main(void){
-
+	int retraso;
 	printf("Hola mundo");
 	printf("Hola mundo");
 }

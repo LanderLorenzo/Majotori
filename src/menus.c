@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include "menus.h"
 
-int MenuPrincipal(){
+void MenuPrincipal(){
 	int eleccion;
 
 	printf("------------------------------------------------------------------- \n");
@@ -16,9 +16,7 @@ int MenuPrincipal(){
 	printf("2. Edición \n");
 	printf("3. Salir \n");
 	printf("¿Que opción desea?: ");
-	scanf( "%d" , "&eleccion");
-	printf( "%d" , eleccion);
-
-
-	return 0;
+	fflush(stdout);
+	scanf("%d" , &eleccion);
+	printf("\n Tu elección es: %d \n" , eleccion);
 }

@@ -20,5 +20,6 @@ void Enunciado();
 void Respuesta();
 void AñadirPreguntasATema();
 void ElegirPregunta();
+void EdicionDeTemas();
 
 #endif /* MENUS_H_ */

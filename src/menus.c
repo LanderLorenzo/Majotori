@@ -21,3 +21,12 @@ void MenuPrincipal(){
 	scanf("%d" , &eleccion);
 	printf("\n Tu elección es: %d \n" , eleccion);
 }
+
+void MenuJugar(){
+
+}
+
+void MenuEdicion(){
+
+}
+

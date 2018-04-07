@@ -10,7 +10,8 @@
 #define MENUS_H_
 
 void MenuPrincipal();
-
+void MenuJugar();
+void MenuEdicion();
 
 
 

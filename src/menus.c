@@ -8,7 +8,19 @@
 #include "menus.h"
 
 void Invocar(int eleccion){
-
+	if( eleccion == 1){
+		MenuPrincipal();
+	}else if(eleccion == 2){
+		MenuJugar();
+	}else if(eleccion == 3){
+		MenuEdicion();
+	}else if(eleccion == 4){
+		CreacionDeTema();
+	}else if(eleccion == 5){
+		ListadoDeTema();
+	}else if(eleccion == 6){
+		CreacionDePreguntas();
+	}
 }
 
 void MenuPrincipal(){
@@ -64,12 +76,12 @@ int eleccion;
 	printf("\n Tu elección es: %d \n" , eleccion);
 }
 
-void CracionDeTema(){
+void CreacionDeTema(){
 	char nombre[30];
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DEL TEMA \n");
-	printf("Pulsa q para salir.");
-	printf("Nombre del tema:");
+	printf("Pulsa q para salir. \n");
+	printf("Nombre del tema: ");
 	fflush(stdin);
 	fflush(stdout);
 	fgets(nombre, 30, stdin);
@@ -82,7 +94,7 @@ void ListadoDeTema(){
 	int eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("LISTADO DE TEMA \n");
-	printf("1. Atras");
+	printf("1. Atras \n");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);

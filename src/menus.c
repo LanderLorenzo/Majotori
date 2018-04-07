@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include "menus.h"
 
+void Invocar(int eleccion){
+
+}
 
 void MenuPrincipal(){
 	int eleccion;

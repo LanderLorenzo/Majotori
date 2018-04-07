@@ -16,6 +16,7 @@ void MenuPrincipal(){
 	printf("2. Edición \n");
 	printf("3. Salir \n");
 	printf("¿Que opción desea?: ");
+	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	printf("\n Tu elección es: %d \n" , eleccion);

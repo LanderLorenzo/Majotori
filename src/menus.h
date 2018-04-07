@@ -16,5 +16,9 @@ void MenuEdicion();
 void CracionDeTema();
 void ListadoDeTema();
 void CreacionDePreguntas();
+void Enunciado();
+void Respuesta();
+void AñadirPreguntasATema();
+void ElegirPregunta();
 
 #endif /* MENUS_H_ */

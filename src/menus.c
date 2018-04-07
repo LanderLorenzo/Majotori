@@ -102,6 +102,72 @@ void ListadoDeTema(){
 }
 
 void CreacionDePreguntas(){
+	int eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
+	printf("1.Enunciado: \n");
+	printf("2.Respuesta: \n");
+	printf("3.Respuesta correcta a la pregunta: \n");
+	printf("4.Guardar \n");
+	printf("5.Cancelar: \n");
+	printf("¿Que opción desea?: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d" , &eleccion);
+	printf("\n Tu elección es: %d \n" , eleccion);
 }
+
+void Enunciado(){
+	char nombre[30];
+	printf("------------------------------------------------------------------- \n");
+	printf("ENUNCIADO: \n");
+	printf("Pulsa q para salir. \n");
+	printf("Texto: ");
+	fflush(stdin);
+	fflush(stdout);
+	fgets(nombre, 30, stdin);
+	printf("\n Tu enunciado es: %c \n" , nombre);
+}
+
+void Respuesta(){
+	char respuesta1[30];
+	char respuesta2[30];
+	char respuesta3[30];
+	char respuesta4[30];
+	printf("------------------------------------------------------------------- \n");
+	printf("RESPUESTA: \n");
+	printf("Pulsa q para salir. \n");
+	printf("Respuesta A: ");
+	fflush(stdin);
+	fflush(stdout);
+	fgets(respuesta1, 30, stdin);
+	printf("\n Respuesta A es: %c \n" , respuesta1);
+
+	printf("Respuesta B: ");
+		fflush(stdin);
+		fflush(stdout);
+		fgets(respuesta2, 30, stdin);
+		printf("\n Respuesta B es: %c \n" , respuesta2);
+
+	printf("Respuesta C: ");
+		fflush(stdin);
+		fflush(stdout);
+		fgets(respuesta3, 30, stdin);
+		printf("\n Respuesta C es: %c \n" , respuesta3);
+
+	printf("Respuesta D: ");
+		fflush(stdin);
+		fflush(stdout);
+		fgets(respuesta4, 30, stdin);
+		printf("\n Respuesta D es: %c \n" , respuesta4);
+}
+
+void AñadirPreguntasATema(){
+
+}
+
+void ElegirPregunta(){
+
+}
+
+

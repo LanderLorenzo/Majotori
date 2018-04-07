@@ -69,3 +69,16 @@ void ListadoDeTema(){
 
 }
 
+void CreacionDePreguntas(){
+	printf("------------------------------------------------------------------- \n");
+	printf("CREACION DE PREGUNTA \n");
+}
+
+
+
+
+
+
+
+
+

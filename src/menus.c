@@ -44,3 +44,28 @@ void MenuEdicion(){
 
 }
 
+void CracionDeTema(){
+	char nombre[30];
+	printf("------------------------------------------------------------------- \n");
+	printf("CREACION DEL TEMA \n");
+	printf("Pulsa q para salir.");
+	printf("Nombre del tema:");
+	fflush(stdin);
+	fflush(stdout);
+	fgets(nombre, 30, stdin);
+
+	printf("\n Tu tema es: %c \n" , nombre);
+
+}
+
+void ListadoDeTema(){
+	int eleccion;
+	printf("------------------------------------------------------------------- \n");
+	printf("LISTADO DE TEMA \n");
+	printf("1. Atras");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d" , &eleccion);
+
+}
+

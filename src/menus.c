@@ -42,7 +42,23 @@ void MenuJugar(){
 }
 
 void MenuEdicion(){
+int eleccion;
 
+	printf("------------------------------------------------------------------- \n");
+	printf("EDICIÓN \n");
+	printf("1. Creación de tema \n");
+	printf("2. Borrado de tema \n");
+	printf("3. Listado de tema \n");
+	printf("4. Creación de preguntas \n");
+	printf("5. Borrado de preguntas \n");
+	printf("6. Edición de temas \n");
+	printf("7. Ajustes de Trivial \n");
+	printf("8. Atras \n");
+	printf("¿Que opción desea?: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d" , &eleccion);
+	printf("\n Tu elección es: %d \n" , eleccion);
 }
 
 void CracionDeTema(){

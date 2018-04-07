@@ -6,7 +6,11 @@
  */
 
 #include <stdio.h>
+#include "menus.h"
 
 int main(int argc, char* argv[]) {
 
+	MenuPrincipal();
+
+	return 0;
 }

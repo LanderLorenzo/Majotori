@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "menus.h"
 
+
 void MenuPrincipal(){
 	int eleccion;
 
@@ -43,4 +44,3 @@ void MenuJugar(){
 void MenuEdicion(){
 
 }
-

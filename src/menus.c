@@ -162,6 +162,18 @@ void Respuesta(){
 		printf("\n Respuesta D es: %c \n" , respuesta4);
 }
 
+void EdicionDeTemas(){
+	int eleccion;
+	printf("------------------------------------------------------------------- \n");
+	printf("EDICIÓN DE TEMAS \n");
+	printf("1.Añadir preguntas a un tema \n");
+	printf("2.Atras \n");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%d" , &eleccion);
+
+}
+
 void AñadirPreguntasATema(){
 
 }

@@ -35,7 +35,13 @@ void MenuPrincipal(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	printf("\n Tu elección es: %d \n" , eleccion);
+	if( eleccion == 1){
+		MenuJugar();
+	}else if(eleccion == 2){
+		MenuEdicion();
+	}else if(eleccion == 3){
+		//cerrar el programa
+	}
 }
 
 void MenuJugar(){
@@ -52,7 +58,17 @@ void MenuJugar(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	printf("\n Tu elección es: %d \n" , eleccion);
+	if( eleccion == 1){
+		//Historia1
+	}else if(eleccion == 2){
+		//Historia2
+	}else if(eleccion == 3){
+		//Historia3
+	}else if(eleccion == 4){
+		//Historia4
+	}else if(eleccion == 5){
+		MenuPrincipal();
+	}
 
 }
 
@@ -73,7 +89,23 @@ int eleccion;
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	printf("\n Tu elección es: %d \n" , eleccion);
+	if( eleccion == 1){
+			CreacionDeTema();
+		}else if(eleccion == 2){
+			//BorradoTema();
+		}else if(eleccion == 3){
+			ListadoDeTema();
+		}else if(eleccion == 4){
+			CreacionDePreguntas();
+		}else if(eleccion == 5){
+			//BorradoDePreguntas()
+		}else if(eleccion == 6){
+			EdicionDeTemas();
+		}else if(eleccion == 7){
+			//AjustesDeTrivial();
+		}else if(eleccion == 8){
+			MenuPrincipal();
+		}
 }
 
 void CreacionDeTema(){
@@ -84,9 +116,15 @@ void CreacionDeTema(){
 	printf("Nombre del tema: ");
 	fflush(stdin);
 	fflush(stdout);
-	fgets(nombre, 30, stdin);
+	scanf( "%s", nombre);
 
-	printf("\n Tu tema es: %c \n" , nombre);
+	switch(nombre){
+	case "q" :
+		MenuEdicion();
+		break;
+	default:
+		//Guardar Nombre en el fichero;
+	}
 
 }
 
@@ -106,7 +144,7 @@ void CreacionDePreguntas(){
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
 	printf("1.Enunciado: \n");
-	printf("2.Respuesta: \n");
+	printf("2.Respuestas: \n");
 	printf("3.Respuesta correcta a la pregunta: \n");
 	printf("4.Guardar \n");
 	printf("5.Cancelar: \n");
@@ -114,7 +152,17 @@ void CreacionDePreguntas(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	printf("\n Tu elección es: %d \n" , eleccion);
+	if(eleccion == 1){
+				Enunciado();
+			}else if(eleccion == 2){
+				Respuestas();
+			}else if(eleccion == 3){
+				//respuestacorrecta
+			}else if(eleccion == 4){
+				//Guardar
+			}else if(eleccion == 5){
+				MenuEdicion();
+			}
 }
 
 void Enunciado(){
@@ -125,8 +173,15 @@ void Enunciado(){
 	printf("Texto: ");
 	fflush(stdin);
 	fflush(stdout);
-	fgets(nombre, 30, stdin);
-	printf("\n Tu enunciado es: %c \n" , nombre);
+	scanf("%s" , nombre);
+
+	switch(nombre){
+	case "q" :
+		MenuEdicion();
+		break;
+	default:
+		//Guardar enunciado en el fichero;
+	}
 }
 
 void Respuesta(){
@@ -135,31 +190,49 @@ void Respuesta(){
 	char respuesta3[30];
 	char respuesta4[30];
 	printf("------------------------------------------------------------------- \n");
-	printf("RESPUESTA: \n");
-	printf("Pulsa q para salir. \n");
+	printf("RESPUESTAS: \n");
 	printf("Respuesta A: ");
 	fflush(stdin);
 	fflush(stdout);
-	fgets(respuesta1, 30, stdin);
-	printf("\n Respuesta A es: %c \n" , respuesta1);
+	scanf("%s", respuesta1);
+	printf("\n Respuesta A es: %s \n" , respuesta1);
 
 	printf("Respuesta B: ");
 		fflush(stdin);
 		fflush(stdout);
-		fgets(respuesta2, 30, stdin);
-		printf("\n Respuesta B es: %c \n" , respuesta2);
+		scanf("%s", respuesta2);
+		printf("\n Respuesta B es: %s \n" , respuesta2);
 
 	printf("Respuesta C: ");
 		fflush(stdin);
 		fflush(stdout);
-		fgets(respuesta3, 30, stdin);
-		printf("\n Respuesta C es: %c \n" , respuesta3);
+		scanf("%s", respuesta3);
+		printf("\n Respuesta C es: %s \n" , respuesta3);
 
 	printf("Respuesta D: ");
 		fflush(stdin);
 		fflush(stdout);
-		fgets(respuesta4, 30, stdin);
-		printf("\n Respuesta D es: %c \n" , respuesta4);
+		scanf("%s", respuesta4);
+		printf("\n Respuesta D es: %s \n" , respuesta4);
+
+	char nombre[30];
+	//do{
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s", respuesta4);
+	//}while( //comparacion para que sea o q o p);
+	switch(nombre){
+	case "q" :
+		MenuEdicion();
+		break;
+	case "p" :
+			//Guardar
+			MenuEdicion();
+			break;
+	default:
+
+	}
 }
 
 void EdicionDeTemas(){

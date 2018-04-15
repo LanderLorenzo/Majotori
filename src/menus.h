@@ -9,7 +9,6 @@
 #ifndef MENUS_H_
 #define MENUS_H_
 
-void Invocar(int eleccion);
 void MenuPrincipal();
 void MenuJugar();
 void MenuEdicion();

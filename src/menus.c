@@ -7,21 +7,6 @@
 #include <stdio.h>
 #include "menus.h"
 
-void Invocar(int eleccion){
-	if( eleccion == 1){
-		MenuPrincipal();
-	}else if(eleccion == 2){
-		MenuJugar();
-	}else if(eleccion == 3){
-		MenuEdicion();
-	}else if(eleccion == 4){
-		CreacionDeTema();
-	}else if(eleccion == 5){
-		ListadoDeTema();
-	}else if(eleccion == 6){
-		CreacionDePreguntas();
-	}
-}
 
 void MenuPrincipal(){
 	int eleccion;

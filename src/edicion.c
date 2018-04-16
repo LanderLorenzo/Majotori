@@ -26,10 +26,10 @@ Tema* crearTema(char* temaN){
 	fclose(f);
 	f = fopen(ficheroAct, "r");
 
-		Tema *temas =(Tema*) malloc(sizeof(Tema)*tamanyo);
+		Tema *temas =(Tema*) malloc(sizeof(Tema)*(tamanyo+1));
 
 
-		iniciarTemas(temas, ficheroAct, 2, 10, tamanyo);
+		iniciarTemas(temas, ficheroAct, 2, 10, tamanyo+1);
 
 
 	fclose(f);

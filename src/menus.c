@@ -58,7 +58,7 @@ void MenuJugar(){
 }
 
 void MenuEdicion(){
-int eleccion;
+	int eleccion;
 
 	printf("------------------------------------------------------------------- \n");
 	printf("EDICIÓN \n");
@@ -74,27 +74,29 @@ int eleccion;
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	if( eleccion == 1){
-			CreacionDeTema();
-		}else if(eleccion == 2){
-			//BorradoTema();
-		}else if(eleccion == 3){
-			ListadoDeTema();
-		}else if(eleccion == 4){
-			CreacionDePreguntas();
-		}else if(eleccion == 5){
-			//BorradoDePreguntas()
-		}else if(eleccion == 6){
-			EdicionDeTemas();
-		}else if(eleccion == 7){
-			//AjustesDeTrivial();
-		}else if(eleccion == 8){
-			MenuPrincipal();
-		}
+	if(eleccion == 1){
+		CreacionDeTema();
+	}else if(eleccion == 2){
+		BorradoTema();
+	}else if(eleccion == 3){
+		ListadoDeTema();
+	}else if(eleccion == 4){
+		CreacionDePreguntas();
+	}else if(eleccion == 5){
+		BorradoDePreguntas();
+	}else if(eleccion == 6){
+		EdicionDeTemas();
+	}else if(eleccion == 7){
+		AjustesDeTrivial();
+	}else if(eleccion == 8){
+		MenuPrincipal();
+	}
 }
 
 void CreacionDeTema(){
 	char nombre[30];
+	char eleccion[10];
+
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DEL TEMA \n");
 	printf("Pulsa q para salir. \n");
@@ -102,23 +104,72 @@ void CreacionDeTema(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf( "%s", nombre);
-
-	switch(nombre[0]){
-	case 'q' :
+	if(nombre[0] == 'q'){
 		MenuEdicion();
-		break;
-	}
+	} else {
+		printf("Tu tema es: %s para confirmar pulse p ,para salir sin guardar pulse q. \n", nombre);
+		fflush(stdin);
+		fflush(stdout);
+		scanf( "%s", eleccion);
 
+		switch(eleccion[0]){
+			case 'q' :
+				MenuEdicion();
+				break;
+			case 'p' :
+				//Guardar
+				printf("Tu tema se ha guardado correctamente");
+				MenuEdicion();
+				break;
+			}
+	}
+}
+
+void BorradoTema(){
+	char opcion[30];
+	char eleccion[10];
+	printf("------------------------------------------------------------------- \n");
+	printf("BORRAR TEMA \n");
+	printf("Pulsa q para salir. \n");
+	//Todos los temas.
+	printf("\n Elegir tema numero: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%c" , &opcion[0]);
+	if(opcion[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Has elegido el tema numero %s \n", opcion);
+		printf("Pulsa q para salir, p para confirmar: ");
+		fflush(stdin);
+		fflush(stdout);
+		scanf( "%s", eleccion);
+
+		switch(eleccion[0]){
+		case 'q' :
+			MenuEdicion();
+			break;
+		case 'p' :
+			//Borrar tema seleccionado.
+			printf("El tema seleccionado se ha borrado correctamente. \n");
+			MenuEdicion();
+			break;
+		}
+	}
 }
 
 void ListadoDeTema(){
 	int eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("LISTADO DE TEMA \n");
+	//Todas los temas.
 	printf("1. Atras \n");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
+	if(eleccion == 1){
+		MenuEdicion();
+	}
 
 }
 
@@ -130,26 +181,29 @@ void CreacionDePreguntas(){
 	printf("2.Respuestas: \n");
 	printf("3.Respuesta correcta a la pregunta: \n");
 	printf("4.Guardar \n");
-	printf("5.Cancelar: \n");
+	printf("5.Atras. \n");
 	printf("¿Que opción desea?: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 1){
-				Enunciado();
-			}else if(eleccion == 2){
-				Respuesta();
-			}else if(eleccion == 3){
-				//respuestacorrecta
-			}else if(eleccion == 4){
-				//Guardar
-			}else if(eleccion == 5){
-				MenuEdicion();
-			}
+		Enunciado();
+	}else if(eleccion == 2){
+		Respuesta();
+	}else if(eleccion == 3){
+		RespuestaCorrecta();
+	}else if(eleccion == 4){
+		//Guardar
+	}else if(eleccion == 5){
+		MenuEdicion();
+	}
 }
+
 
 void Enunciado(){
 	char nombre[30];
+	char eleccion[10];
+
 	printf("------------------------------------------------------------------- \n");
 	printf("ENUNCIADO: \n");
 	printf("Pulsa q para salir. \n");
@@ -157,11 +211,26 @@ void Enunciado(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s" , nombre);
-
-	switch(nombre[0]){
-	case 'q' :
+	if(nombre[0] == 'q'){
 		MenuEdicion();
-		break;
+	} else {
+		printf("Tu enunciado es: %s \n", nombre);
+		printf("Pulsa q para salir, p para confirmar: ");
+		fflush(stdin);
+		fflush(stdout);
+		scanf( "%s", eleccion);
+
+		switch(eleccion[0]){
+		case 'q' :
+			MenuEdicion();
+			break;
+		case 'p' :
+			//Guardar
+			printf("El enunciado se ha guardado correctamente. \n");
+			MenuEdicion();
+			break;
+		}
+
 	}
 }
 
@@ -170,48 +239,148 @@ void Respuesta(){
 	char respuesta2[30];
 	char respuesta3[30];
 	char respuesta4[30];
+	char eleccion[10];
 	printf("------------------------------------------------------------------- \n");
 	printf("RESPUESTAS: \n");
+	printf("Pulsa q para salir. \n");
 	printf("Respuesta A: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s", respuesta1);
-	printf("\n Respuesta A es: %s \n" , respuesta1);
+	if(respuesta1[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Respuesta A es: %s \n" , respuesta1);
+	}
 
 	printf("Respuesta B: ");
-		fflush(stdin);
-		fflush(stdout);
-		scanf("%s", respuesta2);
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s", respuesta2);
+	if(respuesta2[0] == 'q'){
+		MenuEdicion();
+	} else {
 		printf("\n Respuesta B es: %s \n" , respuesta2);
+	}
 
 	printf("Respuesta C: ");
-		fflush(stdin);
-		fflush(stdout);
-		scanf("%s", respuesta3);
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s", respuesta3);
+	if(respuesta3[0] == 'q'){
+		MenuEdicion();
+	} else {
 		printf("\n Respuesta C es: %s \n" , respuesta3);
+	}
 
 	printf("Respuesta D: ");
-		fflush(stdin);
-		fflush(stdout);
-		scanf("%s", respuesta4);
-		printf("\n Respuesta D es: %s \n" , respuesta4);
-
-	char nombre[30];
-	//do{
-	printf("Pulsa q para salir, p para confirmar: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s", respuesta4);
-	//}while( //comparacion para que sea o q o p);
-	switch(nombre[0]){
+	if(respuesta4[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Respuesta D es: %s \n" , respuesta4);
+	}
+
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%s", eleccion);
+
+	switch(eleccion[0]){
 	case 'q' :
 		MenuEdicion();
 		break;
 	case 'p' :
-			//Guardar
-			MenuEdicion();
-			break;
+		//Guardar
+		printf("Las respuestas se han guardado correctamente. \n");
+		MenuEdicion();
+		break;
 	}
+
+
+
+}
+void RespuestaCorrecta(){
+	char respuestaCorrecta[10];
+	char eleccion[10];
+	printf("------------------------------------------------------------------- \n");
+	printf("RESPUESTA CORRECTA \n");
+	printf("Pulsa q para salir. \n");
+	printf("Letra: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%c", &respuestaCorrecta);
+	if(respuestaCorrecta[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n La respuesta %c es la correcta. \n" , respuestaCorrecta);
+	}
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%s", eleccion);
+
+	switch(eleccion[0]){
+	case 'q' :
+		MenuEdicion();
+		break;
+	case 'p' :
+		//Guardar
+		printf("Las respuesta correcta se ha guardado correctamente. \n");
+		MenuEdicion();
+		break;
+	}
+
+}
+void BorradoDePreguntas(){
+	char numeroTema[10];
+	char numeroPregunta[10];
+	char eleccion[10];
+
+	printf("------------------------------------------------------------------- \n");
+	printf("BORRAR PREGUNTA \n");
+	printf("Pulsa q para salir. \n");
+	printf("Elige el tema donde esta la pregunta. \n");
+	//Lista de temas.
+
+	printf("Tema numero: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , &numeroTema);
+	if(numeroTema[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Has elegido el tema numero %c \n" , numeroTema);
+	}
+	printf("Elige la pregunta que quieras borrar. \n");
+	//Listado de preguntas de ese tema.
+	printf("Pregunta numero: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , &numeroPregunta);
+	if(numeroPregunta[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Has elegido la pregunta numero: %c \n" , numeroPregunta);
+	}
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%s", eleccion);
+
+	switch(eleccion[0]){
+	case 'q' :
+		MenuEdicion();
+		break;
+	case 'p' :
+		//Borrar
+		printf("Las pregunta se ha borrado correctamente. \n");
+		MenuEdicion();
+		break;
+	}
+
 }
 
 void EdicionDeTemas(){
@@ -223,15 +392,124 @@ void EdicionDeTemas(){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
+	if(eleccion == 1){
+		AyadirPreguntasATema();
+	}else if(eleccion == 2){
+		MenuEdicion();
+	}
 
 }
 
 void AnyadirPreguntasATema(){
+	char numeroTema[10];
+	char eleccion[10];
 
+	printf("------------------------------------------------------------------- \n");
+	printf("AÑADIR PREGUNTAS \n");
+	printf("Pulsa q para salir. \n");
+	//Lista de temas.
+
+	printf("Tema numero: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , &numeroTema);
+	if(numeroTema[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Es el tema numero %c \n" , numeroTema);
+	}
+
+	ElegirPregunta();
+
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%s", eleccion);
+
+	switch(eleccion[0]){
+	case 'q' :
+		MenuEdicion();
+		break;
+	case 'p' :
+		//Borrar
+		printf("La pregunta se ha añadido correctamente. \n");
+		MenuEdicion();
+		break;
+	}
 }
 
 void ElegirPregunta(){
+	char opcion[10];
+	char eleccion[10];
+
+	printf("------------------------------------------------------------------- \n");
+	printf("ELEGIR PREGUNTA \n");
+	printf("Pulsa q para salir. \n");
+	//Lista de enunciados de las preguntas.
+
+	printf("Elegir pregunta que quieras añadir: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , &opcion);
+	if(opcion[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Has elegido la pregunta numero %c \n", opcion);
+	}
+
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%s", eleccion);
+
+	switch(eleccion[0]){
+	case 'q' :
+		MenuEdicion();
+		break;
+	case 'p' :
+		//Borrar
+		printf("La pregunta ha sido seleccionada correctamente. \n");
+		MenuEdicion();
+		break;
+	}
 
 }
+
+void AjustesDeTrivial(){
+	char opcion[10];
+	char eleccion[10];
+	printf("------------------------------------------------------------------- \n");
+	printf("AJUSTES DEL TRIVIAL \n");
+	printf("Pulsa q para salir. \n");
+	//Listado de Temas (Marcando si estan activos o no)
+
+	printf("Elegir tema para activar/desactivar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , &opcion);
+	if(opcion[0] == 'q'){
+		MenuEdicion();
+	} else {
+		printf("\n Has elegido el tema numero %c \n", opcion);
+	}
+
+	printf("Pulsa q para salir, p para confirmar: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf( "%c", eleccion);
+
+	switch(eleccion[0]){
+	case 'q' :
+		MenuEdicion();
+		break;
+	case 'p' :
+		//Borrar
+		printf("La pregunta ha sido seleccionada correctamente. \n");
+		MenuEdicion();
+		break;
+	}
+
+}
+
 
 

@@ -13,12 +13,16 @@ void MenuPrincipal();
 void MenuJugar();
 void MenuEdicion();
 void CracionDeTema();
+void BorradoTema();
 void ListadoDeTema();
 void CreacionDePreguntas();
+void BorradoDePreguntas();
 void Enunciado();
 void Respuesta();
+void RespuestaCorrecta();
 void AnyadirPreguntasATema();
 void ElegirPregunta();
 void EdicionDeTemas();
+void AjustesDeTrivial();
 
 #endif /* MENUS_H_ */

@@ -28,14 +28,30 @@ int contarLineas(char* nombreF) {
 
 }
 
-void capturarString(char* String, char* nombreF, int tamanyo){
+void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre, int longitud){
 	FILE *f;
 	f = fopen(nombreF, "r");
 
 	int j = 0;
-	while(j < tamanyo){
-		String[j] = fgetc(f);
-		j++;
+	int i = 0;
+	while(i < longitud){
+		while(j < tamanyoCod){
+			array[i].cod[j] = fgetc(f);
+			j++;
+		}
+		j = 0;
+		array[i].actT = fgetc(f);
+		while(j < tamanyoNombre){
+			char a = fgetc(f);
+			if (a == '\n'){
+				j = tamanyoNombre;
+			}else{
+			array[i].nombre[j] = a;
+			}
+			j++;
+		}
+		j = 0;
+		i++;
 	}
 
 	fclose(f);

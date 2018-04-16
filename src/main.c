@@ -18,26 +18,21 @@ int main(int argc, char* argv[]) {
 	FILE* f;
 
 	f = fopen(ficheroAct, "w");
-	fprintf(f,"acaw\nabat\n");
+	fprintf(f,"010Cuack\n021whale\n");
 	fclose(f);
 	int tamanyo = contarLineas(ficheroAct);
 	f = fopen(ficheroAct, "r");
 
 	Tema *temas =(Tema*) malloc(sizeof(Tema)*tamanyo);
 
-	int i = 0;
-	for(i = 0; i < tamanyo; i++){
-		capturarString(temas[i].cod, ficheroAct, 2);
-		temas[i].actT = fgetc(f);
-		capturarString(temas[i].nombre, ficheroAct, 10);
-	}
+
+	iniciarTemas(temas, ficheroAct, 2, 10, tamanyo);
+
 
 	fclose(f);
 
-	printf("%c",temas[0].cod[1]);
-	printf("%c",temas[1].cod[1]);
 
-	//MenuPrincipal();
+	MenuPrincipal();
 
 
 	return 0;

@@ -12,11 +12,11 @@
 #define UTILIDADES_H_
 
 typedef struct{
-	char cod[2];
+	char cod[3];
 	char nombre[10];
 	char actT;
 }Tema;
 
 int contarLineas(char* nombreF);
-void capturarString(char* String, char* nombreF, int tamanyo);
+void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod,int tamanyoNombre, int longitud);
 #endif /* UTILIDADES_H_ */

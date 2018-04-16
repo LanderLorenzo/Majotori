@@ -5,7 +5,8 @@
  *      Author: Lander
  */
 #include "edicion.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 void crearTema(char* temaN){
 
 	char* ficheroAct = "tema.txt";

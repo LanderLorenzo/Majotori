@@ -115,12 +115,12 @@ void CreacionDeTema(Tema *temas){
 		if(eleccion[0] == 'q'){
 				MenuEdicion(temas);
 		}else{
+		//Guardar
 
-
-			//Guardar
-				printf("Tu tema se ha guardado correctamente");
-				MenuEdicion(temas);
-			}
+		    temas = crearTema(nombre);
+			printf("Tu tema se ha guardado correctamente");
+			MenuEdicion(temas);
+		}
 	}
 }
 
@@ -162,6 +162,7 @@ void ListadoDeTema(Tema *temas){
 	printf("------------------------------------------------------------------- \n");
 	printf("LISTADO DE TEMA \n");
 	//Todas los temas.
+	printf("0. Atras \n");
 	printf("Temas: \n");
 	int tamanyo = contarLineas("tema.txt");
 	int i = 0;
@@ -169,11 +170,11 @@ void ListadoDeTema(Tema *temas){
 		printf("%i. %s\n", i+1, temas[i].nombre);
 		i++;
 	}
-	printf("1. Atras \n");
+
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%d" , &eleccion);
-	if(eleccion == 1){
+	if(eleccion == 0){
 		MenuEdicion(temas);
 	}
 

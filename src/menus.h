@@ -12,7 +12,7 @@
 void MenuPrincipal(Tema *temas);
 void MenuJugar(Tema *temas);
 void MenuEdicion(Tema *temas);
-void CracionDeTema(Tema *temas);
+void CreacionDeTema(Tema *temas);
 void BorradoTema(Tema *temas);
 void ListadoDeTema(Tema *temas);
 void CreacionDePreguntas(Tema *temas);

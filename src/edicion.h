@@ -8,7 +8,7 @@
 #ifndef EDICION_H_
 #define EDICION_H_
 
-void crearTema();
+void crearTema(char* temaN);
 void crearPregunta();
 
 

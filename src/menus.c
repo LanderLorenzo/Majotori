@@ -304,10 +304,34 @@ void CreacionDePreguntas(Tema *temas){
 }
 
 
+int ListadoDePreguntas(Tema *temas, Pregunta *preguntas){
+	int eleccion;
+	printf("------------------------------------------------------------------- \n");
+	printf("0.Atras\n");
+	printf("LISTADO DE PREGUNTAS \n");
+	//Todas las preguntas.
+	printf("Preguntas: \n");
+	int tamanyo = contarLineas("pregunta.txt")/2;
+	int i = 0;
+	while (i < tamanyo){
+		printf("%i. %s\n", i+1, preguntas[i].enunciado);
+		i++;
+	}
+
+fflush(stdin);
+fflush(stdout);
+scanf("%d" , &eleccion);
+if(eleccion == 0){
+	MenuEdicion(temas);
+}
+return eleccion;
+}
+
 void BorradoDePreguntas(Tema *temas){
 	char numeroTema;
 	char numeroPregunta[10];
-	char eleccion[10];
+	int eleccion;
+	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*(contarLineas("pregunta.txt")/2));
 
 	printf("------------------------------------------------------------------- \n");
 	printf("BORRAR PREGUNTA \n");
@@ -326,6 +350,8 @@ void BorradoDePreguntas(Tema *temas){
 	}
 	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
+	eleccion = ListadoDePreguntas(temas, preguntas);
+
 	printf("Pregunta numero: ");
 	fflush(stdin);
 	fflush(stdout);
@@ -407,6 +433,7 @@ void AjustesDeTrivial(Tema *temas){
 
 
 }
+
 
 
 

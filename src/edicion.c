@@ -57,10 +57,9 @@ void crearPregunta(char* etema, Tema *temas){
 	int tamanyo = contarLineas("tema.txt");
 
 
-	char fin;
+
 	char cod[3];
 	int a = 0;
-	int max = 0;
 	int i = 0;
 	int j = 0;
 	int coinciden = 0;

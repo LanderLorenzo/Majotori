@@ -21,5 +21,6 @@ void Enunciado(Tema *temas);
 void Respuesta(Tema *temas);
 void RespuestaCorrecta(Tema *temas);
 void AjustesDeTrivial(Tema *temas);
+int ListadoDePreguntas(Tema *temas, Pregunta *preguntas);
 
 #endif /* MENUS_H_ */

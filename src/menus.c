@@ -162,6 +162,13 @@ void ListadoDeTema(Tema *temas){
 	printf("------------------------------------------------------------------- \n");
 	printf("LISTADO DE TEMA \n");
 	//Todas los temas.
+	printf("Temas: \n");
+	int tamanyo = contarLineas("tema.txt");
+	int i = 0;
+	while (i < tamanyo){
+		printf("%i. %s\n", i+1, temas[i].nombre);
+		i++;
+	}
 	printf("1. Atras \n");
 	fflush(stdin);
 	fflush(stdout);
@@ -302,7 +309,7 @@ void Respuesta(Tema *temas){
 
 }
 void RespuestaCorrecta(Tema *temas){
-	char respuestaCorrecta[10];
+	char respuestaCorrecta;
 	char eleccion[10];
 	printf("------------------------------------------------------------------- \n");
 	printf("RESPUESTA CORRECTA \n");
@@ -311,7 +318,7 @@ void RespuestaCorrecta(Tema *temas){
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%c", &respuestaCorrecta);
-	if(respuestaCorrecta[0] == 'q'){
+	if(respuestaCorrecta == 'q'){
 		MenuEdicion(temas);
 	} else {
 		printf("\n La respuesta %c es la correcta. \n" , respuestaCorrecta);

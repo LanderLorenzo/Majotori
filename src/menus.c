@@ -408,7 +408,7 @@ void BorradoDePreguntas(Tema *temas){
 	case 'p' :
 		//Borrar
 		iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
-		void borrarPregunta(eleccionP, preguntas);
+		borrarPregunta(eleccionP, preguntas);
 		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
 		break;
 	}

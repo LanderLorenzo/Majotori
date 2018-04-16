@@ -51,20 +51,41 @@ void borrarTema(int eleccion, Tema *temas){
 }
 
 // Este método sería solo para crear el código único de la pregunta
-void crearPregunta(char* etema){
+void crearPregunta(char* etema, Tema *temas){
+
+	FILE* f;
+	int tamanyo = contarLineas("tema.txt");
+
+	char cod[3];
+	int i = 0;
+	int j = 0;
+	int coinciden = 0;
+	while(i < tamanyo){
+		while(j < temas[i].tamanyo){
+			if(etema[j] == temas[i].nombre[j]){
+				coinciden = 1;
+			}else{
+				coinciden = 0;
+				j = temas[i].tamanyo;
+			}
+			j++;
+		}
+		if(coinciden == 1){
+			i = tamanyo;
+			cod[0] = temas[i].cod[0];
+			cod[1] = temas[i].cod[1];
+		}
+		i++;
+	}
+
+
 
 	char* ficheroAct = "pregunta.txt";
-	FILE* f;
 
 	f = fopen(ficheroAct, "a");
 
-	int tamanyo = contarLineas(ficheroAct);
 
-	if(tamanyo < 10){
-		fprintf(f,"0%i0%s\n", tamanyo+1, etema);
-	}else{
-		fprintf(f,"%i0%s\n", tamanyo+1, etema);
-	}
+	fprintf(f,"%c%c%s\n", cod[0],cod[1], etema);
 
 	fclose(f);
 

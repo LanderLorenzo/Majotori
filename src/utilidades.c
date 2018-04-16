@@ -44,6 +44,7 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 		while(j < tamanyoNombre){
 			char a = fgetc(f);
 			if (a == '\n'){
+				array[i].tamanyo = j+1;
 				j = tamanyoNombre;
 			}else{
 			array[i].nombre[j] = a;

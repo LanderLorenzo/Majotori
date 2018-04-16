@@ -306,7 +306,7 @@ void CreacionDePreguntas(Tema *temas){
 
 
 void BorradoDePreguntas(Tema *temas){
-	char numeroTema[10];
+	char numeroTema;
 	char numeroPregunta[10];
 	char eleccion[10];
 
@@ -319,8 +319,8 @@ void BorradoDePreguntas(Tema *temas){
 	printf("Tema numero: ");
 	fflush(stdin);
 	fflush(stdout);
-	scanf("%s" , &numeroTema);
-	if(numeroTema[0] == 'q'){
+	scanf("%c" , &numeroTema);
+	if(numeroTema == 'q'){
 		MenuEdicion(temas);
 	} else {
 		printf("\n Has elegido el tema numero %c \n" , numeroTema);

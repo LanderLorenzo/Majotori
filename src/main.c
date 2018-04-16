@@ -13,9 +13,13 @@
 
 int main(int argc, char* argv[]) {
 
+
 	char* ficheroAct = "tema.txt";
 	FILE* f;
 
+	f = fopen(ficheroAct, "w");
+	fprintf(f,"010w\n020t\n");
+	fclose(f);
 	int tamanyo = contarLineas(ficheroAct);
 	f = fopen(ficheroAct, "r");
 
@@ -26,9 +30,9 @@ int main(int argc, char* argv[]) {
 
 	int i = 0;
 	for(i = 0; i < tamanyo; i++){
-		fgets(*cod[i], 2, f);
+		//fgets(cod[i], 2, f);
 		actT[i] = fgetc(f);
-		fgets(*nombresT[i],100, f);
+		//fgets(nombresT[i],10, f);
 	}
 
 	fclose(f);

@@ -7,25 +7,24 @@
 #include "utilidades.h"
 #include <stdio.h>
 #include <stdlib.h>
-int contarLineas(char* nombreF){
+int contarLineas(char* nombreF) {
 
-FILE *f;
-int cuenta = 0;
-char c;
+	FILE *f;
+	int cuenta = 0;
+	char c;
 
-f = fopen(nombreF, "r");
+	f = fopen(nombreF, "r");
 
+	while (c != EOF) {
+		c = fgetc(f);
+		if (c == '\n') {
+			cuenta = cuenta + 1;
+		}
+	}
 
-   for (c = getc(f); c != EOF; c = getc(f)){
-        if (c == '\n'){
-            cuenta = cuenta + 1;
-        }
-   }
+	fclose(f);
+	printf("El archivo tiene %d líneas", cuenta);
 
-
-fclose(f);
-printf("El archivo tiene %d líneas", cuenta);
-
-return cuenta;
+	return cuenta;
 
 }

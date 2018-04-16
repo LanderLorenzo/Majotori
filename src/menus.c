@@ -393,7 +393,7 @@ void EdicionDeTemas(){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 1){
-		AyadirPreguntasATema();
+		AnyadirPreguntasATema();
 	}else if(eleccion == 2){
 		MenuEdicion();
 	}

@@ -11,5 +11,5 @@
 #ifndef UTILIDADES_H_
 #define UTILIDADES_H_
 
-int contarLineas(FILE* f);
+int contarLineas(char* nombreF);
 #endif /* UTILIDADES_H_ */

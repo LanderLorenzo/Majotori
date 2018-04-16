@@ -7,16 +7,16 @@
 #include "utilidades.h"
 #include <stdio.h>
 #include <stdlib.h>
-int contarLineas(FILE* f){
+int contarLineas(char* nombreF){
 
-FILE *fp;
+FILE *f;
 int cuenta = 0;
 char c;
 
-fp = fopen(f, "r");
+f = fopen(nombreF, "r");
 
 
-   for (c = getc(fp); c != EOF; c = getc(fp)){
+   for (c = getc(f); c != EOF; c = getc(f)){
         if (c == '\n'){
             cuenta = cuenta + 1;
         }

@@ -13,10 +13,11 @@
 
 int main(int argc, char* argv[]) {
 
+	char* ficheroAct = "tema.txt";
 	FILE* f;
-	f = fopen("tema.txt", "r");
+	f = fopen(ficheroAct, "r");
 
-	int tamanyo = contarLineas(f);
+	int tamanyo = contarLineas(ficheroAct);
 
 	char* cod[2]; //array para los codigos
 	char* nombresT[10]; //array para los nombres

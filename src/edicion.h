@@ -14,6 +14,7 @@
 
 void crearTema(char* temaN);
 void crearPregunta();
+void completarPregunta(char* partePreg, int fin);
 void borrarTema(int eleccion, Tema *temas);
 
 #endif /* EDICION_H_ */

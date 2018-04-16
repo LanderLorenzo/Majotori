@@ -197,6 +197,113 @@ void ListadoDeTema(Tema *temas){
 }
 
 void CreacionDePreguntas(Tema *temas){
+		char etema[10];
+		char enunciado[30];
+		char respuesta1[30];
+		char respuesta2[30];
+		char respuesta3[30];
+		char respuesta4[30];
+
+	printf("------------------------------------------------------------------- \n");
+	printf("CREACION DE PREGUNTA \n");
+	printf("------------------------------------------------------------------- \n");
+	printf("ENUNCIADO: \n");
+	printf("Pulsa q para salir. \n");
+	printf("Elige el tema")
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" ,etema);
+
+	if(etema[0] == 'q'){
+		MenuEdicion(temas);
+	} else {
+
+		printf("\n El tema elegido es: %s \n", etema);
+		crearPregunta();
+		completarPregunta(etema, 0);
+		//Guardar tema
+
+	}
+
+	printf("Enunciado: ");
+	fflush(stdin);
+	fflush(stdout);
+	scanf("%s" , enunciado);
+
+		printf("Tu enunciado es: %s \n", enunciado);
+		completarPregunta(enunciado, 0);
+		//Guardar enunciado
+		fflush(stdin);
+		fflush(stdout);
+
+		printf("------------------------------------------------------------------- \n");
+			printf("RESPUESTAS: \n");
+
+			printf("Respuesta A: ");
+			fflush(stdin);
+			fflush(stdout);
+			scanf("%s", respuesta1);
+
+				printf("\n Respuesta A es: %s \n" , respuesta1);
+				completarPregunta(respuesta1, 0);
+				//Guardar respuesta1
+
+			printf("Respuesta B: ");
+			fflush(stdin);
+			fflush(stdout);
+			scanf("%s", respuesta2);
+
+				printf("\n Respuesta B es: %s \n" , respuesta2);
+				completarPregunta(respuesta2, 0);
+				//Guardar respuesta2
+
+			printf("Respuesta C: ");
+			fflush(stdin);
+			fflush(stdout);
+			scanf("%s", respuesta3);
+
+				printf("\n Respuesta C es: %s \n" , respuesta3);
+				completarPregunta(respuesta3, 0);
+				//Guardar respuesta3
+
+			printf("Respuesta D: ");
+			fflush(stdin);
+			fflush(stdout);
+			scanf("%s", respuesta4);
+
+				printf("\n Respuesta D es: %s \n" , respuesta4);
+				completarPregunta(respuesta4, 0);
+				//Guardar respuesta4
+
+			fflush(stdin);
+			fflush(stdout);
+
+
+			printf("------------------------------------------------------------------- \n");
+				printf("RESPUESTA CORRECTA \n");
+				printf("Pulsa q para salir. \n");
+				printf("Letra: ");
+				fflush(stdin);
+				fflush(stdout);
+				scanf("%c", &respuestaCorrecta);
+
+					printf("\n La respuesta %c es la correcta. \n" , respuestaCorrecta);
+					completarPregunta(resputaCorrecta, 1);
+					//Guardar respuesta correcta
+				fflush(stdin);
+				fflush(stdout);
+
+
+
+}
+
+
+
+
+
+
+/*
+void CreacionDePreguntas(Tema *temas){
 	int eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
@@ -355,7 +462,7 @@ void RespuestaCorrecta(Tema *temas){
 		MenuEdicion(temas);
 		break;
 	}
-
+*/
 }
 void BorradoDePreguntas(Tema *temas){
 	char numeroTema[10];

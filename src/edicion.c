@@ -49,3 +49,42 @@ void borrarTema(int eleccion, Tema *temas){
 	fclose(f);
 
 }
+
+// Este método sería solo para crear el código único de la pregunta
+void crearPregunta(){
+
+	char* ficheroAct = "pregunta.txt";
+	FILE* f;
+
+	f = fopen(ficheroAct, "a");
+
+	int tamanyo = contarLineas(ficheroAct);
+
+	if(tamanyo < 10){
+		fprintf(f,"0%i0%s\n", tamanyo+1);
+	}else{
+		fprintf(f,"%i0%s\n", tamanyo+1);
+	}
+
+	fclose(f);
+
+}
+
+//Este método lo llamas varias veces durante el método CreacióndePreguntas() de menus. Coge los datos
+//que va dando el usuario y los va escribiendo en orden, separados por el símbolo "&" (no se si será necesario
+//separarlos o no.
+void completarPregunta(char* partePreg, int fin){
+
+
+	char* ficheroAct = "pregunta.txt";
+	FILE* f;
+
+	f = fopen(ficheroAct, "a");
+
+	if(fin == 0){
+	fprintf(f, "%s &", partePreg);
+	}else{
+		fprintf(f, "%s \n", partePreg);
+	}
+	fclose(f);
+}

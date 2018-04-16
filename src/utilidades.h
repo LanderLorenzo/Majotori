@@ -31,5 +31,5 @@ typedef struct{
 
 int contarLineas(char* nombreF);
 void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod,int tamanyoNombre, int longitud);
-void iniciarPreguntas(Pregunta* array, char* nombreF );
+void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamanyoNombre, int longPregunta1, int longPregunta2, int longPregunta3, int longPregunta4, int longitud);
 #endif /* UTILIDADES_H_ */

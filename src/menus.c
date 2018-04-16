@@ -67,9 +67,8 @@ void MenuEdicion(Tema *temas){
 	printf("3. Listado de tema \n");
 	printf("4. Creación de preguntas \n");
 	printf("5. Borrado de preguntas \n");
-	printf("6. Edición de temas \n");
-	printf("7. Ajustes de Trivial \n");
-	printf("8. Atras \n");
+	printf("6. Ajustes de Trivial \n");
+	printf("7. Atras \n");
 	printf("¿Que opción desea?: ");
 	fflush(stdin);
 	fflush(stdout);
@@ -85,10 +84,8 @@ void MenuEdicion(Tema *temas){
 	}else if(eleccion == 5){
 		BorradoDePreguntas(temas);
 	}else if(eleccion == 6){
-		EdicionDeTemas(temas);
-	}else if(eleccion == 7){
 		AjustesDeTrivial(temas);
-	}else if(eleccion == 8){
+	}else if(eleccion == 7){
 		MenuPrincipal(temas);
 	}
 }
@@ -402,22 +399,6 @@ void BorradoDePreguntas(Tema *temas){
 
 }
 
-void EdicionDeTemas(Tema *temas){
-	int eleccion;
-	printf("------------------------------------------------------------------- \n");
-	printf("EDICIÓN DE TEMAS \n");
-	printf("1.Añadir preguntas a un tema \n");
-	printf("2.Atras \n");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%d" , &eleccion);
-	if(eleccion == 1){
-		AnyadirPreguntasATema(temas);
-	}else if(eleccion == 2){
-		MenuEdicion(temas);
-	}
-
-}
 
 void AnyadirPreguntasATema(Tema *temas){
 	char numeroTema[10];

@@ -22,7 +22,6 @@ void Respuesta(Tema *temas);
 void RespuestaCorrecta(Tema *temas);
 void AnyadirPreguntasATema(Tema *temas);
 void ElegirPregunta(Tema *temas);
-void EdicionDeTemas(Tema *temas);
 void AjustesDeTrivial(Tema *temas);
 
 #endif /* MENUS_H_ */

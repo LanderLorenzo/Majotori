@@ -329,6 +329,7 @@ return eleccion;
 
 void BorradoDePreguntas(Tema *temas){
 	char numeroTema;
+	char etema[10];
 	char eleccionP;
 	char eleccion;
 	int tamanyoP = contarLineas("pregunta.txt");
@@ -345,15 +346,48 @@ void BorradoDePreguntas(Tema *temas){
 			printf("%i. %s\n", i+1, temas[i].nombre);
 			i++;
 		}
-	printf("Tema numero: ");
+	printf("NOMBRE del tema: ");
 	fflush(stdin);
 	fflush(stdout);
-	scanf("%c" , &numeroTema);
-	if(numeroTema == 'q'){
+	scanf("%s" ,etema);
+
+	if(etema[0] == 'q'){
 		MenuEdicion(temas);
 	} else {
-		printf("\n Has elegido el tema numero %c \n" , numeroTema);
+
+		printf("El tema elegido es: %s \n", etema);
+		//Saca cual es el codigo que concuerda con ese tema
+		FILE* f;
+			int tamanyo = contarLineas("tema.txt");
+			char cod[3];
+			int a = 0;
+			int i = 0;
+			int j = 0;
+			int coinciden = 0;
+			char** nombres = (char**) malloc(sizeof(char*)*tamanyo);
+			for(i = 0; i < tamanyo; i++){
+				nombres[i] = temas[i].nombre;
+			}
+				while(j < tamanyo){
+					if(*etema == *nombres[j]){
+						coinciden = 1;
+						a = j;
+						j = tamanyo;
+
+					}else{
+						coinciden = 0;
+					}
+					j++;
+				}
+				if(coinciden == 1){
+					cod[0] = temas[a].cod[0];
+					cod[1] = temas[a].cod[1];
+				}
+
+
+		//GuardaTema
 	}
+
 	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
 	eleccionP = ListadoDePreguntas(temas, preguntas);

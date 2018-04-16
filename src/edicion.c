@@ -26,3 +26,26 @@ void crearTema(char* temaN){
 	fclose(f);
 
 }
+
+void borrarTema(int eleccion, Tema *temas){
+
+
+	char* ficheroAct = "tema.txt";
+	FILE* f;
+
+	f = fopen(ficheroAct, "w");
+		int tamanyo = contarLineas(ficheroAct);
+		int i = 0;
+		for(i = 0; i < tamanyo; i++){
+			if(i != eleccion){
+				fprintf(f,"%s%c%s\n",temas[i].cod, temas[i].actT, temas[i].nombre);
+				printf("%i", i);
+			}else{
+				tamanyo--;
+				i--;
+			}
+		}
+
+	fclose(f);
+
+}

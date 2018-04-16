@@ -134,33 +134,40 @@ void CreacionDeTema(Tema *temas){
 }
 
 void BorradoTema(Tema *temas){
-	char opcion[30];
-	char eleccion[10];
+	int opcion;
+	char eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("BORRAR TEMA \n");
-	printf("Pulsa q para salir. \n");
+	printf("0. Atras\n");
 	//Todos los temas.
-	printf("\n Elegir tema numero: ");
+	printf("Temas: \n");
+	int tamanyo = contarLineas("tema.txt");
+		int i = 0;
+		while (i < tamanyo){
+			printf("%i. %s\n", i+1, temas[i].nombre);
+			i++;
+		}
+	printf("\nElegir tema numero: ");
 	fflush(stdin);
 	fflush(stdout);
-	scanf("%c" , &opcion[0]);
-	if(opcion[0] == 'q'){
+	scanf("%i" , &opcion);
+	if(opcion == 0){
 		MenuEdicion(temas);
 	} else {
-		printf("\n Has elegido el tema numero %s \n", opcion);
+		printf("\nHas elegido el tema numero %i \n", opcion);
 		printf("Pulsa q para salir, p para confirmar: ");
 		fflush(stdin);
 		fflush(stdout);
-		scanf( "%s", eleccion);
+		scanf( "%c", &eleccion);
 
-		switch(eleccion[0]){
+		switch(eleccion){
 		case 'q' :
 			MenuEdicion(temas);
 			break;
 		case 'p' :
 			//Borrar tema seleccionado.
-			printf("El tema seleccionado se ha borrado correctamente. \n");
-			MenuEdicion(temas);
+			borrarTema(opcion, temas);
+			printf("El tema seleccionado se ha borrado correctamente, reiniciando para guardar cambios... \n");
 			break;
 		}
 	}

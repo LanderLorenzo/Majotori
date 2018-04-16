@@ -356,38 +356,55 @@ void BorradoDePreguntas(Tema *temas){
 
 
 void AjustesDeTrivial(Tema *temas){
-	char opcion[10];
-	char eleccion[10];
-	printf("------------------------------------------------------------------- \n");
-	printf("AJUSTES DEL TRIVIAL \n");
-	printf("Pulsa q para salir. \n");
-	//Listado de Temas (Marcando si estan activos o no)
+	    int eleccion = 0;
+	    FILE* f;
 
-	printf("Elegir tema para activar/desactivar: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%s" , &opcion);
-	if(opcion[0] == 'q'){
-		MenuEdicion(temas);
-	} else {
-		printf("\n Has elegido el tema numero %c \n", opcion);
-	}
+	    printf("------------------------------------------------------------------- \n");
+	    printf("AJUSTES DEL TRIVIAL \n");
 
-	printf("Pulsa q para salir, p para confirmar: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf( "%c", eleccion);
 
-	switch(eleccion[0]){
-	case 'q' :
-		MenuEdicion(temas);
-		break;
-	case 'p' :
-		//Borrar
-		printf("La pregunta ha sido seleccionada correctamente. \n");
-		MenuEdicion(temas);
-		break;
-	}
+	    f = fopen("tema.txt", "r");
+
+	    printf("Temas: \n");
+	    int tamanyo = contarLineas("tema.txt");
+	    int i = 0;
+	    while (i < tamanyo){
+	        printf("%i. %s\n", i+1, temas[i].nombre);
+	        i++;
+	    }
+	    fclose(f);
+	    printf("Selecciona el número del tema cuya disponibilidad deseas cambiar: ");
+	    fflush(stdin);
+	    fflush(stdout);
+	    scanf( "%i", &eleccion);
+
+	    f = fopen("tema.txt", "w");
+	        i = 0;
+	        for(i = 0; i < tamanyo; i++){
+	            if(i != (eleccion-1)){
+	                fprintf(f,"%c",temas[i].cod[0]);
+	                fprintf(f,"%c",temas[i].cod[1]);
+	                fprintf(f,"%c",temas[i].actT);
+	                fprintf(f,"%s\n",temas[i].nombre);
+	            }else{
+
+	                fprintf(f,"%c",temas[i].cod[0]);
+	                fprintf(f,"%c",temas[i].cod[1]);
+	                if(temas[i].actT == '0'){
+	                fprintf(f,"1");
+	                }else{
+	                fprintf(f,"0");
+	                }
+
+	                fprintf(f,"%s\n",temas[i].nombre);
+
+	            }
+	        }
+
+	    fclose(f);
+	    printf("Reiniciando para guardar los cambios...");
+
+
 
 }
 

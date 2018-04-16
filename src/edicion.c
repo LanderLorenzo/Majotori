@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-Tema* crearTema(char* temaN){
+void crearTema(char* temaN){
 
 	char* ficheroAct = "tema.txt";
 	FILE* f;
@@ -24,15 +24,5 @@ Tema* crearTema(char* temaN){
 		}
 
 	fclose(f);
-	f = fopen(ficheroAct, "r");
 
-		Tema *temas =(Tema*) malloc(sizeof(Tema)*(tamanyo+1));
-
-
-		iniciarTemas(temas, ficheroAct, 2, 10, tamanyo+1);
-
-
-	fclose(f);
-
-		return temas;
 }

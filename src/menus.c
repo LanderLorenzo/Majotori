@@ -94,7 +94,7 @@ void MenuEdicion(Tema *temas){
 }
 
 void CreacionDeTema(Tema *temas){
-	char nombre[30];
+	char* nombre[30];
 	char eleccion[10];
 
 	printf("------------------------------------------------------------------- \n");
@@ -116,10 +116,20 @@ void CreacionDeTema(Tema *temas){
 				MenuEdicion(temas);
 		}else{
 		//Guardar
+			char* ficheroAct = "tema.txt";
+			FILE* f;
+			int tamanyo = contarLineas(ficheroAct);
+			f = fopen(ficheroAct, "r");
 
-		    temas = crearTema(nombre);
-			printf("Tu tema se ha guardado correctamente");
-			MenuEdicion(temas);
+			Tema *nuevosTemas =(Tema*) malloc(sizeof(Tema)*tamanyo);
+
+
+			iniciarTemas(nuevosTemas, ficheroAct, 2, 10, tamanyo);
+
+
+			fclose(f);
+		    crearTema(nombre);
+			printf("Tu tema se ha guardado correctamente, reiniciando para guardar los cambios...");
 		}
 	}
 }

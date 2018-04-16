@@ -116,6 +116,9 @@ void CreacionDeTema(Tema *temas){
 				MenuEdicion(temas);
 		}else{
 		//Guardar
+
+		    crearTema(nombre);
+			printf("Tu tema se ha guardado correctamente, reiniciando para guardar los cambios...");
 			char* ficheroAct = "tema.txt";
 			FILE* f;
 			int tamanyo = contarLineas(ficheroAct);
@@ -128,8 +131,7 @@ void CreacionDeTema(Tema *temas){
 
 
 			fclose(f);
-		    crearTema(nombre);
-			printf("Tu tema se ha guardado correctamente, reiniciando para guardar los cambios...");
+			//MenuEdicion(nuevosTemas);
 		}
 	}
 }

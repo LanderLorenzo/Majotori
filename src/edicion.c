@@ -6,3 +6,21 @@
  */
 #include "edicion.h"
 
+void crearTema(char* temaN){
+
+	char* ficheroAct = "tema.txt";
+	FILE* f;
+
+		f = fopen(ficheroAct, "w");
+
+
+
+
+
+
+
+
+
+
+
+}

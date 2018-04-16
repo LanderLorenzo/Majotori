@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 	fclose(f);
 
 
-	MenuPrincipal();
+	MenuPrincipal(temas);
 
 
 	return 0;

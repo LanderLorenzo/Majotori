@@ -8,6 +8,8 @@
 #ifndef EDICION_H_
 #define EDICION_H_
 
+void crearTema();
+void crearPregunta();
 
 
 #endif /* EDICION_H_ */

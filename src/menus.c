@@ -304,8 +304,8 @@ void CreacionDePreguntas(Tema *temas){
 }
 
 
-int ListadoDePreguntas(Tema *temas, Pregunta *preguntas){
-	int eleccion;
+char ListadoDePreguntas(Tema *temas, Pregunta *preguntas){
+	char eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("0.Atras\n");
 	printf("LISTADO DE PREGUNTAS \n");
@@ -320,7 +320,7 @@ int ListadoDePreguntas(Tema *temas, Pregunta *preguntas){
 
 fflush(stdin);
 fflush(stdout);
-scanf("%d" , &eleccion);
+scanf("%c" , &eleccion);
 if(eleccion == 0){
 	MenuEdicion(temas);
 }
@@ -329,8 +329,8 @@ return eleccion;
 
 void BorradoDePreguntas(Tema *temas){
 	char numeroTema;
-	char numeroPregunta[10];
-	int eleccion;
+	char eleccionP;
+	char eleccion;
 	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*(contarLineas("pregunta.txt")/2));
 
 	printf("------------------------------------------------------------------- \n");
@@ -338,7 +338,12 @@ void BorradoDePreguntas(Tema *temas){
 	printf("Pulsa q para salir. \n");
 	printf("Elige el tema donde esta la pregunta. \n");
 	//Lista de temas.
-
+	int tamanyo = contarLineas("tema.txt");
+		int i = 0;
+		while (i < tamanyo){
+			printf("%i. %s\n", i+1, temas[i].nombre);
+			i++;
+		}
 	printf("Tema numero: ");
 	fflush(stdin);
 	fflush(stdout);
@@ -350,30 +355,25 @@ void BorradoDePreguntas(Tema *temas){
 	}
 	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
-	eleccion = ListadoDePreguntas(temas, preguntas);
+	eleccionP = ListadoDePreguntas(temas, preguntas);
 
-	printf("Pregunta numero: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%s" , &numeroPregunta);
-	if(numeroPregunta[0] == 'q'){
+	if(eleccion == 'q'){
 		MenuEdicion(temas);
 	} else {
-		printf("\n Has elegido la pregunta numero: %c \n" , numeroPregunta);
+		printf("\n Has elegido la pregunta numero: %c \n" , eleccionP);
 	}
 	printf("Pulsa q para salir, p para confirmar: ");
 	fflush(stdin);
 	fflush(stdout);
-	scanf( "%s", eleccion);
+	scanf( "%c", &eleccion);
 
-	switch(eleccion[0]){
+	switch(eleccion){
 	case 'q' :
 		MenuEdicion(temas);
 		break;
 	case 'p' :
 		//Borrar
-		printf("Las pregunta se ha borrado correctamente. \n");
-		MenuEdicion(temas);
+		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
 		break;
 	}
 

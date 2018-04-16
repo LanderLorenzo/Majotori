@@ -67,7 +67,6 @@ void crearPregunta(char* etema, Tema *temas){
 	char** nombres = (char**) malloc(sizeof(char*)*tamanyo);
 	for(i = 0; i < tamanyo; i++){
 		nombres[i] = temas[i].nombre;
-		printf("%s%c%c\n", nombres[i], temas[i].cod[0], temas[i].cod[1]);
 	}
 		while(j < tamanyo){
 			if(*etema == *nombres[j]){
@@ -92,7 +91,7 @@ void crearPregunta(char* etema, Tema *temas){
 	f = fopen(ficheroAct, "a");
 
 
-	fprintf(f,"%c%c%s\n", cod[0],cod[1], etema);
+	fprintf(f,"%c%c &", cod[0],cod[1]);
 
 	fclose(f);
 

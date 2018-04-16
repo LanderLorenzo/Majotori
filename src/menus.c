@@ -331,8 +331,9 @@ void BorradoDePreguntas(Tema *temas){
 	char numeroTema;
 	char eleccionP;
 	char eleccion;
+	int tamanyoP = contarLineas("pregunta.txt");
 	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*(contarLineas("pregunta.txt")/2));
-
+	iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
 	printf("------------------------------------------------------------------- \n");
 	printf("BORRAR PREGUNTA \n");
 	printf("Pulsa q para salir. \n");

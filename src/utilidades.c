@@ -57,7 +57,7 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 	fclose(f);
 }
 
-void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamanyoNombre, int longPregunta1, int longPregunta2, int longPregunta3, int longPregunta4, int longitud){
+void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamanyoEnunciado, int longPregunta1, int longPregunta2, int longPregunta3, int longPregunta4, int longitud){
 	FILE *f;
 	f = fopen(nombreF, "r");
 
@@ -89,7 +89,7 @@ void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamany
 			if (a == '\n'|| a == '&'){
 				j = longPregunta1;
 			}else{
-			array[i].preguntaA[j] = a;
+			array[i].respuestaA[j] = a;
 			}
 			j++;
 		}
@@ -100,7 +100,7 @@ void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamany
 			if (a == '\n'|| a == '&'){
 				j = longPregunta2;
 			}else{
-			array[i].preguntaB[j] = a;
+			array[i].respuestaB[j] = a;
 			}
 			j++;
 		}
@@ -111,7 +111,7 @@ void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamany
 			if (a == '\n'|| a == '&'){
 				j = longPregunta3;
 			}else{
-			array[i].preguntaC[j] = a;
+			array[i].respuestaC[j] = a;
 			}
 			j++;
 		}
@@ -122,7 +122,7 @@ void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamany
 			if (a == '\n'|| a == '&'){
 				j = longPregunta4;
 			}else{
-			array[i].preguntaC[j] = a;
+			array[i].respuestaD[j] = a;
 			}
 			j++;
 		}

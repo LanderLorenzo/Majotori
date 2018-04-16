@@ -23,8 +23,20 @@ int contarLineas(char* nombreF) {
 	}
 
 	fclose(f);
-	printf("El archivo tiene %d líneas", cuenta);
 
 	return cuenta;
 
+}
+
+void capturarString(char* String, char* nombreF, int tamanyo){
+	FILE *f;
+	f = fopen(nombreF, "r");
+
+	int j = 0;
+	while(j < tamanyo){
+		String[j] = fgetc(f);
+		j++;
+	}
+
+	fclose(f);
 }

@@ -227,7 +227,6 @@ void CreacionDePreguntas(Tema *temas){
 
 		printf("El tema elegido es: %s \n", etema);
 		crearPregunta(etema, temas);
-		completarPregunta(etema, 0);
 		//GuardaTema
 	}
 	printf("Siempre que se quiera poner un 'espacio' escribir '_'.\n");
@@ -357,7 +356,7 @@ void BorradoDePreguntas(Tema *temas){
 
 		printf("El tema elegido es: %s \n", etema);
 		//Saca cual es el codigo que concuerda con ese tema
-		FILE* f;
+
 			int tamanyo = contarLineas("tema.txt");
 			char cod[3];
 			int a = 0;
@@ -383,11 +382,8 @@ void BorradoDePreguntas(Tema *temas){
 					cod[0] = temas[a].cod[0];
 					cod[1] = temas[a].cod[1];
 				}
-
-
-		//GuardaTema
 	}
-
+	//modificar array de preguntas para que solo aparezcan las que tengan relacion con el tema
 	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
 	eleccionP = ListadoDePreguntas(temas, preguntas);
@@ -408,6 +404,8 @@ void BorradoDePreguntas(Tema *temas){
 		break;
 	case 'p' :
 		//Borrar
+		iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
+		void borrarPregunta(eleccionP, preguntas);
 		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
 		break;
 	}

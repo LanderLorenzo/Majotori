@@ -115,3 +115,27 @@ void completarPregunta(char* partePreg, int fin){
 	}
 	fclose(f);
 }
+
+void borrarPregunta(char eleccionP, Pregunta *preguntas){
+	char* ficheroAct = "pregunta.txt";
+		FILE* f;
+
+		int tamanyo = contarLineas(ficheroAct);
+		f = fopen(ficheroAct, "w");
+			int i = 0;
+			for(i = 0; i < tamanyo; i++){
+				if(i != eleccionP){
+					fprintf(f,"%c",preguntas[i].cod[0]);
+					fprintf(f,"%c &",preguntas[i].cod[1]);
+					fprintf(f,"%s &",preguntas[i].enunciado);
+					fprintf(f,"%s &",preguntas[i].respuestaA);
+					fprintf(f,"%s &",preguntas[i].respuestaB);
+					fprintf(f,"%s &",preguntas[i].respuestaC);
+					fprintf(f,"%s &",preguntas[i].respuestaD);
+					fprintf(f,"%c\n",preguntas[i].correcta);
+				}else{
+				}
+			}
+
+		fclose(f);
+}

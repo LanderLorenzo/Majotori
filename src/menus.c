@@ -288,7 +288,6 @@ void CreacionDePreguntas(Tema *temas){
 				char respuestaCorrecta;
 			printf("------------------------------------------------------------------- \n");
 				printf("RESPUESTA CORRECTA \n");
-				printf("Pulsa q para salir. \n");
 				printf("Letra: ");
 				fflush(stdin);
 				fflush(stdout);

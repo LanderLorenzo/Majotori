@@ -56,27 +56,35 @@ void crearPregunta(char* etema, Tema *temas){
 	FILE* f;
 	int tamanyo = contarLineas("tema.txt");
 
+
+	char fin;
 	char cod[3];
+	int a = 0;
+	int max = 0;
 	int i = 0;
 	int j = 0;
 	int coinciden = 0;
-	while(i < tamanyo){
-		while(j < 4){
-			if(etema[j] == temas[i].nombre[j]){
+
+	char** nombres = (char**) malloc(sizeof(char*)*tamanyo);
+	for(i = 0; i < tamanyo; i++){
+		nombres[i] = temas[i].nombre;
+		printf("%s%c%c\n", nombres[i], temas[i].cod[0], temas[i].cod[1]);
+	}
+		while(j < tamanyo){
+			if(*etema == *nombres[j]){
 				coinciden = 1;
+				a = j;
+				j = tamanyo;
+
 			}else{
 				coinciden = 0;
-				j = 4;
 			}
 			j++;
 		}
 		if(coinciden == 1){
-			i = tamanyo;
-			cod[0] = temas[i].cod[0];
-			cod[1] = temas[i].cod[1];
+			cod[0] = temas[a].cod[0];
+			cod[1] = temas[a].cod[1];
 		}
-		i++;
-	}
 
 
 

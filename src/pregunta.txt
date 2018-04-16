@@ -1,2 +1,2 @@
-010Ciencia
-Ciencia &2313123 &1 &2 &3 &4 &A
+@Geografia
+Geografia &123 &123 &12 &1 &1 &A

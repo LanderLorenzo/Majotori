@@ -61,12 +61,12 @@ void crearPregunta(char* etema, Tema *temas){
 	int j = 0;
 	int coinciden = 0;
 	while(i < tamanyo){
-		while(j < temas[i].tamanyo){
+		while(j < 4){
 			if(etema[j] == temas[i].nombre[j]){
 				coinciden = 1;
 			}else{
 				coinciden = 0;
-				j = temas[i].tamanyo;
+				j = 4;
 			}
 			j++;
 		}

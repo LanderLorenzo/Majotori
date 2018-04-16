@@ -15,7 +15,6 @@ typedef struct{
 	char cod[3];
 	char nombre[10];
 	char actT;
-	int tamanyo;
 }Tema;
 
 typedef struct{
@@ -24,7 +23,7 @@ typedef struct{
     char cod[3]; //código de tema
     char enunciado[30];
     char respuestaA[30];
-    char respuesta[30];
+    char respuestaB[30];
     char respuestaC[30];
     char respuestaD[30];
     char correcta[1];

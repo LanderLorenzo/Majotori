@@ -226,7 +226,7 @@ void CreacionDePreguntas(Tema *temas){
 	} else {
 
 		printf("El tema elegido es: %s \n", etema);
-		crearPregunta(etema);
+		crearPregunta(etema, temas);
 		completarPregunta(etema, 0);
 		//GuardaTema
 	}

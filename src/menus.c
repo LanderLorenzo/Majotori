@@ -103,12 +103,10 @@ void CreacionDeTema(){
 	fflush(stdout);
 	scanf( "%s", nombre);
 
-	switch(nombre){
-	case "q" :
+	switch(nombre[0]){
+	case 'q' :
 		MenuEdicion();
 		break;
-	default:
-		//Guardar Nombre en el fichero;
 	}
 
 }
@@ -140,7 +138,7 @@ void CreacionDePreguntas(){
 	if(eleccion == 1){
 				Enunciado();
 			}else if(eleccion == 2){
-				Respuestas();
+				Respuesta();
 			}else if(eleccion == 3){
 				//respuestacorrecta
 			}else if(eleccion == 4){
@@ -160,12 +158,10 @@ void Enunciado(){
 	fflush(stdout);
 	scanf("%s" , nombre);
 
-	switch(nombre){
-	case "q" :
+	switch(nombre[0]){
+	case 'q' :
 		MenuEdicion();
 		break;
-	default:
-		//Guardar enunciado en el fichero;
 	}
 }
 
@@ -207,16 +203,14 @@ void Respuesta(){
 	fflush(stdout);
 	scanf("%s", respuesta4);
 	//}while( //comparacion para que sea o q o p);
-	switch(nombre){
-	case "q" :
+	switch(nombre[0]){
+	case 'q' :
 		MenuEdicion();
 		break;
-	case "p" :
+	case 'p' :
 			//Guardar
 			MenuEdicion();
 			break;
-	default:
-
 	}
 }
 
@@ -232,7 +226,7 @@ void EdicionDeTemas(){
 
 }
 
-void AñadirPreguntasATema(){
+void AnyadirPreguntasATema(){
 
 }
 

@@ -17,7 +17,7 @@ void ListadoDeTema();
 void CreacionDePreguntas();
 void Enunciado();
 void Respuesta();
-void AñadirPreguntasATema();
+void AnyadirPreguntasATema();
 void ElegirPregunta();
 void EdicionDeTemas();
 

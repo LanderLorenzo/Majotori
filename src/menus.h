@@ -21,6 +21,6 @@ void Enunciado(Tema *temas);
 void Respuesta(Tema *temas);
 void RespuestaCorrecta(Tema *temas);
 void AjustesDeTrivial(Tema *temas);
-char ListadoDePreguntas(Tema *temas, Pregunta *preguntas);
+char ListadoDePreguntas(Tema *temas, Pregunta *preguntas, char cod[]);
 
 #endif /* MENUS_H_ */

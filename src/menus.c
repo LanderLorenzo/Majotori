@@ -303,17 +303,19 @@ void CreacionDePreguntas(Tema *temas){
 }
 
 
-char ListadoDePreguntas(Tema *temas, Pregunta *preguntas){
+char ListadoDePreguntas(Tema *temas, Pregunta *preguntas, char cod[]){
 	char eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("0.Atras\n");
 	printf("LISTADO DE PREGUNTAS \n");
 	//Todas las preguntas.
 	printf("Preguntas: \n");
-	int tamanyo = contarLineas("pregunta.txt")/2;
+	int tamanyo = contarLineas("pregunta.txt");
 	int i = 0;
 	while (i < tamanyo){
+		if(preguntas[i].cod[0] == cod[0] && preguntas[i].cod[1] == cod[1]){
 		printf("%i. %s\n", i+1, preguntas[i].enunciado);
+		}
 		i++;
 	}
 
@@ -323,14 +325,16 @@ scanf("%c" , &eleccion);
 if(eleccion == 0){
 	MenuEdicion(temas);
 }
+fflush(stdin);
+fflush(stdout);
 return eleccion;
 }
 
 void BorradoDePreguntas(Tema *temas){
-	char numeroTema;
 	char etema[10];
 	char eleccionP;
 	char eleccion;
+	char cod[3];
 	int tamanyoP = contarLineas("pregunta.txt");
 	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*(contarLineas("pregunta.txt")/2));
 	iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
@@ -354,24 +358,23 @@ void BorradoDePreguntas(Tema *temas){
 		MenuEdicion(temas);
 	} else {
 
-		printf("El tema elegido es: %s \n", etema);
+		//printf("El tema elegido es: %s \n", etema);
 		//Saca cual es el codigo que concuerda con ese tema
 
-			int tamanyo = contarLineas("tema.txt");
-			char cod[3];
+			int tamanyoL = contarLineas("tema.txt");
 			int a = 0;
-			int i = 0;
+			int t = 0;
 			int j = 0;
 			int coinciden = 0;
-			char** nombres = (char**) malloc(sizeof(char*)*tamanyo);
-			for(i = 0; i < tamanyo; i++){
-				nombres[i] = temas[i].nombre;
+			char** nombres = (char**) malloc(sizeof(char*)*tamanyoL);
+			for(t = 0; t < tamanyoL; t++){
+				nombres[t] = temas[t].nombre;
 			}
-				while(j < tamanyo){
+				while(j < tamanyoL){
 					if(*etema == *nombres[j]){
 						coinciden = 1;
 						a = j;
-						j = tamanyo;
+						j = tamanyoL;
 
 					}else{
 						coinciden = 0;
@@ -386,7 +389,7 @@ void BorradoDePreguntas(Tema *temas){
 	//modificar array de preguntas para que solo aparezcan las que tengan relacion con el tema
 	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
-	eleccionP = ListadoDePreguntas(temas, preguntas);
+	eleccionP = ListadoDePreguntas(temas, preguntas,cod);
 
 	if(eleccion == 'q'){
 		MenuEdicion(temas);

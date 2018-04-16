@@ -134,3 +134,17 @@ void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamany
 
 	fclose(f);
 }
+
+void partirArray(char cod[], Pregunta *preguntas){
+
+	 int tamanyo = contarLineas("pregunta.txt");
+	 Pregunta *preguntas2 = (Pregunta*) malloc(sizeof(Pregunta)*tamanyo);
+	 int i = 0;
+	 while (i < tamanyo){
+		 if(cod[0] == preguntas[i].cod[0] && cod[1] == preguntas[i].cod[1]){
+			 preguntas2[i] = preguntas[i];
+		 }
+	 }
+	preguntas = preguntas2;
+
+}

@@ -203,13 +203,13 @@ void CreacionDePreguntas(Tema *temas){
 		char respuesta2[30];
 		char respuesta3[30];
 		char respuesta4[30];
-
+		char respuestaCorrecta;
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
 	printf("------------------------------------------------------------------- \n");
 	printf("ENUNCIADO: \n");
 	printf("Pulsa q para salir. \n");
-	printf("Elige el tema")
+	printf("Elige el tema");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s" ,etema);
@@ -288,7 +288,7 @@ void CreacionDePreguntas(Tema *temas){
 				scanf("%c", &respuestaCorrecta);
 
 					printf("\n La respuesta %c es la correcta. \n" , respuestaCorrecta);
-					completarPregunta(resputaCorrecta, 1);
+					completarPregunta(respuestaCorrecta, 1);
 					//Guardar respuesta correcta
 				fflush(stdin);
 				fflush(stdout);
@@ -462,8 +462,9 @@ void RespuestaCorrecta(Tema *temas){
 		MenuEdicion(temas);
 		break;
 	}
-*/
+
 }
+*/
 void BorradoDePreguntas(Tema *temas){
 	char numeroTema[10];
 	char numeroPregunta[10];

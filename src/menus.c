@@ -198,18 +198,25 @@ void ListadoDeTema(Tema *temas){
 
 void CreacionDePreguntas(Tema *temas){
 		char etema[10];
-		char enunciado[30];
-		char respuesta1[30];
-		char respuesta2[30];
-		char respuesta3[30];
-		char respuesta4[30];
-		char respuestaCorrecta;
+		char* enunciado =(char*) malloc(sizeof(char)*30);
+		char* respuesta1 =(char*) malloc(sizeof(char)*30);
+		char* respuesta2 =(char*) malloc(sizeof(char)*30);
+		char* respuesta3 =(char*) malloc(sizeof(char)*30);
+		char* respuesta4 =(char*) malloc(sizeof(char)*30);
+
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
 	printf("------------------------------------------------------------------- \n");
-	printf("ENUNCIADO: \n");
+	printf("Tema: \n");
 	printf("Pulsa q para salir. \n");
-	printf("Elige el tema");
+	printf("Temas: \n");
+		int tamanyo = contarLineas("tema.txt");
+		int i = 0;
+		while (i < tamanyo){
+			printf("%i. %s\n", i+1, temas[i].nombre);
+			i++;
+		}
+	printf("Elige el NOMBRE del tema: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s" ,etema);
@@ -218,19 +225,18 @@ void CreacionDePreguntas(Tema *temas){
 		MenuEdicion(temas);
 	} else {
 
-		printf("\n El tema elegido es: %s \n", etema);
-		crearPregunta();
+		printf("El tema elegido es: %s \n", etema);
+		crearPregunta(etema);
 		completarPregunta(etema, 0);
-		//Guardar tema
-
+		//GuardaTema
 	}
-
+	printf("Siempre que se quiera poner un 'espacio' escribir '_'.\n");
 	printf("Enunciado: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%s" , enunciado);
 
-		printf("Tu enunciado es: %s \n", enunciado);
+		printf("\nTu enunciado es: %s \n", enunciado);
 		completarPregunta(enunciado, 0);
 		//Guardar enunciado
 		fflush(stdin);
@@ -244,41 +250,42 @@ void CreacionDePreguntas(Tema *temas){
 			fflush(stdout);
 			scanf("%s", respuesta1);
 
-				printf("\n Respuesta A es: %s \n" , respuesta1);
+				printf("\nRespuesta A es: %s \n" , respuesta1);
 				completarPregunta(respuesta1, 0);
 				//Guardar respuesta1
+				free(respuesta1);
 
 			printf("Respuesta B: ");
 			fflush(stdin);
 			fflush(stdout);
 			scanf("%s", respuesta2);
 
-				printf("\n Respuesta B es: %s \n" , respuesta2);
+				printf("\nRespuesta B es: %s \n" , respuesta2);
 				completarPregunta(respuesta2, 0);
 				//Guardar respuesta2
+				free(respuesta2);
 
 			printf("Respuesta C: ");
 			fflush(stdin);
 			fflush(stdout);
 			scanf("%s", respuesta3);
 
-				printf("\n Respuesta C es: %s \n" , respuesta3);
+				printf("\nRespuesta C es: %s \n" , respuesta3);
 				completarPregunta(respuesta3, 0);
 				//Guardar respuesta3
+				free(respuesta3);
 
 			printf("Respuesta D: ");
 			fflush(stdin);
 			fflush(stdout);
 			scanf("%s", respuesta4);
 
-				printf("\n Respuesta D es: %s \n" , respuesta4);
+				printf("\nRespuesta D es: %s \n" , respuesta4);
 				completarPregunta(respuesta4, 0);
 				//Guardar respuesta4
+				free(respuesta4);
 
-			fflush(stdin);
-			fflush(stdout);
-
-
+				char respuestaCorrecta;
 			printf("------------------------------------------------------------------- \n");
 				printf("RESPUESTA CORRECTA \n");
 				printf("Pulsa q para salir. \n");
@@ -287,12 +294,12 @@ void CreacionDePreguntas(Tema *temas){
 				fflush(stdout);
 				scanf("%c", &respuestaCorrecta);
 
-					printf("\n La respuesta %c es la correcta. \n" , respuestaCorrecta);
-					completarPregunta(respuestaCorrecta, 1);
+					printf("\nLa respuesta %c es la correcta. \n" , respuestaCorrecta);
+					completarPregunta(&respuestaCorrecta, 1);
 					//Guardar respuesta correcta
 				fflush(stdin);
 				fflush(stdout);
-
+				printf("Reiniciando para guardar los cambios...");
 
 
 }

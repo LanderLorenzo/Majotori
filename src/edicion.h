@@ -13,7 +13,7 @@
 #define EDICION_H_
 
 void crearTema(char* temaN);
-void crearPregunta();
+void crearPregunta(char* etema);
 void completarPregunta(char* partePreg, int fin);
 void borrarTema(int eleccion, Tema *temas);
 

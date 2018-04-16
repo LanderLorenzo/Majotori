@@ -51,7 +51,7 @@ void borrarTema(int eleccion, Tema *temas){
 }
 
 // Este método sería solo para crear el código único de la pregunta
-void crearPregunta(){
+void crearPregunta(char* etema){
 
 	char* ficheroAct = "pregunta.txt";
 	FILE* f;
@@ -61,9 +61,9 @@ void crearPregunta(){
 	int tamanyo = contarLineas(ficheroAct);
 
 	if(tamanyo < 10){
-		fprintf(f,"0%i0%s\n", tamanyo+1);
+		fprintf(f,"0%i0%s\n", tamanyo+1, etema);
 	}else{
-		fprintf(f,"%i0%s\n", tamanyo+1);
+		fprintf(f,"%i0%s\n", tamanyo+1, etema);
 	}
 
 	fclose(f);
@@ -82,9 +82,9 @@ void completarPregunta(char* partePreg, int fin){
 	f = fopen(ficheroAct, "a");
 
 	if(fin == 0){
-	fprintf(f, "%s &", partePreg);
+		fprintf(f, "%s &", partePreg);
 	}else{
-		fprintf(f, "%s \n", partePreg);
+		fprintf(f, "%c\n", partePreg[0]);
 	}
 	fclose(f);
 }

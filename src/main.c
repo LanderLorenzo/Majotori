@@ -15,13 +15,14 @@ int main(int argc, char* argv[]) {
 
 	char* ficheroAct = "tema.txt";
 	FILE* f;
-	f = fopen(ficheroAct, "r");
 
 	int tamanyo = contarLineas(ficheroAct);
+	f = fopen(ficheroAct, "r");
 
 	char* cod[2]; //array para los codigos
 	char* nombresT[10]; //array para los nombres
 	char* actT = (char*) malloc(sizeof(char) * tamanyo); // array para comprobar si un tema está activo o no
+
 
 	int i = 0;
 	for(i = 0; i < tamanyo; i++){

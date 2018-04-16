@@ -6,7 +6,7 @@
  */
 #include <stdio.h>
 #include "menus.h"
-
+#include "utilidades.h"
 
 void MenuPrincipal(Tema *temas){
 	int eleccion;
@@ -75,19 +75,19 @@ void MenuEdicion(Tema *temas){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 1){
-		CreacionDeTema();
+		CreacionDeTema(temas);
 	}else if(eleccion == 2){
-		BorradoTema();
+		BorradoTema(temas);
 	}else if(eleccion == 3){
-		ListadoDeTema();
+		ListadoDeTema(temas);
 	}else if(eleccion == 4){
-		CreacionDePreguntas();
+		CreacionDePreguntas(temas);
 	}else if(eleccion == 5){
-		BorradoDePreguntas();
+		BorradoDePreguntas(temas);
 	}else if(eleccion == 6){
-		EdicionDeTemas();
+		EdicionDeTemas(temas);
 	}else if(eleccion == 7){
-		AjustesDeTrivial();
+		AjustesDeTrivial(temas);
 	}else if(eleccion == 8){
 		MenuPrincipal(temas);
 	}
@@ -112,7 +112,7 @@ void CreacionDeTema(Tema *temas){
 		fflush(stdout);
 		scanf( "%s", eleccion);
 
-		if(eleccion[0] = 'q'){
+		if(eleccion[0] == 'q'){
 				MenuEdicion(temas);
 		}else{
 
@@ -392,7 +392,7 @@ void EdicionDeTemas(Tema *temas){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 1){
-		AnyadirPreguntasATema();
+		AnyadirPreguntasATema(temas);
 	}else if(eleccion == 2){
 		MenuEdicion(temas);
 	}

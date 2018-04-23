@@ -7,8 +7,9 @@
 #include <stdio.h>
 #include "menus.h"
 #include "utilidades.h"
+#include "sqlite3.h"
 
-void MenuPrincipal(Tema *temas){
+void MenuPrincipal(Tema *temas, sqlite3 *db){
 	int eleccion;
 
 	printf("------------------------------------------------------------------- \n");
@@ -21,15 +22,15 @@ void MenuPrincipal(Tema *temas){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if( eleccion == 1){
-		MenuJugar(temas);
+		MenuJugar(temas, db);
 	}else if(eleccion == 2){
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 	}else if(eleccion == 3){
 		//cerrar el programa
 	}
 }
 
-void MenuJugar(Tema *temas){
+void MenuJugar(Tema *temas, sqlite3 *db){
 	int eleccion;
 
 	printf("------------------------------------------------------------------- \n");
@@ -52,12 +53,12 @@ void MenuJugar(Tema *temas){
 	}else if(eleccion == 4){
 		//Historia4
 	}else if(eleccion == 5){
-		MenuPrincipal(temas);
+		MenuPrincipal(temas, db);
 	}
 
 }
 
-void MenuEdicion(Tema *temas){
+void MenuEdicion(Tema *temas, sqlite3 *db){
 	int eleccion;
 
 	printf("------------------------------------------------------------------- \n");
@@ -74,23 +75,23 @@ void MenuEdicion(Tema *temas){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 1){
-		CreacionDeTema(temas);
+		CreacionDeTema(temas, db);
 	}else if(eleccion == 2){
-		BorradoTema(temas);
+		BorradoTema(temas, db);
 	}else if(eleccion == 3){
-		ListadoDeTema(temas);
+		ListadoDeTema(temas, db);
 	}else if(eleccion == 4){
-		CreacionDePreguntas(temas);
+		CreacionDePreguntas(temas, db);
 	}else if(eleccion == 5){
-		BorradoDePreguntas(temas);
+		BorradoDePreguntas(temas, db);
 	}else if(eleccion == 6){
 		AjustesDeTrivial(temas);
 	}else if(eleccion == 7){
-		MenuPrincipal(temas);
+		MenuPrincipal(temas, db);
 	}
 }
 
-void CreacionDeTema(Tema *temas){
+void CreacionDeTema(Tema *temas, sqlite3 *db){
 	char* nombre[30];
 	char eleccion[10];
 
@@ -102,7 +103,7 @@ void CreacionDeTema(Tema *temas){
 	fflush(stdout);
 	scanf( "%s", nombre);
 	if(nombre[0] == 'q'){
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 	} else {
 		printf("Tu tema es: %s para confirmar pulse p ,para salir sin guardar pulse q. \n", nombre);
 		fflush(stdin);
@@ -110,7 +111,7 @@ void CreacionDeTema(Tema *temas){
 		scanf( "%s", eleccion);
 
 		if(eleccion[0] == 'q'){
-				MenuEdicion(temas);
+				MenuEdicion(temas, db);
 		}else{
 		//Guardar
 
@@ -133,7 +134,7 @@ void CreacionDeTema(Tema *temas){
 	}
 }
 
-void BorradoTema(Tema *temas){
+void BorradoTema(Tema *temas, sqlite3 *db){
 	int opcion;
 	char eleccion;
 	printf("------------------------------------------------------------------- \n");
@@ -152,7 +153,7 @@ void BorradoTema(Tema *temas){
 	fflush(stdout);
 	scanf("%i" , &opcion);
 	if(opcion == 0){
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 	} else {
 		printf("\nHas elegido el tema numero %i \n", opcion);
 		printf("Pulsa q para salir, p para confirmar: ");
@@ -162,7 +163,7 @@ void BorradoTema(Tema *temas){
 
 		switch(eleccion){
 		case 'q' :
-			MenuEdicion(temas);
+			MenuEdicion(temas, db);
 			break;
 		case 'p' :
 			//Borrar tema seleccionado.
@@ -173,7 +174,7 @@ void BorradoTema(Tema *temas){
 	}
 }
 
-void ListadoDeTema(Tema *temas){
+void ListadoDeTema(Tema *temas, sqlite3 *db){
 	int eleccion;
 	printf("------------------------------------------------------------------- \n");
 	printf("LISTADO DE TEMA \n");
@@ -191,18 +192,26 @@ void ListadoDeTema(Tema *temas){
 	fflush(stdout);
 	scanf("%d" , &eleccion);
 	if(eleccion == 0){
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 	}
 
 }
 
-void CreacionDePreguntas(Tema *temas){
+void CreacionDePreguntas(Tema *temas, sqlite3 *db){
+	    Pregunta *pregunta = malloc(sizeof(Pregunta));
+	    pregunta->cod = malloc(sizeof(char)*3);
+	    pregunta->correcta = malloc(sizeof(char));
+	    pregunta->enunciado = malloc(sizeof(char)*30);
+	    pregunta->respuestaA = malloc(sizeof(char)*30);
+	    pregunta->respuestaB = malloc(sizeof(char)*30);
+	    pregunta->respuestaC = malloc(sizeof(char)*30);
+	    pregunta->respuestaD = malloc(sizeof(char)*30);
 		char etema[10];
-		char* enunciado =(char*) malloc(sizeof(char)*30);
-		char* respuesta1 =(char*) malloc(sizeof(char)*30);
-		char* respuesta2 =(char*) malloc(sizeof(char)*30);
-		char* respuesta3 =(char*) malloc(sizeof(char)*30);
-		char* respuesta4 =(char*) malloc(sizeof(char)*30);
+		char* enunciado = malloc(sizeof(char)*30);
+		char* respuesta1 = malloc(sizeof(char)*30);
+		char* respuesta2 = malloc(sizeof(char)*30);
+		char* respuesta3 = malloc(sizeof(char)*30);
+		char* respuesta4 = malloc(sizeof(char)*30);
 
 	printf("------------------------------------------------------------------- \n");
 	printf("CREACION DE PREGUNTA \n");
@@ -222,11 +231,11 @@ void CreacionDePreguntas(Tema *temas){
 	scanf("%s" ,etema);
 
 	if(etema[0] == 'q'){
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 	} else {
 
 		printf("El tema elegido es: %s \n", etema);
-		crearPregunta(etema, temas);
+		pregunta->cod = compararTemas(etema, temas);
 		//GuardaTema
 	}
 	printf("Siempre que se quiera poner un 'espacio' escribir '_'.\n");
@@ -236,7 +245,7 @@ void CreacionDePreguntas(Tema *temas){
 	scanf("%s" , enunciado);
 
 		printf("\nTu enunciado es: %s \n", enunciado);
-		completarPregunta(enunciado, 0);
+		pregunta->enunciado = enunciado;
 		//Guardar enunciado
 		fflush(stdin);
 		fflush(stdout);
@@ -250,9 +259,8 @@ void CreacionDePreguntas(Tema *temas){
 			scanf("%s", respuesta1);
 
 				printf("\nRespuesta A es: %s \n" , respuesta1);
-				completarPregunta(respuesta1, 0);
+				pregunta->respuestaA = respuesta1;
 				//Guardar respuesta1
-				free(respuesta1);
 
 			printf("Respuesta B: ");
 			fflush(stdin);
@@ -260,9 +268,8 @@ void CreacionDePreguntas(Tema *temas){
 			scanf("%s", respuesta2);
 
 				printf("\nRespuesta B es: %s \n" , respuesta2);
-				completarPregunta(respuesta2, 0);
+				pregunta->respuestaB = respuesta2;
 				//Guardar respuesta2
-				free(respuesta2);
 
 			printf("Respuesta C: ");
 			fflush(stdin);
@@ -270,9 +277,8 @@ void CreacionDePreguntas(Tema *temas){
 			scanf("%s", respuesta3);
 
 				printf("\nRespuesta C es: %s \n" , respuesta3);
-				completarPregunta(respuesta3, 0);
+				pregunta->respuestaC = respuesta3;
 				//Guardar respuesta3
-				free(respuesta3);
 
 			printf("Respuesta D: ");
 			fflush(stdin);
@@ -280,20 +286,20 @@ void CreacionDePreguntas(Tema *temas){
 			scanf("%s", respuesta4);
 
 				printf("\nRespuesta D es: %s \n" , respuesta4);
-				completarPregunta(respuesta4, 0);
+				pregunta->respuestaD = respuesta4;
 				//Guardar respuesta4
-				free(respuesta4);
 
-				char respuestaCorrecta;
+				char* respuestaCorrecta = malloc(sizeof(char));
 			printf("------------------------------------------------------------------- \n");
 				printf("RESPUESTA CORRECTA \n");
 				printf("Letra: ");
 				fflush(stdin);
 				fflush(stdout);
-				scanf("%c", &respuestaCorrecta);
+				scanf("%c", respuestaCorrecta);
 
-					printf("\nLa respuesta %c es la correcta. \n" , respuestaCorrecta);
-					completarPregunta(&respuestaCorrecta, 1);
+					printf("\nLa respuesta %c es la correcta. \n" , *respuestaCorrecta);
+					pregunta->correcta = respuestaCorrecta;
+					anyadirPregunta(pregunta, db);
 					//Guardar respuesta correcta
 				fflush(stdin);
 				fflush(stdout);
@@ -303,98 +309,37 @@ void CreacionDePreguntas(Tema *temas){
 }
 
 
-char ListadoDePreguntas(Tema *temas, Pregunta *preguntas, char cod[]){
-	char eleccion;
+int ListadoDePreguntas(Tema *temas, Pregunta *preguntas, sqlite3 *db){
+	int eleccion;
 	printf("------------------------------------------------------------------- \n");
-	printf("0.Atras\n");
 	printf("LISTADO DE PREGUNTAS \n");
-	//Todas las preguntas.
-	printf("Preguntas: \n");
-	int tamanyo = contarLineas("pregunta.txt");
-	int i = 0;
-	while (i < tamanyo){
-		if(preguntas[i].cod[0] == cod[0] && preguntas[i].cod[1] == cod[1]){
-		printf("%i. %s\n", i+1, preguntas[i].enunciado);
-		}
-		i++;
-	}
+	mostrarPreguntas(preguntas, db);
 
+printf("Elección:\n");
 fflush(stdin);
 fflush(stdout);
-scanf("%c" , &eleccion);
-if(eleccion == 0){
-	MenuEdicion(temas);
-}
+scanf("%i" , &eleccion);
 fflush(stdin);
 fflush(stdout);
 return eleccion;
 }
 
-void BorradoDePreguntas(Tema *temas){
-	char etema[10];
-	char eleccionP;
+void BorradoDePreguntas(Tema *temas, sqlite3 *db){
+	int eleccionP;
 	char eleccion;
-	char cod[3];
-	int tamanyoP = contarLineas("pregunta.txt");
-	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*(contarLineas("pregunta.txt")/2));
-	iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
+	Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*100);
+	iniciarPreguntas(preguntas, db );
 	printf("------------------------------------------------------------------- \n");
 	printf("BORRAR PREGUNTA \n");
-	printf("Pulsa q para salir. \n");
-	printf("Elige el tema donde esta la pregunta. \n");
-	//Lista de temas.
-	int tamanyo = contarLineas("tema.txt");
-		int i = 0;
-		while (i < tamanyo){
-			printf("%i. %s\n", i+1, temas[i].nombre);
-			i++;
-		}
-	printf("NOMBRE del tema: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%s" ,etema);
 
-	if(etema[0] == 'q'){
-		MenuEdicion(temas);
-	} else {
-
-		//printf("El tema elegido es: %s \n", etema);
-		//Saca cual es el codigo que concuerda con ese tema
-
-			int tamanyoL = contarLineas("tema.txt");
-			int a = 0;
-			int t = 0;
-			int j = 0;
-			int coinciden = 0;
-			char** nombres = (char**) malloc(sizeof(char*)*tamanyoL);
-			for(t = 0; t < tamanyoL; t++){
-				nombres[t] = temas[t].nombre;
-			}
-				while(j < tamanyoL){
-					if(*etema == *nombres[j]){
-						coinciden = 1;
-						a = j;
-						j = tamanyoL;
-
-					}else{
-						coinciden = 0;
-					}
-					j++;
-				}
-				if(coinciden == 1){
-					cod[0] = temas[a].cod[0];
-					cod[1] = temas[a].cod[1];
-				}
-	}
 	//modificar array de preguntas para que solo aparezcan las que tengan relacion con el tema
-	printf("Elige la pregunta que quieras borrar. \n");
 	//Listado de preguntas de ese tema.
-	eleccionP = ListadoDePreguntas(temas, preguntas,cod);
+	eleccionP = ListadoDePreguntas(temas, preguntas, db);
 
-	if(eleccion == 'q'){
-		MenuEdicion(temas);
+	if(eleccionP == 0){
+		MenuEdicion(temas, db);
 	} else {
-		printf("\n Has elegido la pregunta numero: %c \n" , eleccionP);
+		printf("\n Has elegido la pregunta numero: %i \n" , eleccionP);
 	}
 	printf("Pulsa q para salir, p para confirmar: ");
 	fflush(stdin);
@@ -403,15 +348,15 @@ void BorradoDePreguntas(Tema *temas){
 
 	switch(eleccion){
 	case 'q' :
-		MenuEdicion(temas);
+		MenuEdicion(temas, db);
 		break;
 	case 'p' :
 		//Borrar
-		iniciarPreguntas(preguntas, "pregunta.txt", 2, 30, 30, 30, 30, 30, tamanyoP );
-		borrarPregunta(eleccionP, preguntas);
+		borrarPregunta(preguntas[eleccionP-1].enunciado, db);
 		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
 		break;
 	}
+
 
 }
 

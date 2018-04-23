@@ -7,6 +7,7 @@
 #include "utilidades.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 int contarLineas(char* nombreF) {
 
 	FILE *f;
@@ -57,83 +58,7 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 	fclose(f);
 }
 
-void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamanyoEnunciado, int longPregunta1, int longPregunta2, int longPregunta3, int longPregunta4, int longitud){
-	FILE *f;
-	f = fopen(nombreF, "r");
 
-	int j = 0;
-	int i = 0;
-	//i = longitud del array
-	while(i < longitud){
-		//j = longitud del codigo
-		while(j < tamanyoCod){
-			array[i].cod[j] = fgetc(f);
-			j++;
-		}
-		j = 0;
-		//j = longitud del enunciado
-		while(j < tamanyoEnunciado){
-			char a = fgetc(f);
-			if (a == '\n'|| a == '&'){
-				j = tamanyoEnunciado;
-			}else{
-			array[i].enunciado[j] = a;
-			}
-			j++;
-		}
-		j = 0;
-
-		//j = longitud de la pregunta1
-		while(j < longPregunta1){
-			char a = fgetc(f);
-			if (a == '\n'|| a == '&'){
-				j = longPregunta1;
-			}else{
-			array[i].respuestaA[j] = a;
-			}
-			j++;
-		}
-		j = 0;
-		//j = longitud de la pregunta2
-		while(j < longPregunta2){
-			char a = fgetc(f);
-			if (a == '\n'|| a == '&'){
-				j = longPregunta2;
-			}else{
-			array[i].respuestaB[j] = a;
-			}
-			j++;
-		}
-		j = 0;
-		//j = longitud de la pregunta3
-		while(j < longPregunta3){
-			char a = fgetc(f);
-			if (a == '\n'|| a == '&'){
-				j = longPregunta3;
-			}else{
-			array[i].respuestaC[j] = a;
-			}
-			j++;
-		}
-		j = 0;
-		//j = longitud de la pregunta4
-		while(j < longPregunta4){
-			char a = fgetc(f);
-			if (a == '\n'|| a == '&'){
-				j = longPregunta4;
-			}else{
-			array[i].respuestaD[j] = a;
-			}
-			j++;
-		}
-
-		array[i].correcta = fgetc(f);
-
-		i++;
-	}
-
-	fclose(f);
-}
 
 void partirArray(char cod[], Pregunta *preguntas){
 
@@ -147,4 +72,230 @@ void partirArray(char cod[], Pregunta *preguntas){
 	 }
 	preguntas = preguntas2;
 
+}
+void anyadirPregunta(Pregunta *pregunta, sqlite3 *db){
+	sqlite3_stmt *stmt;
+
+		char sql[] = "insert into Preguntas (Cod, Enunciado, RespuestaA, RespuestaB, RespuestaC, RespuestaD, RespuestaCorrecta) values (?, ?, ?, ?, ?, ?, ?)";
+		int result = sqlite3_prepare_v2(db, sql, strlen(sql) + 1, &stmt, NULL) ;
+		if (result != SQLITE_OK) {
+			printf("Error preparing statement (INSERT)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("SQL query prepared (INSERT)\n");
+		char cod[3];
+		cod[0] = pregunta->cod[0];
+		cod[1] = pregunta->cod[1];
+		cod[2] = '\0';
+
+		result = sqlite3_bind_text(stmt, 1, cod, strlen(cod), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_bind_text(stmt, 2, pregunta->enunciado, strlen(pregunta->enunciado), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_bind_text(stmt, 3, pregunta->respuestaA, strlen(pregunta->respuestaA), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_bind_text(stmt, 4, pregunta->respuestaB, strlen(pregunta->respuestaB), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_bind_text(stmt, 5, pregunta->respuestaC, strlen(pregunta->respuestaC), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_bind_text(stmt, 6, pregunta->respuestaD, strlen(pregunta->respuestaD), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		char* correcta = malloc(sizeof(char));
+		correcta[0] = pregunta->correcta[0];
+		result = sqlite3_bind_text(stmt, 7, correcta, strlen(correcta), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+
+		result = sqlite3_step(stmt);
+		if (result != SQLITE_DONE) {
+			printf("Error inserting new data into Preguntas table\n");
+		}
+
+		result = sqlite3_finalize(stmt);
+		if (result != SQLITE_OK) {
+			printf("Error finalizing statement (INSERT)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Prepared statement finalized (INSERT)\n");
+
+		if (result != SQLITE_OK) {
+				printf("Error inserting new data\n");
+				printf("%s\n", sqlite3_errmsg(db));
+			}
+
+}
+
+void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
+	sqlite3_stmt *stmt;
+
+	char sql[] = "select Enunciado from Preguntas";
+
+	int result = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) ;
+	if (result != SQLITE_OK) {
+		printf("Error preparing statement (SELECT)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+	}
+
+	printf("SQL query prepared (SELECT)\n");
+
+	char name[30];
+	int i = 1;
+	printf("\n");
+	printf("\n");
+	printf("Preguntas:\n");
+	do {
+		result = sqlite3_step(stmt) ;
+		if (result == SQLITE_ROW) {
+			strcpy(name, (char *) sqlite3_column_text(stmt, 0));
+			printf("%d - Enunciado: %s\n",i, name);
+			i++;
+		}
+	} while (result == SQLITE_ROW);
+
+	printf("\n");
+	printf("\n");
+
+	result = sqlite3_finalize(stmt);
+	if (result != SQLITE_OK) {
+		printf("Error finalizing statement (SELECT)\n");
+		printf("%s\n", sqlite3_errmsg(db));
+	}
+
+	printf("Prepared statement finalized (SELECT)\n");
+
+	if (result != SQLITE_OK) {
+		printf("Error al mostrar las preguntas\n");
+		printf("%s\n", sqlite3_errmsg(db));
+	}
+}
+void borrarPregunta(char* enunciado, sqlite3 *db){
+
+	sqlite3_stmt *stmt;
+
+		char sql[] = "delete from Preguntas where Enunciado = ?";
+
+		int result = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) ;
+		if (result != SQLITE_OK) {
+			printf("Error preparing statement (DELETE)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("SQL query prepared (DELETE)\n");
+
+		result = sqlite3_bind_text(stmt, 1, enunciado, strlen(enunciado), SQLITE_STATIC);
+		if (result != SQLITE_OK) {
+			printf("Error binding parameters\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_step(stmt);
+		if (result != SQLITE_DONE) {
+			printf("Error deleting data\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		result = sqlite3_finalize(stmt);
+		if (result != SQLITE_OK) {
+			printf("Error finalizing statement (DELETE)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Prepared statement finalized (DELETE)\n");
+
+		if (result != SQLITE_OK) {
+			printf("Error borrando la pregunta\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+}
+
+void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
+	sqlite3_stmt *stmt;
+
+		char sql[] = "select Cod, Enunciado, RespuestaA, RespuestaB, RespuestaC, RespuestaD, RespuestaCorrecta from Preguntas";
+
+		int result = sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) ;
+		if (result != SQLITE_OK) {
+			printf("Error preparing statement (SELECT)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("SQL query prepared (SELECT)\n");
+
+		char* Cod = (char*) malloc(sizeof(char) * 3);
+		char* Enunciado = (char*) malloc(sizeof(char) * 30);
+		char* RespuestaA = (char*) malloc(sizeof(char) * 30);
+		char* RespuestaB = (char*) malloc(sizeof(char) * 30);
+		char* RespuestaC = (char*) malloc(sizeof(char) * 30);
+		char* RespuestaD = (char*) malloc(sizeof(char) * 30);
+		char* RespuestaCorrecta = (char*) malloc(sizeof(char));
+		int i = 0;
+		do {
+			result = sqlite3_step(stmt) ;
+			if (result == SQLITE_ROW) {
+				strcpy(Cod, (char *) sqlite3_column_text(stmt, 0));
+				preguntas[i].cod = Cod;
+				strcpy(Enunciado, (char *) sqlite3_column_text(stmt, 1));
+				preguntas[i].enunciado = Enunciado;
+				printf("%s", preguntas[i].enunciado);
+				strcpy(RespuestaA, (char *) sqlite3_column_text(stmt, 2));
+				preguntas[i].respuestaA = RespuestaA;
+				printf("%s", preguntas[i].respuestaA);
+				strcpy(RespuestaB, (char *) sqlite3_column_text(stmt, 3));
+				preguntas[i].respuestaB = RespuestaB;
+				printf("%s", preguntas[i].respuestaB);
+				strcpy(RespuestaC, (char *) sqlite3_column_text(stmt, 4));
+				preguntas[i].respuestaC = RespuestaC;
+				printf("%s", preguntas[i].respuestaC);
+				strcpy(RespuestaD, (char *) sqlite3_column_text(stmt, 5));
+				preguntas[i].respuestaD = RespuestaD;
+				printf("%s", preguntas[i].respuestaD);
+				strcpy(RespuestaCorrecta, (char *) sqlite3_column_text(stmt, 6));
+				preguntas[i].correcta = RespuestaCorrecta;
+				i++;
+
+			}
+		} while (result == SQLITE_ROW);
+
+
+		result = sqlite3_finalize(stmt);
+		if (result != SQLITE_OK) {
+			printf("Error finalizing statement (SELECT)\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Prepared statement finalized (SELECT)\n");
+
+		if (result != SQLITE_OK) {
+			printf("Error al inicializar las preguntas\n");
+			printf("%s\n", sqlite3_errmsg(db));
+		}
 }

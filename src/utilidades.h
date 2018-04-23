@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "sqlite3.h"
 
 #ifndef UTILIDADES_H_
 #define UTILIDADES_H_
@@ -19,18 +20,21 @@ typedef struct{
 
 typedef struct{
 
-    char cod[3]; //código de tema
-    char enunciado[30];
-    char respuestaA[30];
-    char respuestaB[30];
-    char respuestaC[30];
-    char respuestaD[30];
-    char correcta;
+    char* cod; //código de tema
+    char* enunciado;
+    char* respuestaA;
+    char* respuestaB;
+    char* respuestaC;
+    char* respuestaD;
+    char* correcta;
 
 }Pregunta;
 
 int contarLineas(char* nombreF);
 void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod,int tamanyoNombre, int longitud);
-void iniciarPreguntas(Pregunta* array, char* nombreF, int tamanyoCod, int tamanyoEnunciado, int longPregunta1, int longPregunta2, int longPregunta3, int longPregunta4, int longitud);
 void partirArray(char cod[], Pregunta *preguntas);
+void anyadirPregunta(Pregunta *pregunta, sqlite3 *db);
+void mostrarPreguntas(Pregunta *preguntas, sqlite3 *db);
+void borrarPregunta(char* enunciado, sqlite3 *db);
+void iniciarPreguntas(Pregunta *preguntas, sqlite3 *db);
 #endif /* UTILIDADES_H_ */

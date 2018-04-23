@@ -5,22 +5,19 @@
  *      Author: Lander
  */
 #include "utilidades.h"
-
+#include "sqlite3.h"
 #ifndef MENUS_H_
 #define MENUS_H_
 
-void MenuPrincipal(Tema *temas);
-void MenuJugar(Tema *temas);
-void MenuEdicion(Tema *temas);
-void CreacionDeTema(Tema *temas);
-void BorradoTema(Tema *temas);
-void ListadoDeTema(Tema *temas);
-void CreacionDePreguntas(Tema *temas);
-void BorradoDePreguntas(Tema *temas);
-void Enunciado(Tema *temas);
-void Respuesta(Tema *temas);
-void RespuestaCorrecta(Tema *temas);
+void MenuPrincipal(Tema *temas, sqlite3 *db);
+void MenuJugar(Tema *temas, sqlite3 *db);
+void MenuEdicion(Tema *temas, sqlite3 *db);
+void CreacionDeTema(Tema *temas, sqlite3 *db);
+void BorradoTema(Tema *temas, sqlite3 *db);
+void ListadoDeTema(Tema *temas, sqlite3 *db);
+void CreacionDePreguntas(Tema *temas, sqlite3 *db);
+void BorradoDePreguntas(Tema *temas, sqlite3 *db);
 void AjustesDeTrivial(Tema *temas);
-char ListadoDePreguntas(Tema *temas, Pregunta *preguntas, char cod[]);
+int ListadoDePreguntas(Tema *temas, Pregunta *preguntas, sqlite3 *db);
 
 #endif /* MENUS_H_ */

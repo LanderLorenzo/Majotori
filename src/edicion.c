@@ -8,7 +8,7 @@
 #include "utilidades.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "sqlite3.h"
 void crearTema(char* temaN){
 
 	char* ficheroAct = "tema.txt";
@@ -50,15 +50,13 @@ void borrarTema(int eleccion, Tema *temas){
 
 }
 
-// Este método sería solo para crear el código único de la pregunta
-void crearPregunta(char* etema, Tema *temas){
 
-	FILE* f;
+char* compararTemas(char* etema, Tema *temas){
 	int tamanyo = contarLineas("tema.txt");
 
 
 
-	char cod[3];
+	char* cod = malloc(sizeof(char)*3);
 	int a = 0;
 	int i = 0;
 	int j = 0;
@@ -83,59 +81,8 @@ void crearPregunta(char* etema, Tema *temas){
 			cod[0] = temas[a].cod[0];
 			cod[1] = temas[a].cod[1];
 		}
-
-
-
-	char* ficheroAct = "pregunta.txt";
-
-	f = fopen(ficheroAct, "a");
-
-
-	fprintf(f,"%c%c &", cod[0],cod[1]);
-
-	fclose(f);
-
+		return cod;
 }
 
-//Este método lo llamas varias veces durante el método CreacióndePreguntas() de menus. Coge los datos
-//que va dando el usuario y los va escribiendo en orden, separados por el símbolo "&" (no se si será necesario
-//separarlos o no.
-void completarPregunta(char* partePreg, int fin){
 
 
-	char* ficheroAct = "pregunta.txt";
-	FILE* f;
-
-	f = fopen(ficheroAct, "a");
-
-	if(fin == 0){
-		fprintf(f, "%s &", partePreg);
-	}else{
-		fprintf(f, "%c\n", partePreg[0]);
-	}
-	fclose(f);
-}
-
-void borrarPregunta(char eleccionP, Pregunta *preguntas){
-	char* ficheroAct = "pregunta.txt";
-		FILE* f;
-
-		int tamanyo = contarLineas(ficheroAct);
-		f = fopen(ficheroAct, "w");
-			int i = 0;
-			for(i = 0; i < tamanyo; i++){
-				if(i != eleccionP){
-					fprintf(f,"%c",preguntas[i].cod[0]);
-					fprintf(f,"%c &",preguntas[i].cod[1]);
-					fprintf(f,"%s &",preguntas[i].enunciado);
-					fprintf(f,"%s &",preguntas[i].respuestaA);
-					fprintf(f,"%s &",preguntas[i].respuestaB);
-					fprintf(f,"%s &",preguntas[i].respuestaC);
-					fprintf(f,"%s &",preguntas[i].respuestaD);
-					fprintf(f,"%c\n",preguntas[i].correcta);
-				}else{
-				}
-			}
-
-		fclose(f);
-}

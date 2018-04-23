@@ -51,6 +51,7 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 			}
 			j++;
 		}
+		array[i].nombre[9] = '\0';
 		j = 0;
 		i++;
 	}

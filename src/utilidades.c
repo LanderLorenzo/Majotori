@@ -250,17 +250,24 @@ void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
 
 		printf("SQL query prepared (SELECT)\n");
 
-		char* Cod = (char*) malloc(sizeof(char) * 3);
-		char* Enunciado = (char*) malloc(sizeof(char) * 30);
-		char* RespuestaA = (char*) malloc(sizeof(char) * 30);
-		char* RespuestaB = (char*) malloc(sizeof(char) * 30);
-		char* RespuestaC = (char*) malloc(sizeof(char) * 30);
-		char* RespuestaD = (char*) malloc(sizeof(char) * 30);
-		char* RespuestaCorrecta = (char*) malloc(sizeof(char));
 		int i = 0;
 		do {
 			result = sqlite3_step(stmt) ;
 			if (result == SQLITE_ROW) {
+				char* Cod = (char*) malloc(sizeof(char) * 3);
+				char* Enunciado = (char*) malloc(sizeof(char) * 30);
+				char* RespuestaA = (char*) malloc(sizeof(char) * 30);
+				char* RespuestaB = (char*) malloc(sizeof(char) * 30);
+				char* RespuestaC = (char*) malloc(sizeof(char) * 30);
+				char* RespuestaD = (char*) malloc(sizeof(char) * 30);
+				char* RespuestaCorrecta = (char*) malloc(sizeof(char));
+				preguntas[i].cod = malloc(sizeof(char)*3);
+				preguntas[i].enunciado = malloc(sizeof(char)*3);
+				preguntas[i].respuestaA = malloc(sizeof(char)*3);
+				preguntas[i].respuestaB = malloc(sizeof(char)*3);
+				preguntas[i].respuestaC = malloc(sizeof(char)*3);
+				preguntas[i].respuestaD = malloc(sizeof(char)*3);
+				preguntas[i].correcta = malloc(sizeof(char)*3);
 				strcpy(Cod, (char *) sqlite3_column_text(stmt, 0));
 				preguntas[i].cod = Cod;
 				strcpy(Enunciado, (char *) sqlite3_column_text(stmt, 1));

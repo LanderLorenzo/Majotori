@@ -177,7 +177,7 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 		result = sqlite3_step(stmt) ;
 		if (result == SQLITE_ROW) {
 			strcpy(name, (char *) sqlite3_column_text(stmt, 0));
-			printf("%d - Enunciado: %s\n",i, name);
+			printf("%d - Enunciado: %s\n",i, preguntas[i-1].enunciado);
 			i++;
 		}
 	} while (result == SQLITE_ROW);
@@ -262,30 +262,25 @@ void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
 				char* RespuestaC = (char*) malloc(sizeof(char) * 30);
 				char* RespuestaD = (char*) malloc(sizeof(char) * 30);
 				char* RespuestaCorrecta = (char*) malloc(sizeof(char));
-				preguntas[i].cod = malloc(sizeof(char)*3);
-				preguntas[i].enunciado = malloc(sizeof(char)*3);
-				preguntas[i].respuestaA = malloc(sizeof(char)*3);
-				preguntas[i].respuestaB = malloc(sizeof(char)*3);
-				preguntas[i].respuestaC = malloc(sizeof(char)*3);
-				preguntas[i].respuestaD = malloc(sizeof(char)*3);
-				preguntas[i].correcta = malloc(sizeof(char)*3);
+				preguntas[i].cod = (char*) malloc(sizeof(char)*3);
+				preguntas[i].enunciado = (char*) malloc(sizeof(char)*3);
+				preguntas[i].respuestaA = (char*) malloc(sizeof(char)*30);
+				preguntas[i].respuestaB = (char*) malloc(sizeof(char)*30);
+				preguntas[i].respuestaC = (char*) malloc(sizeof(char)*30);
+				preguntas[i].respuestaD = (char*) malloc(sizeof(char)*30);
+				preguntas[i].correcta = (char*) malloc(sizeof(char));
 				strcpy(Cod, (char *) sqlite3_column_text(stmt, 0));
 				preguntas[i].cod = Cod;
 				strcpy(Enunciado, (char *) sqlite3_column_text(stmt, 1));
 				preguntas[i].enunciado = Enunciado;
-				printf("%s", preguntas[i].enunciado);
 				strcpy(RespuestaA, (char *) sqlite3_column_text(stmt, 2));
 				preguntas[i].respuestaA = RespuestaA;
-				printf("%s", preguntas[i].respuestaA);
 				strcpy(RespuestaB, (char *) sqlite3_column_text(stmt, 3));
 				preguntas[i].respuestaB = RespuestaB;
-				printf("%s", preguntas[i].respuestaB);
 				strcpy(RespuestaC, (char *) sqlite3_column_text(stmt, 4));
 				preguntas[i].respuestaC = RespuestaC;
-				printf("%s", preguntas[i].respuestaC);
 				strcpy(RespuestaD, (char *) sqlite3_column_text(stmt, 5));
 				preguntas[i].respuestaD = RespuestaD;
-				printf("%s", preguntas[i].respuestaD);
 				strcpy(RespuestaCorrecta, (char *) sqlite3_column_text(stmt, 6));
 				preguntas[i].correcta = RespuestaCorrecta;
 				i++;

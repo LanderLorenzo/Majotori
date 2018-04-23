@@ -237,7 +237,7 @@ void CreacionDePreguntas(Tema *temas, sqlite3 *db){
 		printf("El tema elegido es: %s \n", etema);
 		pregunta->cod = compararTemas(etema, temas);
 		//GuardaTema
-	}
+
 	printf("Siempre que se quiera poner un 'espacio' escribir '_'.\n");
 	printf("Enunciado: ");
 	fflush(stdin);
@@ -305,7 +305,7 @@ void CreacionDePreguntas(Tema *temas, sqlite3 *db){
 				fflush(stdout);
 				printf("Reiniciando para guardar los cambios...");
 
-
+	}
 }
 
 

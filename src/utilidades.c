@@ -296,3 +296,18 @@ void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
 			printf("%s\n", sqlite3_errmsg(db));
 		}
 }
+
+void freePreguntas(Pregunta *preguntas){
+
+	int i = 0;
+	while (i < 100){
+		free(preguntas[i].cod);
+		free(preguntas[i].correcta);
+		free(preguntas[i].enunciado);
+		free(preguntas[i].respuestaA);
+		free(preguntas[i].respuestaB);
+		free(preguntas[i].respuestaC);
+		free(preguntas[i].respuestaD);
+	}
+	free(preguntas);
+}

@@ -37,4 +37,5 @@ void anyadirPregunta(Pregunta *pregunta, sqlite3 *db);
 void mostrarPreguntas(Pregunta *preguntas, sqlite3 *db);
 void borrarPregunta(char* enunciado, sqlite3 *db);
 void iniciarPreguntas(Pregunta *preguntas, sqlite3 *db);
+void freePreguntas(Pregunta *preguntas);
 #endif /* UTILIDADES_H_ */

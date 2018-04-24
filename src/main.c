@@ -39,9 +39,9 @@ int main(int argc, char* argv[]) {
 			printf("Error opening database\n");
 			return result;
 		}
-
+		/*
 	sqlite3_stmt *stmt;
-/*
+
 		char sql[] = "CREATE TABLE [Preguntas] ([Cod] NVARCHAR(3)  NOT NULL,[Enunciado] TEXT  UNIQUE NOT NULL PRIMARY KEY,[RespuestaA] TEXT  NOT NULL,[RespuestaB] TEXT  NOT NULL,[RespuestaC] TEXT  NOT NULL,[RespuestaD] TEXT  NOT NULL,[RespuestaCorrecta] VARCHAR(1)  NOT NULL)";
 		sqlite3_prepare_v2(db, sql, strlen(sql) + 1, &stmt, NULL) ;
 		sqlite3_step(stmt);

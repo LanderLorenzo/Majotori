@@ -97,7 +97,7 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 		fflush(stdout);
 		scanf("%c" , &eleccionC);
 		MenuEdicion(temas, db);
-
+		freePreguntas(preguntas);
 	}else if(eleccion == 7){
 		AjustesDeTrivial(temas, db);
 	}else if(eleccion == 8){
@@ -318,7 +318,13 @@ void CreacionDePreguntas(Tema *temas, sqlite3 *db){
 				fflush(stdin);
 				fflush(stdout);
 				printf("Reiniciando para guardar los cambios...");
-
+				free(pregunta->cod);
+				free(pregunta->correcta);
+				free(pregunta->enunciado);
+				free(pregunta->respuestaA);
+				free(pregunta->respuestaB);
+				free(pregunta->respuestaC);
+				free(pregunta->respuestaD);
 	}
 }
 
@@ -368,6 +374,7 @@ void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 		//Borrar
 		borrarPregunta(preguntas[eleccionP-1].enunciado, db);
 		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
+		freePreguntas(preguntas);
 		break;
 	}
 

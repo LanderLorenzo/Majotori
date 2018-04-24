@@ -9,6 +9,11 @@
 #include "utilidades.h"
 #include "sqlite3.h"
 
+/* Se inicia la aplicación con el menu principal, donde recibe un listado de temas y la base de datos donde se va a almacenar.
+ * Da a elegir entre 3 diferentes opciones, con unos 'if' abrimos el menu que ha sido seleccionado.
+ *
+ */
+
 void MenuPrincipal(Tema *temas, sqlite3 *db){
 	int eleccion;
 
@@ -30,6 +35,10 @@ void MenuPrincipal(Tema *temas, sqlite3 *db){
 	}
 }
 
+/*	Al activarse 'Menu Jugar' la cual recibe tambien el listado de temas y la base de datos, se abre un menu con las
+ * 	diferentes historias con las que se pueden jugar, también esta la opción de dar marcha atras al 'Menu Principal'
+ *
+ */
 void MenuJugar(Tema *temas, sqlite3 *db){
 	int eleccion;
 
@@ -57,6 +66,12 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 	}
 
 }
+/*	Al activarse el 'Menu Edicion' ,recibiendo el listado de temas y la base de datos, se abre un menu con diferentes opciones
+ *  para la edicion del juego. Cada opción enviara al usuario a un menu diferente donde podra ejecutar la accion del menu que
+ *  ha seleccionado, excepto la opcion 'Listado de Preguntas' la cual se ejecutará en el mismo menu, utilizando la función
+ *  'mostrarPreguntas' sacará todas las preguntas por pantalla, y pulsando cualquier letra para volver al 'Menu Edición'
+ *
+ */
 
 void MenuEdicion(Tema *temas, sqlite3 *db){
 	int eleccion;
@@ -104,6 +119,10 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 		MenuPrincipal(temas, db);
 	}
 }
+/*	La funcion 'CreacionDeTema', recibe un puntero a el listado de temas y a la base de datos. Se registrara por teclado el nombre
+ *  del tema en caso de que no sea la letra 'q' que es para salir, el tema se guardara en el listado de temas
+ *
+ */
 
 void CreacionDeTema(Tema *temas, sqlite3 *db){
 	char* nombre = malloc(sizeof(char)*30);
@@ -151,6 +170,10 @@ void CreacionDeTema(Tema *temas, sqlite3 *db){
 	}
 }
 
+/*
+ * La funcion 'Borrado Tema' contara las lineas del listado de temas recibido para poder desplegarla por pantalla, luego se
+ * desplegara el listado donde el usuario eligira el tema que desea borrar del fichero de texto donde se guardan.
+ */
 void BorradoTema(Tema *temas, sqlite3 *db){
 	int opcion;
 	char eleccion;
@@ -191,6 +214,11 @@ void BorradoTema(Tema *temas, sqlite3 *db){
 	}
 }
 
+/*
+ * La funcion 'Listado de Tema' se utiliza basicamente para que todos los temas se puedan ver por pantalla. Contando las lineas
+ * del fichero donde se encuentran los temas se hace un bucle para ir mostrandolos por pantalla.
+ */
+
 void ListadoDeTema(Tema *temas, sqlite3 *db){
 	int eleccion;
 	printf("------------------------------------------------------------------- \n");
@@ -214,6 +242,11 @@ void ListadoDeTema(Tema *temas, sqlite3 *db){
 
 }
 
+/*
+ * La funcion 'Creacion de Preguntas' reserva espacio en la memoria para guardar las preguntas con su codigo, enunciado
+ * las opciones A,B,C,D y la respuesta correcta, las ira leyendo por el teclado y las ira guardando en la base de datos
+ * luego liberara la memoria dinámica.
+ */
 void CreacionDePreguntas(Tema *temas, sqlite3 *db){
 	    Pregunta *pregunta = malloc(sizeof(Pregunta));
 	    pregunta->cod = malloc(sizeof(char)*3);
@@ -331,6 +364,10 @@ void CreacionDePreguntas(Tema *temas, sqlite3 *db){
 	}
 }
 
+/*
+ * La función 'Listado de Preguntas' mostrar la lista de preguntas del tema que haya elegido el usuario, utilizando la función
+ * de 'mostrarPreguntas'
+ */
 
 int ListadoDePreguntas(Tema *temas, Pregunta *preguntas, sqlite3 *db){
 	int eleccion;
@@ -346,6 +383,10 @@ fflush(stdin);
 fflush(stdout);
 return eleccion;
 }
+/*
+ * La función 'BorradoDePreguntas' mostrara por pantalla las preguntas del tema seleccionado para luego poder elegir que pregunta
+ * borrar.
+ */
 
 void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 	int eleccionP;
@@ -384,7 +425,12 @@ void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 
 }
 
-
+/*
+ * La función 'AjustesDeTrivial' se usará para que el usuario pueda elegir que temas estaran presentes en la partida.
+ * Se mostraran los temas, donde un 0 marcara que el tema esta desactivado, no apareceran preguntas de ese tema, o un 1
+ * donde marcara que el tema si que esta activo. En el listado se podra elegir que tema se desea activar o desactivar,
+ * la elección quedara guardada en el fichero 'tema.txt'
+ */
 
 void AjustesDeTrivial(Tema *temas, sqlite3 *db){
 	    int eleccion = 0;

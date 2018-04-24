@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/*
+ * La función 'contarLineas' abrira el fichero recibido y hara un bucle donde se iran contando las '\n' para asi devolver el
+ * número de lineas.
+ */
 int contarLineas(char* nombreF) {
 
 	FILE *f;
@@ -29,6 +33,10 @@ int contarLineas(char* nombreF) {
 
 }
 
+/*
+ * La función 'iniciarTemas' cogera del fichero que reciba todos los temas e ira guardando los valores de ese fichero en el
+ * array de puntero a Tema.
+ */
 void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre, int longitud){
 	FILE *f;
 	f = fopen(nombreF, "r");
@@ -60,7 +68,9 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 }
 
 
-
+/*
+ * La función 'partirArray' creara dentro preguntas con codigos diferentes a los ya existentes dentro del fichero 'preguntas.txt'
+ */
 void partirArray(char cod[], Pregunta *preguntas){
 
 	 int tamanyo = contarLineas("pregunta.txt");
@@ -74,6 +84,9 @@ void partirArray(char cod[], Pregunta *preguntas){
 	preguntas = preguntas2;
 
 }
+/*
+ * La función 'ayadirPregunta' insertará dentro de la Base de Datos las preguntas recibidas.
+ */
 void anyadirPregunta(Pregunta *pregunta, sqlite3 *db){
 	sqlite3_stmt *stmt;
 
@@ -154,6 +167,9 @@ void anyadirPregunta(Pregunta *pregunta, sqlite3 *db){
 			}
 
 }
+/*
+ * La función 'mostrarPreguntas' mostrara las preguntas que estan en la base de datos por pantalla.
+ */
 
 void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 	sqlite3_stmt *stmt;
@@ -192,6 +208,9 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 		printf("%s\n", sqlite3_errmsg(db));
 	}
 }
+/*
+ * La función 'borrarPregunta' borrar la pregunta dentro de la base de datos.
+ */
 void borrarPregunta(char* enunciado, sqlite3 *db){
 
 	sqlite3_stmt *stmt;
@@ -231,6 +250,10 @@ void borrarPregunta(char* enunciado, sqlite3 *db){
 			printf("%s\n", sqlite3_errmsg(db));
 		}
 }
+
+/*
+ * La función 'iniciarPreguntas' iniciara las preguntas dentro de la base de datos.
+ */
 
 void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
 	sqlite3_stmt *stmt;
@@ -296,6 +319,10 @@ void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){
 			printf("%s\n", sqlite3_errmsg(db));
 		}
 }
+
+/*
+ * La función 'freePreguntas' liberara la memoria del array de preguntas recibido.
+ */
 
 void freePreguntas(Pregunta *preguntas){
 

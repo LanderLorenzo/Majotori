@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sqlite3.h"
+
+/*
+ * La función 'crearTema' leera el fichero 'tema.txt'.
+ */
 void crearTema(char* temaN){
 
 	char* ficheroAct = "tema.txt";
@@ -26,6 +30,9 @@ void crearTema(char* temaN){
 	fclose(f);
 
 }
+/*
+ * La función 'borrarTema' borrara el tema del fichero 'tema.txt' que ha elegido el usuario en el atributo 'eleccion' recibido
+ */
 
 void borrarTema(int eleccion, Tema *temas){
 
@@ -50,7 +57,9 @@ void borrarTema(int eleccion, Tema *temas){
 
 }
 
-
+/*
+ * La función 'compararTemas' comparara que si los códigos de dos temas son iguales
+ */
 char* compararTemas(char* etema, Tema *temas){
 	int tamanyo = contarLineas("tema.txt");
 

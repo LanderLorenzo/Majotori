@@ -17,7 +17,7 @@ void BorradoTema(Tema *temas, sqlite3 *db);
 void ListadoDeTema(Tema *temas, sqlite3 *db);
 void CreacionDePreguntas(Tema *temas, sqlite3 *db);
 void BorradoDePreguntas(Tema *temas, sqlite3 *db);
-void AjustesDeTrivial(Tema *temas);
+void AjustesDeTrivial(Tema *temas, sqlite3 *db);
 int ListadoDePreguntas(Tema *temas, Pregunta *preguntas, sqlite3 *db);
 
 #endif /* MENUS_H_ */

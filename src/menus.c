@@ -68,8 +68,9 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 	printf("3. Listado de tema \n");
 	printf("4. Creación de preguntas \n");
 	printf("5. Borrado de preguntas \n");
-	printf("6. Ajustes de Trivial \n");
-	printf("7. Atras \n");
+	printf("6. Listado de Preguntas \n");
+	printf("7. Ajustes de Trivial \n");
+	printf("8. Atras \n");
 	printf("¿Que opción desea?: ");
 	fflush(stdin);
 	fflush(stdout);
@@ -85,8 +86,21 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 	}else if(eleccion == 5){
 		BorradoDePreguntas(temas, db);
 	}else if(eleccion == 6){
-		AjustesDeTrivial(temas);
+		char eleccionC;
+		Pregunta *preguntas = (Pregunta*) malloc(sizeof(Pregunta)*100);
+		iniciarPreguntas(preguntas, db );
+		printf("------------------------------------------------------------------- \n");
+		printf("LISTADO DE PREGUNTAS \n");
+		mostrarPreguntas(preguntas, db);
+		printf("Pulse cualquier tecla (del alfabeto) para volver al menu de edición. \n");
+		fflush(stdin);
+		fflush(stdout);
+		scanf("%c" , &eleccionC);
+		MenuEdicion(temas, db);
+
 	}else if(eleccion == 7){
+		AjustesDeTrivial(temas, db);
+	}else if(eleccion == 8){
 		MenuPrincipal(temas, db);
 	}
 }
@@ -362,7 +376,7 @@ void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 
 
 
-void AjustesDeTrivial(Tema *temas){
+void AjustesDeTrivial(Tema *temas, sqlite3 *db){
 	    int eleccion = 0;
 	    FILE* f;
 
@@ -372,6 +386,7 @@ void AjustesDeTrivial(Tema *temas){
 
 	    f = fopen("tema.txt", "r");
 
+	    printf("0. Atras.\n");
 	    printf("Temas: \n");
 	    int tamanyo = contarLineas("tema.txt");
 	    int i = 0;
@@ -384,7 +399,9 @@ void AjustesDeTrivial(Tema *temas){
 	    fflush(stdin);
 	    fflush(stdout);
 	    scanf( "%i", &eleccion);
-
+	    if(eleccion == 0){
+	    	MenuEdicion(temas, db);
+	    }else{
 	    f = fopen("tema.txt", "w");
 	        i = 0;
 	        for(i = 0; i < tamanyo; i++){
@@ -411,7 +428,7 @@ void AjustesDeTrivial(Tema *temas){
 	    fclose(f);
 	    printf("Reiniciando para guardar los cambios...");
 
-
+	    }
 
 }
 

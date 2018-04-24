@@ -166,9 +166,6 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 		printf("%s\n", sqlite3_errmsg(db));
 	}
 
-	printf("SQL query prepared (SELECT)\n");
-
-	char name[30];
 	int i = 1;
 	printf("\n");
 	printf("\n");
@@ -176,7 +173,6 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 	do {
 		result = sqlite3_step(stmt) ;
 		if (result == SQLITE_ROW) {
-			strcpy(name, (char *) sqlite3_column_text(stmt, 0));
 			printf("%d - Enunciado: %s\n",i, preguntas[i-1].enunciado);
 			i++;
 		}
@@ -190,8 +186,6 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 		printf("Error finalizing statement (SELECT)\n");
 		printf("%s\n", sqlite3_errmsg(db));
 	}
-
-	printf("Prepared statement finalized (SELECT)\n");
 
 	if (result != SQLITE_OK) {
 		printf("Error al mostrar las preguntas\n");

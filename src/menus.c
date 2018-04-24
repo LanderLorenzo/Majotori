@@ -106,7 +106,7 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 }
 
 void CreacionDeTema(Tema *temas, sqlite3 *db){
-	char* nombre[30];
+	char* nombre = malloc(sizeof(char)*30);
 	char eleccion[10];
 
 	printf("------------------------------------------------------------------- \n");
@@ -131,6 +131,8 @@ void CreacionDeTema(Tema *temas, sqlite3 *db){
 
 		    crearTema(nombre);
 			printf("Tu tema se ha guardado correctamente, reiniciando para guardar los cambios...");
+			free(nombre);
+			/*
 			char* ficheroAct = "tema.txt";
 			FILE* f;
 			int tamanyo = contarLineas(ficheroAct);
@@ -144,6 +146,7 @@ void CreacionDeTema(Tema *temas, sqlite3 *db){
 
 			fclose(f);
 			//MenuEdicion(nuevosTemas);
+			*/
 		}
 	}
 }

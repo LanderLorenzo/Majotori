@@ -18,9 +18,7 @@ int main(int argc, char* argv[]) {
 	char* ficheroAct = "tema.txt";
 	FILE* f;
 
-//	f = fopen(ficheroAct, "w");
-//	fprintf(f,"011Historia\n021Peliculas\n031Musica\n041Geografia\n051Ciencia\n");
-//	fclose(f);
+
 	int tamanyo = contarLineas(ficheroAct);
 	f = fopen(ficheroAct, "r");
 

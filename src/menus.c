@@ -165,7 +165,7 @@ void BorradoTema(Tema *temas, sqlite3 *db){
 			printf("%i. %s\n", i+1, temas[i].nombre);
 			i++;
 		}
-	printf("\nElegir tema numero: ");
+	printf("\nElegir número del tema: ");
 	fflush(stdin);
 	fflush(stdout);
 	scanf("%i" , &opcion);

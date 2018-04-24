@@ -37,7 +37,7 @@ void borrarTema(int eleccion, Tema *temas){
 	f = fopen(ficheroAct, "w");
 		int i = 0;
 		for(i = 0; i < tamanyo; i++){
-			if(i != eleccion){
+			if(i != (eleccion-1)){
 				fprintf(f,"%c",temas[i].cod[0]);
 				fprintf(f,"%c",temas[i].cod[1]);
 				fprintf(f,"%c",temas[i].actT);

@@ -69,23 +69,7 @@ void iniciarTemas(Tema* array, char* nombreF, int tamanyoCod, int tamanyoNombre,
 
 
 /*
- * La función 'partirArray' creara dentro preguntas con codigos diferentes a los ya existentes dentro del fichero 'preguntas.txt'
- */
-void partirArray(char cod[], Pregunta *preguntas){
-
-	 int tamanyo = contarLineas("pregunta.txt");
-	 Pregunta *preguntas2 = (Pregunta*) malloc(sizeof(Pregunta)*tamanyo);
-	 int i = 0;
-	 while (i < tamanyo){
-		 if(cod[0] == preguntas[i].cod[0] && cod[1] == preguntas[i].cod[1]){
-			 preguntas2[i] = preguntas[i];
-		 }
-	 }
-	preguntas = preguntas2;
-
-}
-/*
- * La función 'ayadirPregunta' insertará dentro de la Base de Datos las preguntas recibidas.
+ * La función 'anyadirPregunta' insertará dentro de la Base de Datos la pregunta recibida.
  */
 void anyadirPregunta(Pregunta *pregunta, sqlite3 *db){
 	sqlite3_stmt *stmt;
@@ -168,7 +152,8 @@ void anyadirPregunta(Pregunta *pregunta, sqlite3 *db){
 
 }
 /*
- * La función 'mostrarPreguntas' mostrara las preguntas que estan en la base de datos por pantalla.
+ * La función 'mostrarPreguntas' mostrara las preguntas que estan en el array de pregunta con la ayuda
+ * de la base de datos por pantalla.
  */
 
 void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
@@ -209,7 +194,7 @@ void mostrarPreguntas(Pregunta *preguntas,sqlite3 *db){
 	}
 }
 /*
- * La función 'borrarPregunta' borrar la pregunta dentro de la base de datos.
+ * La función 'borrarPregunta' borra la pregunta dentro de la base de datos.
  */
 void borrarPregunta(char* enunciado, sqlite3 *db){
 
@@ -252,7 +237,7 @@ void borrarPregunta(char* enunciado, sqlite3 *db){
 }
 
 /*
- * La función 'iniciarPreguntas' iniciara las preguntas dentro de la base de datos.
+ * La función 'iniciarPreguntas' iniciara el array de preguntas con la base de datos.
  */
 
 void iniciarPreguntas(Pregunta* preguntas, sqlite3 *db){

@@ -11,7 +11,7 @@
 #include "sqlite3.h"
 
 /*
- * La función 'crearTema' leera el fichero 'tema.txt'.
+ * La función 'crearTema' escribira en el fichero 'tema.txt'.
  */
 void crearTema(char* temaN){
 
@@ -58,7 +58,8 @@ void borrarTema(int eleccion, Tema *temas){
 }
 
 /*
- * La función 'compararTemas' comparara que si los códigos de dos temas son iguales
+ * La función 'compararTemas' compara el nombre del tema seleccionado con los temas guardados y si hay coincidencia
+ * devuelve su código
  */
 char* compararTemas(char* etema, Tema *temas){
 	int tamanyo = contarLineas("tema.txt");

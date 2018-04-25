@@ -151,21 +151,6 @@ void CreacionDeTema(Tema *temas, sqlite3 *db){
 		    crearTema(nombre);
 			printf("Tu tema se ha guardado correctamente, reiniciando para guardar los cambios...");
 			free(nombre);
-			/*
-			char* ficheroAct = "tema.txt";
-			FILE* f;
-			int tamanyo = contarLineas(ficheroAct);
-			f = fopen(ficheroAct, "r");
-
-			Tema *nuevosTemas =(Tema*) malloc(sizeof(Tema)*tamanyo);
-
-
-			iniciarTemas(nuevosTemas, ficheroAct, 2, 10, tamanyo);
-
-
-			fclose(f);
-			//MenuEdicion(nuevosTemas);
-			*/
 		}
 	}
 }
@@ -384,7 +369,7 @@ fflush(stdout);
 return eleccion;
 }
 /*
- * La función 'BorradoDePreguntas' mostrara por pantalla las preguntas del tema seleccionado para luego poder elegir que pregunta
+ * La función 'BorradoDePreguntas' mostrara por pantalla las preguntas para luego poder elegir que pregunta
  * borrar.
  */
 
@@ -396,7 +381,6 @@ void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 	printf("------------------------------------------------------------------- \n");
 	printf("BORRAR PREGUNTA \n");
 
-	//modificar array de preguntas para que solo aparezcan las que tengan relacion con el tema
 	//Listado de preguntas de ese tema.
 	eleccionP = ListadoDePreguntas(temas, preguntas, db);
 

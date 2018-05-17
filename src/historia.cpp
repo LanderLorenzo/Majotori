@@ -6,6 +6,7 @@
  */
 
 #include "historia.h"
+#include "string.h"
 
 #include <iostream>
 using namespace std;

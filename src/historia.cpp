@@ -38,7 +38,7 @@ void historia::setTexto(char* fichero){
 	f.open(fichero);
 
 	if(){
-		this->texto = f.getline();
+		//this->texto = f.getline();
 	}
 
 	f.close();

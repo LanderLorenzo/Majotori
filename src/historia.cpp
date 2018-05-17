@@ -31,11 +31,17 @@ historia::historia(const historia& h){
 
 }
 
-void historia::setTexto(char* texto){
+void historia::setTexto(char* fichero){
 	delete[] this->texto;
-	this->texto = new char[strlen(texto) + 1];
-	strcpy(this->texto, texto);
+	int contar = 1;
+	ifstream f;
+	f.open(fichero);
 
+	if(){
+		this->texto = f.getline();
+	}
+
+	f.close();
 }
 
 char* historia::getTexto(){

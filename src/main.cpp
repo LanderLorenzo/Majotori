@@ -7,7 +7,7 @@
 
 
 
-
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 extern "C" {
@@ -16,6 +16,9 @@ extern "C" {
 }
 #include "sqlite3.h"
 #include <string.h>
+#include "historia.h"
+
+using namespace std;
 
 void MenuJugar(Tema *temas, sqlite3 *db);
 
@@ -48,6 +51,7 @@ void MenuPrincipal(Tema *temas, sqlite3 *db){
  * 	diferentes historias con las que se pueden jugar, también esta la opción de dar marcha atras al 'Menu Principal'
  *
  */
+
 void MenuJugar(Tema *temas, sqlite3 *db){
 	int eleccion;
 
@@ -64,6 +68,23 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 	scanf("%d" , &eleccion);
 	if( eleccion == 1){
 		//Historia1
+		char* historiaAct = new char();
+		historiaAct = "Historia1.txt";
+		bool* respuestas = new bool[10];
+		historiaRamificada historia1 = new historiaRamificada(historiaAct, respuestas);
+		historia1.mostrarTexto();
+		//PREGUNTAS AQUI
+
+		//FIN DE LAS PREGUNTAS
+		historia1.setRespuestas(respuestas);
+		bool tombola = historia1.tombola();
+		if(tombola == true){
+			cout << "Felicidades! q para continuar o p para guardar y salir" << endl;
+			historia1.setTexto(historiaAct);
+		}else if(tombola == false){
+
+		}
+
 	}else if(eleccion == 2){
 		//Historia2
 	}else if(eleccion == 3){

@@ -42,7 +42,7 @@ char* historia::getTexto(){
 	return this->texto;
 }
 
-void historia::mostrarTexto(char*){
+void historia::mostrarTexto(){
 	cout << "TEXTO: " << endl;
 	cout << endl;
 	cout << this->texto << endl;

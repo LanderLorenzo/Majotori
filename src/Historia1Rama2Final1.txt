@@ -1,0 +1,5 @@
+Decides no permanecer más tiempo escondido y sales en busca de una ruta de escape.
+Por suerte encuentras un lugar por el que puedes escapar. Sin dudarlo no dudas en coger esa salida,
+por desgracia en ese momento llegan los guardias y tu única opción de salir con vida es dejando la mochila
+con los datos que has robado atrás. Finalmente huyes de ese lugar, pero sin la información que necesitabas.
+Has fracasado en tu misión.

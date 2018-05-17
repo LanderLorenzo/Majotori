@@ -66,7 +66,7 @@ historiaRamificada::~historiaRamificada(){
 
 }
 
-historiaRamificada::historiaRamificada(bool respuestas[]):historia(texto){
+historiaRamificada::historiaRamificada(bool respuestas[], char* texto):historia(texto){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = respuestas;
 	}

@@ -71,7 +71,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
-		historiaRamificada historia1 = new historiaRamificada(historiaAct, respuestas);
+		historiaRamificada historia1(respuestas, historiaAct);
 		historia1.mostrarTexto();
 		//PREGUNTAS AQUI
 
@@ -79,10 +79,13 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
-			cout << "Felicidades! q para continuar o p para guardar y salir" << endl;
+			cout << "Felicidades! q para continuar o p para guardar y salir:\n" << endl;
+			historiaAct = "Historia1Rama1.txt";
 			historia1.setTexto(historiaAct);
 		}else if(tombola == false){
-
+			cout << "Mala suerte... q para continuar o p para guardar y salir:\n" << endl;
+			historiaAct = "Historia1Rama2.txt";
+			historia1.setTexto(historiaAct);
 		}
 
 	}else if(eleccion == 2){

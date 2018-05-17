@@ -29,7 +29,7 @@ private:
 public:
 	historiaRamificada();
 	virtual ~historiaRamificada();
-	historiaRamificada(bool respuestas[]);
+	historiaRamificada(bool respuestas[], char* texto);
 	historiaRamificada(historiaRamificada& hr);
 	bool tombola();
 	void setRespuestas(bool respuestas[]);

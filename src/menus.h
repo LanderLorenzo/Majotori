@@ -9,8 +9,6 @@
 #ifndef MENUS_H_
 #define MENUS_H_
 
-void MenuPrincipal(Tema *temas, sqlite3 *db);
-void MenuJugar(Tema *temas, sqlite3 *db);
 void MenuEdicion(Tema *temas, sqlite3 *db);
 void CreacionDeTema(Tema *temas, sqlite3 *db);
 void BorradoTema(Tema *temas, sqlite3 *db);

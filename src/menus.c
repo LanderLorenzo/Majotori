@@ -9,63 +9,7 @@
 #include "utilidades.h"
 #include "sqlite3.h"
 
-/* Se inicia la aplicación con el menu principal, donde recibe un listado de temas y la base de datos donde se va a almacenar.
- * Da a elegir entre 3 diferentes opciones, con unos 'if' abrimos el menu que ha sido seleccionado.
- *
- */
 
-void MenuPrincipal(Tema *temas, sqlite3 *db){
-	int eleccion;
-
-	printf("------------------------------------------------------------------- \n");
-	printf("MAJOTORI \n");
-	printf("1. Jugar \n");
-	printf("2. Edición \n");
-	printf("3. Salir \n");
-	printf("¿Que opción desea?: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%d" , &eleccion);
-	if( eleccion == 1){
-		MenuJugar(temas, db);
-	}else if(eleccion == 2){
-		MenuEdicion(temas, db);
-	}else if(eleccion == 3){
-		//cerrar el programa
-	}
-}
-
-/*	Al activarse 'Menu Jugar' la cual recibe tambien el listado de temas y la base de datos, se abre un menu con las
- * 	diferentes historias con las que se pueden jugar, también esta la opción de dar marcha atras al 'Menu Principal'
- *
- */
-void MenuJugar(Tema *temas, sqlite3 *db){
-	int eleccion;
-
-	printf("------------------------------------------------------------------- \n");
-	printf("JUGAR \n");
-	printf("1. Historia 1 \n");
-	printf("2. Historia 2 \n");
-	printf("3. Historia 3 \n");
-	printf("4. Historia 4 \n");
-	printf("5. Atras \n");
-	printf("¿Que opción desea?: ");
-	fflush(stdin);
-	fflush(stdout);
-	scanf("%d" , &eleccion);
-	if( eleccion == 1){
-		//Historia1
-	}else if(eleccion == 2){
-		//Historia2
-	}else if(eleccion == 3){
-		//Historia3
-	}else if(eleccion == 4){
-		//Historia4
-	}else if(eleccion == 5){
-		MenuPrincipal(temas, db);
-	}
-
-}
 /*	Al activarse el 'Menu Edicion' ,recibiendo el listado de temas y la base de datos, se abre un menu con diferentes opciones
  *  para la edicion del juego. Cada opción enviara al usuario a un menu diferente donde podra ejecutar la accion del menu que
  *  ha seleccionado, excepto la opcion 'Listado de Preguntas' la cual se ejecutará en el mismo menu, utilizando la función
@@ -85,7 +29,7 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 	printf("5. Borrado de preguntas \n");
 	printf("6. Listado de Preguntas \n");
 	printf("7. Ajustes de Trivial \n");
-	printf("8. Atras \n");
+	printf("8. Salir del juego \n");
 	printf("¿Que opción desea?: ");
 	fflush(stdin);
 	fflush(stdout);
@@ -116,7 +60,7 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 	}else if(eleccion == 7){
 		AjustesDeTrivial(temas, db);
 	}else if(eleccion == 8){
-		MenuPrincipal(temas, db);
+		//Cierra programa
 	}
 }
 /*	La funcion 'CreacionDeTema', recibe un puntero a el listado de temas y a la base de datos. Se registrara por teclado el nombre

@@ -7,6 +7,8 @@
 
 #include "historia.h"
 #include <string.h>
+#include <fstream>
+#include <cstdlib>
 
 #include <iostream>
 using namespace std;
@@ -33,13 +35,22 @@ historia::historia(const historia& h){
 
 void historia::setTexto(char* fichero){
 	delete[] this->texto;
-	int contar = 1;
 	ifstream f;
 	f.open(fichero);
 
-	if(){
-		//this->texto = f.getline();
+	string linea;
+	int max;
+	int contador = 0;
+
+	while(getline(f, linea)){
+
+		if(max == contador){
+			this->texto = linea;
+		}
+
+		contador++;
 	}
+
 
 	f.close();
 }

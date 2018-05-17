@@ -16,6 +16,7 @@ public:
 	historia();
 	virtual ~historia();
 	historia(char* texto);
+	historia(const historia&);
 	void setTexto(char*);
 	char* getTexto();
 	void mostrarTexto(char*);
@@ -27,7 +28,7 @@ private:
 	bool respuestas[10];
 public:
 	historiaRamificada();
-	~historiaRamificada();
+	virtual ~historiaRamificada();
 	historiaRamificada(bool respuestas[]);
 	bool tombola();
 	void setRespuestas();

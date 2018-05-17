@@ -86,6 +86,21 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			if(opcion == 'q'){
 			historiaAct = "Historia1Rama1.txt";
 			historia1.setTexto(historiaAct);
+			historia1.mostrarTexto();
+			//PREGUNTAS AQUI
+
+			//FIN DE LAS PREGUNTAS
+			historia1.setRespuestas(respuestas);
+			tombola = historia1.tombola();
+			if(tombola == true){
+				historiaAct = "Historia1Rama1Final1.txt";
+				historia1.setTexto(historiaAct);
+				historia1.mostrarTexto();
+			}else if(tombola == false){
+				historiaAct = "Historia1Rama1Final2.txt";
+				historia1.setTexto(historiaAct);
+				historia1.mostrarTexto();
+			}
 			}else{
 			//GUARDAR EN UNA BASE DE DATOS?
 			}
@@ -96,8 +111,23 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			if(opcion == 'q'){
 			historiaAct = "Historia1Rama2.txt";
 			historia1.setTexto(historiaAct);
-			}else{
+			historia1.mostrarTexto();
+			//PREGUNTAS AQUI
 
+			//FIN DE LAS PREGUNTAS
+			historia1.setRespuestas(respuestas);
+			tombola = historia1.tombola();
+			if(tombola == true){
+				historiaAct = "Historia1Rama2Final1.txt";
+				historia1.setTexto(historiaAct);
+				historia1.mostrarTexto();
+			}else if(tombola == false){
+				historiaAct = "Historia1Rama2Final2.txt";
+				historia1.setTexto(historiaAct);
+				historia1.mostrarTexto();
+			}
+			}else{
+				//GUARDAR EN UNA BASE DE DATOS?
 			}
 		}
 

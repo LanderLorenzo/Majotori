@@ -19,7 +19,7 @@ public:
 	historia(const historia&);
 	void setTexto(char*);
 	char* getTexto();
-	void mostrarTexto(char*);
+	void mostrarTexto(char);
 };
 
 class historiaRamificada: public historia{

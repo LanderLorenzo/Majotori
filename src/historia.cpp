@@ -84,6 +84,7 @@ bool historiaRamificada::tombola(){
 		resultado = false;
 	}
 
+	return resultado;
 }
 
 void historiaRamificada::setRespuestas(bool respuestas[]){

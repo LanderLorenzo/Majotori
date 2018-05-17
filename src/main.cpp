@@ -68,6 +68,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 	scanf("%d" , &eleccion);
 	if( eleccion == 1){
 		//Historia1
+		char opcion;
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
@@ -79,13 +80,25 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
-			cout << "Felicidades! q para continuar o p para guardar y salir:\n" << endl;
+			cout << "Felicidades! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
+			scanf("%c", &opcion);
+
+			if(opcion == 'q'){
 			historiaAct = "Historia1Rama1.txt";
 			historia1.setTexto(historiaAct);
+			}else{
+			//GUARDAR EN UNA BASE DE DATOS?
+			}
 		}else if(tombola == false){
-			cout << "Mala suerte... q para continuar o p para guardar y salir:\n" << endl;
+			cout << "Mala suerte... 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
+			scanf("%c", &opcion);
+
+			if(opcion == 'q'){
 			historiaAct = "Historia1Rama2.txt";
 			historia1.setTexto(historiaAct);
+			}else{
+
+			}
 		}
 
 	}else if(eleccion == 2){

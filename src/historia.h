@@ -30,8 +30,9 @@ public:
 	historiaRamificada();
 	virtual ~historiaRamificada();
 	historiaRamificada(bool respuestas[]);
+	historiaRamificada(historiaRamificada& hr);
 	bool tombola();
-	void setRespuestas();
+	void setRespuestas(bool respuestas[]);
 	bool* getRespuestas();
 };
 

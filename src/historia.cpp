@@ -47,3 +47,51 @@ void historia::mostrarTexto(char*){
 	cout << endl;
 	cout << this->texto << endl;
 }
+
+historiaRamificada::historiaRamificada(){
+	for(int i = 0; i < 10; i++){
+		this->respuestas[i] = false;
+	}
+}
+
+historiaRamificada::~historiaRamificada(){
+	delete[] this->respuestas;
+
+
+}
+
+historiaRamificada::historiaRamificada(bool respuestas[]){
+	for(int i = 0; i < 10; i++){
+		this->respuestas[i] = respuestas;
+	}
+
+
+}
+
+historiaRamificada::historiaRamificada(historiaRamificada& h){
+	for(int i = 0; i < 10; i++){
+		this->respuestas[i] = h.respuestas;
+	}
+
+}
+
+bool historiaRamificada::tombola(){
+	int r = rand()% 10 + 1;
+	bool resultado;
+	if(this->respuestas[r] == true){
+		resultado = true;
+	} else{
+		resultado = false;
+	}
+
+}
+
+void historiaRamificada::setRespuestas(bool respuestas[]){
+	for(int i = 0; i < 10; i++){
+		this->respuestas[i] = respuestas;
+	}
+
+}
+bool* historiaRamificada::getRespuestas(){
+	return this->respuestas;
+}

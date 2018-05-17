@@ -10,18 +10,28 @@
 
 class historia{
 
-private:
-
+protected:
+	char* texto;
 public:
-
+	historia();
+	virtual ~historia();
+	historia(char* texto);
+	void setTexto(char*);
+	char* getTexto();
+	void mostrarTexto(char*);
 };
 
-class historiaRamificada:historia{
+class historiaRamificada: public historia{
 
 private:
-
+	bool respuestas[10];
 public:
-
+	historiaRamificada();
+	~historiaRamificada();
+	historiaRamificada(bool respuestas[]);
+	bool tombola();
+	void setRespuestas();
+	bool* getRespuestas();
 };
 
 #endif /* HISTORIA_H_ */

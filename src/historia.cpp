@@ -12,7 +12,7 @@
 using namespace std;
 
 historia::historia(){
-	this->texto == new char[1];
+	this->texto = new char[1];
 	this->texto[0] = '\0';
 }
 

@@ -22,9 +22,21 @@ historia::~historia(){
 	delete[] this->texto;
 }
 
-historia::historia(char* texto){
-	this->texto = new char[strlen(texto) + 1];
-	strcpy(this->texto, texto);
+historia::historia(char* fichero){
+
+
+	this->texto = new char[1000]; //Se puede calcular tamaño arriba
+	ifstream f;
+	f.open(fichero);
+
+	char text[1000];
+
+	while(!f.eof()){
+		f >> text;
+		strcat(this->texto, text);
+	}
+	strcat(this->texto, "\0");
+	f.close();
 }
 
 historia::historia(const historia& h){
@@ -38,20 +50,13 @@ void historia::setTexto(char* fichero){
 	ifstream f;
 	f.open(fichero);
 
-	string linea;
-	int max;
-	int contador = 0;
+	char text[1000];
 
-	while(getline(f, linea)){
-
-		if(max == contador){
-			this->texto = linea;
-		}
-
-		contador++;
+	while(!f.eof()){
+		f >> text;
+		strcat(this->texto, text);
 	}
-
-
+	strcat(this->texto, "\0");
 	f.close();
 }
 
@@ -72,12 +77,14 @@ historiaRamificada::historiaRamificada(){
 }
 
 historiaRamificada::~historiaRamificada(){
+//	for (int i = 0; i < 9; i++){
 	delete[] this->respuestas;
+//	}
 
 
 }
 
-historiaRamificada::historiaRamificada(bool respuestas[], char* texto):historia(texto){
+historiaRamificada::historiaRamificada(bool respuestas[], char* fichero):historia(fichero){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = respuestas;
 	}

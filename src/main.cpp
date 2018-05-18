@@ -74,6 +74,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		bool* respuestas = new bool[10];
 		historiaRamificada historia1(respuestas, historiaAct);
 		historia1.mostrarTexto();
+		/*
 		//PREGUNTAS AQUI
 
 		//FIN DE LAS PREGUNTAS
@@ -129,8 +130,9 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			}else{
 				//GUARDAR EN UNA BASE DE DATOS?
 			}
-		}
 
+		}
+*/
 	}else if(eleccion == 2){
 		//Historia2
 	}else if(eleccion == 3){

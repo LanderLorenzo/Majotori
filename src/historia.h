@@ -8,6 +8,7 @@
 #ifndef HISTORIA_H_
 #define HISTORIA_H_
 
+#include <string.h>
 class historia{
 
 protected:

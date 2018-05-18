@@ -25,19 +25,35 @@ historia::~historia(){
 historia::historia(char* fichero){
 
 
-	this->texto = new char[1000]; //Se puede calcular tamaño arriba
 	ifstream f;
 	char paquete[100];
 	strcpy(paquete, "Historias/");
 	strcat(paquete, fichero);
 	f.open(paquete);
 	char text[1000];
-	//while(!f.eof()){
-		f >> text;
-		strcpy(this->texto, text);
-	//}
+	int i = 0;
+	int tamanyo = 0;
 
-	strcat(this->texto, "\0");
+	while(!f.eof()){
+		f >> text[i];
+		if(text[i] == '_'){
+			text[i] = ' ';
+		}
+		if(text[i] == '/'){
+			text[i] = '\0';
+		}
+		if(text[i] == '.'){
+			i++;
+			tamanyo++;
+			text[i] = '\n';
+		}		i++;
+		tamanyo++;
+	}
+
+		this->texto = new char[tamanyo];
+		strcpy(this->texto, text);
+
+
 	f.close();
 }
 
@@ -50,15 +66,34 @@ historia::historia(const historia& h){
 void historia::setTexto(char* fichero){
 	delete[] this->texto;
 	ifstream f;
-	f.open(fichero);
-
+	char paquete[100];
+	strcpy(paquete, "Historias/");
+	strcat(paquete, fichero);
+	f.open(paquete);
 	char text[1000];
+	int i = 0;
+	int tamanyo = 0;
 
 	while(!f.eof()){
-		f >> text;
-		strcat(this->texto, text);
+		f >> text[i];
+		if(text[i] == '_'){
+			text[i] = ' ';
+		}
+		if(text[i] == '/'){
+			text[i] = '\0';
+		}
+		if(text[i] == '.'){
+			i++;
+			tamanyo++;
+			text[i] = '\n';
+		}		i++;
+		tamanyo++;
 	}
-	strcat(this->texto, "\0");
+
+		this->texto = new char[tamanyo];
+		strcpy(this->texto, text);
+
+
 	f.close();
 }
 

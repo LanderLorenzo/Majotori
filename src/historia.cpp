@@ -27,14 +27,16 @@ historia::historia(char* fichero){
 
 	this->texto = new char[1000]; //Se puede calcular tamaño arriba
 	ifstream f;
-	f.open(fichero);
-
+	char paquete[100];
+	strcpy(paquete, "Historias/");
+	strcat(paquete, fichero);
+	f.open(paquete);
 	char text[1000];
-
-	while(!f.eof()){
+	//while(!f.eof()){
 		f >> text;
-		strcat(this->texto, text);
-	}
+		strcpy(this->texto, text);
+	//}
+
 	strcat(this->texto, "\0");
 	f.close();
 }
@@ -77,16 +79,13 @@ historiaRamificada::historiaRamificada(){
 }
 
 historiaRamificada::~historiaRamificada(){
-//	for (int i = 0; i < 9; i++){
-	delete[] this->respuestas;
-//	}
 
 
 }
 
 historiaRamificada::historiaRamificada(bool respuestas[], char* fichero):historia(fichero){
 	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = respuestas;
+		this->respuestas[i] = respuestas[i];
 	}
 
 

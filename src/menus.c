@@ -61,6 +61,7 @@ void MenuEdicion(Tema *temas, sqlite3 *db){
 		AjustesDeTrivial(temas, db);
 	}else if(eleccion == 8){
 		//Cierra programa
+		exit(-1);
 	}
 }
 /*	La funcion 'CreacionDeTema', recibe un puntero a el listado de temas y a la base de datos. Se registrara por teclado el nombre
@@ -338,16 +339,13 @@ void BorradoDePreguntas(Tema *temas, sqlite3 *db){
 	fflush(stdout);
 	scanf( "%c", &eleccion);
 
-	switch(eleccion){
-	case 'q' :
+	if(eleccion == 'q'){
 		MenuEdicion(temas, db);
-		break;
-	case 'p' :
+	}else if(eleccion == 'p'){
 		//Borrar
 		borrarPregunta(preguntas[eleccionP-1].enunciado, db);
 		printf("La pregunta se ha borrado correctamente, reiniciando para guardar... \n");
 		freePreguntas(preguntas);
-		break;
 	}
 
 

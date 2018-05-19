@@ -13,6 +13,7 @@
 extern "C" {
 #include "menus.h"
 #include "utilidades.h"
+#include "edicion.h"
 }
 #include "sqlite3.h"
 #include <string.h>
@@ -77,8 +78,24 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 
 		//PREGUNTAS AQUI
 		cout << "Es hora del Trivial!\n" << endl;
-		Pregunta preguntas[10];
+		Pregunta* preguntas = new Pregunta[100];
+		Pregunta* preguntasFiltradas = new Pregunta[100];
+		iniciarPreguntas(preguntas, db);
+		int tamanyo = contarLineas("tema.txt");
+		int puntero = 0;
+		for (int j = 0; j < tamanyo; j++){
+			char* codigoTema = new char[3];
+			codigoTema = compararTemas(temas[j].nombre, temas);
+			for (int k = 0; k < 100; k++){
+				if (preguntas[k].cod[0] == codigoTema[0] && preguntas[k].cod[1] == codigoTema[1]){
+					if (temas[j].actT == '0'){
 
+					}else{
+						preguntasFiltradas[puntero] = preguntas[k];
+					}
+				}
+			}
+		}
 		//FIN DE LAS PREGUNTAS
 		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();

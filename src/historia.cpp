@@ -117,7 +117,6 @@ historiaRecorrida::historiaRecorrida(){
 historiaRecorrida::~historiaRecorrida(){
 //	for (int i = 0; i < 9; i++){
 	delete[] this->respuestas;
-	delete this->rama;
 //	}
 
 

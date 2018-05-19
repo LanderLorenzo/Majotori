@@ -1,4 +1,4 @@
-Eres una joven promesa del fútbol, tienes a varios equipos importantes siguiéndote y has conseguido llevar
-a tu equipo a la final del torneo. Empiezas a jugar el partido y no paras de intentar conseguir marcar el gol que pueda daros
-la victoria en el partido y conseguir así el trofeo. Sabes que hay varios observadores viendo el partido y eso hace que te sea
-más difícil concentrarte y hacer un buen partido.
+Eres_una_joven_promesa_del_fútbol,_tienes_a_varios_equipos_importantes_siguiéndote_y_has_conseguido_llevar
+a_tu_equipo_a_la_final_del_torneo._Empiezas_a_jugar_el_partido_y_no_paras_de_intentar_conseguir_marcar_el_gol_que_pueda_daros
+la_victoria_en_el_partido_y_conseguir_así_el_trofeo._Sabes_que_hay_varios_observadores_viendo_el_partido_y_eso_hace_que_te_sea
+más_difícil_concentrarte_y_hacer_un_buen_partido./

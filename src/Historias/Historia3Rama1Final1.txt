@@ -1,5 +1,5 @@
-Te llega el balón a los pies, y sabes que no puedes desaprovechar esa oportunidad para ganar el partido.
-No lo dudas y según controlas, regateas al portero y chutas. Consigues anotar y justo tras esto termina el partido.
-Le has dado la victoria a tu equipo y has conseguido que seáis  los campeones del torneo y levantar así el trofeo.
-Tras esto, con todo el éxito conseguido eres fichado por un equipo muy importante. Finalmente te conviertes en uno de los
-mejores jugadores del mundo.
+Te_llega_el_balón_a_los_pies,_y_sabes_que_no_puedes_desaprovechar_esa_oportunidad_para_ganar_el_partido.
+No_lo_dudas_y_según_controlas,_regateas_al_portero_y_chutas._Consigues_anotar_y_justo_tras_esto_termina_el_partido.
+Le_has_dado_la_victoria_a_tu_equipo_y_has_conseguido_que_seáis_los_campeones_del_torneo_y_levantar_así_el_trofeo.
+Tras_esto,_con_todo_el_éxito_conseguido_eres_fichado_por_un_equipo_muy_importante._Finalmente_te_conviertes_en_uno_de_los
+mejores_jugadores_del_mundo./

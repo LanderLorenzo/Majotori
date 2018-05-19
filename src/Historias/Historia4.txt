@@ -1,5 +1,5 @@
-Eres un explorador aficionado que ha ido a investigar unas ruinas abandonadas en el medio de una jungla.
-Al entrar solo ves un pasillo sin límite. Con curiosidad avanzas con linterna en mano y avanzas por el pasillo.
-Encuentras una habitación redonda con una pequeña figura de oro. Cuando la levantas se oyen los sonidos de engranajes moviéndose.
-Por propio instinto sabes que no es nada bueno. La zona por donde has entrado se está cerrando lentamente.
-Empiezas a correr para salir de allí lo antes posible.
+Eres_un_explorador_aficionado_que_ha_ido_a_investigar_unas_ruinas_abandonadas_en_el_medio_de_una_jungla.
+Al_entrar_solo_ves_un_pasillo_sin_límite._Con_curiosidad_avanzas_con_linterna_en_mano_y_avanzas_por_el_pasillo.
+Encuentras_una_habitación_redonda_con_una_pequeña_figura_de_oro._Cuando_la_levantas_se_oyen_los_sonidos_de_engranajes_moviéndose.
+Por_propio_instinto_sabes_que_no_es_nada_bueno._La_zona_por_donde_has_entrado_se_está_cerrando_lentamente.
+Empiezas_a_correr_para_salir_de_allí_lo_antes_posible./

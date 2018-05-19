@@ -138,7 +138,7 @@ historiaRecorrida::historiaRecorrida(historiaRecorrida& h){
 	this->rama = h.rama;
 }
 
-int historiaRecorrida::tombola(){
+bool historiaRecorrida::tombola(){
 	int r = rand()% 10 + 1;
 	bool resultado;
 	if(this->respuestas[r] == true){

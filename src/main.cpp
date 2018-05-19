@@ -72,10 +72,12 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
-		historiaRamificada historia1(respuestas, historiaAct);
+		historiaRecorrida historia1(respuestas, historiaAct,0);
 		historia1.mostrarTexto();
-		/*
+
 		//PREGUNTAS AQUI
+		cout << "Es hora del Trivial!\n" << endl;
+		Pregunta preguntas[10];
 
 		//FIN DE LAS PREGUNTAS
 		historia1.setRespuestas(respuestas);
@@ -132,7 +134,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			}
 
 		}
-*/
+
 	}else if(eleccion == 2){
 		//Historia2
 	}else if(eleccion == 3){

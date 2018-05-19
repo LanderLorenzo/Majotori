@@ -95,7 +95,6 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 	scanf("%d" , &eleccion);
 	if( eleccion == 1){
 		//Historia1
-		char opcion;
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
@@ -103,7 +102,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		historia1.mostrarTexto();
 
 		//PREGUNTAS AQUI
-		cout << "Es hora del Trivial!" << endl;
+		cout << "Es la hora del Trivial!" << endl;
 
 		for (int b = 0; b < 10; b++){
 			int r = rand()% puntero;
@@ -129,19 +128,42 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			}
 
 		}
-	/*	//FIN DE LAS PREGUNTAS
+		//FIN DE LAS PREGUNTAS
 		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
-			cout << "¡Felicidades, has tenido suerte con la tombola! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
-			scanf("%c", &opcion);
+			cout << "¡Felicidades, has tenido suerte con la tombola!" << endl;
 
-			if(opcion == 'q'){
 			historiaAct = "Historia1Rama1.txt";
 			historia1.setTexto(historiaAct);
 			historia1.mostrarTexto();
 			//PREGUNTAS AQUI
+			cout << "Es la hora del Trivial!" << endl;
 
+			for (int b = 0; b < 10; b++){
+				int r = rand()% puntero;
+				char* respuesta = new char;
+				cout << "Pregunta: " << endl;
+				cout << preguntasFiltradas[r].enunciado << endl;
+				cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+				cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+				cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+				cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+				cout << "¿Cual es tu respuesta? " << endl;
+				fflush(stdin);
+				fflush(stdout);
+				scanf("%c", respuesta);
+				char* correcta = new char;
+				correcta = preguntasFiltradas[r].correcta;
+				if (*respuesta == *correcta){
+					cout << "¡Correcto!" << endl;
+					respuestas[b] = true;
+				}else{
+					cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+					respuestas[b] = false;
+				}
+
+			}
 			//FIN DE LAS PREGUNTAS
 			historia1.setRespuestas(respuestas);
 			tombola = historia1.tombola();
@@ -154,19 +176,40 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 				historia1.setTexto(historiaAct);
 				historia1.mostrarTexto();
 			}
-			}else{
-			//GUARDAR EN UNA BASE DE DATOS?
-			}
-		}else if(tombola == false){
-			cout << "Mala suerte... 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
-			scanf("%c", &opcion);
 
-			if(opcion == 'q'){
+		}else if(tombola == false){
+			cout << "Mala suerte... " << endl;
+
 			historiaAct = "Historia1Rama2.txt";
 			historia1.setTexto(historiaAct);
 			historia1.mostrarTexto();
 			//PREGUNTAS AQUI
+			cout << "Es la hora del Trivial!" << endl;
 
+			for (int b = 0; b < 10; b++){
+				int r = rand()% puntero;
+				char* respuesta = new char;
+				cout << "Pregunta: " << endl;
+				cout << preguntasFiltradas[r].enunciado << endl;
+				cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+				cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+				cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+				cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+				cout << "¿Cual es tu respuesta? " << endl;
+				fflush(stdin);
+				fflush(stdout);
+				scanf("%c", respuesta);
+				char* correcta = new char;
+				correcta = preguntasFiltradas[r].correcta;
+				if (*respuesta == *correcta){
+					cout << "¡Correcto!" << endl;
+					respuestas[b] = true;
+				}else{
+					cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+					respuestas[b] = false;
+				}
+
+			}
 			//FIN DE LAS PREGUNTAS
 			historia1.setRespuestas(respuestas);
 			tombola = historia1.tombola();
@@ -179,18 +222,402 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 				historia1.setTexto(historiaAct);
 				historia1.mostrarTexto();
 			}
-			}else{
-				//GUARDAR EN UNA BASE DE DATOS?
-			}
 
 		}
-*/
+
 	}else if(eleccion == 2){
 		//Historia2
+		char* historiaAct = new char();
+				historiaAct = "Historia2.txt";
+				bool* respuestas = new bool[10];
+				historiaRecorrida historia1( respuestas, historiaAct);
+				historia1.mostrarTexto();
+
+				//PREGUNTAS AQUI
+				cout << "Es la hora del Trivial!" << endl;
+
+				for (int b = 0; b < 10; b++){
+					int r = rand()% puntero;
+					char* respuesta = new char;
+					cout << "Pregunta: " << endl;
+					cout << preguntasFiltradas[r].enunciado << endl;
+					cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+					cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+					cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+					cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+					cout << "¿Cual es tu respuesta? " << endl;
+					fflush(stdin);
+					fflush(stdout);
+					scanf("%c", respuesta);
+					char* correcta = new char;
+					correcta = preguntasFiltradas[r].correcta;
+					if (*respuesta == *correcta){
+						cout << "¡Correcto!" << endl;
+						respuestas[b] = true;
+					}else{
+						cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+						respuestas[b] = false;
+					}
+
+				}
+				//FIN DE LAS PREGUNTAS
+				historia1.setRespuestas(respuestas);
+				bool tombola = historia1.tombola();
+				if(tombola == true){
+					cout << "¡Felicidades, has tenido suerte con la tombola!" << endl;
+
+					historiaAct = "Historia1Rama1.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia2Rama1Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia2Rama1Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}else if(tombola == false){
+					cout << "Mala suerte... " << endl;
+
+					historiaAct = "Historia2Rama2.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia2Rama2Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia2Rama2Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}
 	}else if(eleccion == 3){
 		//Historia3
+		char* historiaAct = new char();
+				historiaAct = "Historia3.txt";
+				bool* respuestas = new bool[10];
+				historiaRecorrida historia1( respuestas, historiaAct);
+				historia1.mostrarTexto();
+
+				//PREGUNTAS AQUI
+				cout << "Es la hora del Trivial!" << endl;
+
+				for (int b = 0; b < 10; b++){
+					int r = rand()% puntero;
+					char* respuesta = new char;
+					cout << "Pregunta: " << endl;
+					cout << preguntasFiltradas[r].enunciado << endl;
+					cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+					cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+					cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+					cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+					cout << "¿Cual es tu respuesta? " << endl;
+					fflush(stdin);
+					fflush(stdout);
+					scanf("%c", respuesta);
+					char* correcta = new char;
+					correcta = preguntasFiltradas[r].correcta;
+					if (*respuesta == *correcta){
+						cout << "¡Correcto!" << endl;
+						respuestas[b] = true;
+					}else{
+						cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+						respuestas[b] = false;
+					}
+
+				}
+				//FIN DE LAS PREGUNTAS
+				historia1.setRespuestas(respuestas);
+				bool tombola = historia1.tombola();
+				if(tombola == true){
+					cout << "¡Felicidades, has tenido suerte con la tombola!" << endl;
+
+					historiaAct = "Historia1Rama1.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia3Rama1Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia3Rama1Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}else if(tombola == false){
+					cout << "Mala suerte... " << endl;
+
+					historiaAct = "Historia3Rama2.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia3Rama2Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia3Rama2Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}
 	}else if(eleccion == 4){
 		//Historia4
+		char* historiaAct = new char();
+				historiaAct = "Historia4.txt";
+				bool* respuestas = new bool[10];
+				historiaRecorrida historia1( respuestas, historiaAct);
+				historia1.mostrarTexto();
+
+				//PREGUNTAS AQUI
+				cout << "Es la hora del Trivial!" << endl;
+
+				for (int b = 0; b < 10; b++){
+					int r = rand()% puntero;
+					char* respuesta = new char;
+					cout << "Pregunta: " << endl;
+					cout << preguntasFiltradas[r].enunciado << endl;
+					cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+					cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+					cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+					cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+					cout << "¿Cual es tu respuesta? " << endl;
+					fflush(stdin);
+					fflush(stdout);
+					scanf("%c", respuesta);
+					char* correcta = new char;
+					correcta = preguntasFiltradas[r].correcta;
+					if (*respuesta == *correcta){
+						cout << "¡Correcto!" << endl;
+						respuestas[b] = true;
+					}else{
+						cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+						respuestas[b] = false;
+					}
+
+				}
+				//FIN DE LAS PREGUNTAS
+				historia1.setRespuestas(respuestas);
+				bool tombola = historia1.tombola();
+				if(tombola == true){
+					cout << "¡Felicidades, has tenido suerte con la tombola!" << endl;
+
+					historiaAct = "Historia4Rama1.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia4Rama1Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia4Rama1Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}else if(tombola == false){
+					cout << "Mala suerte... " << endl;
+
+					historiaAct = "Historia4Rama2.txt";
+					historia1.setTexto(historiaAct);
+					historia1.mostrarTexto();
+					//PREGUNTAS AQUI
+					cout << "Es la hora del Trivial!" << endl;
+
+					for (int b = 0; b < 10; b++){
+						int r = rand()% puntero;
+						char* respuesta = new char;
+						cout << "Pregunta: " << endl;
+						cout << preguntasFiltradas[r].enunciado << endl;
+						cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+						cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+						cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+						cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+						cout << "¿Cual es tu respuesta? " << endl;
+						fflush(stdin);
+						fflush(stdout);
+						scanf("%c", respuesta);
+						char* correcta = new char;
+						correcta = preguntasFiltradas[r].correcta;
+						if (*respuesta == *correcta){
+							cout << "¡Correcto!" << endl;
+							respuestas[b] = true;
+						}else{
+							cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+							respuestas[b] = false;
+						}
+
+					}
+					//FIN DE LAS PREGUNTAS
+					historia1.setRespuestas(respuestas);
+					tombola = historia1.tombola();
+					if(tombola == true){
+						historiaAct = "Historia4Rama2Final1.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}else if(tombola == false){
+						historiaAct = "Historia4Rama2Final2.txt";
+						historia1.setTexto(historiaAct);
+						historia1.mostrarTexto();
+					}
+
+				}
 	}else if(eleccion == 5){
 		MenuPrincipal(temas, db);
 	}

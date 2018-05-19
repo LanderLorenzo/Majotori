@@ -56,6 +56,32 @@ void MenuPrincipal(Tema *temas, sqlite3 *db){
 void MenuJugar(Tema *temas, sqlite3 *db){
 	int eleccion;
 
+	//INICIAMOS LAS PREGUNTAS
+	Pregunta preguntas[100];
+	for(int h = 0; h < 100; h++){
+		preguntas[h].enunciado = NULL;
+	}
+	Pregunta preguntasFiltradas[100];
+	iniciarPreguntas(preguntas, db);
+	int tamanyo = contarLineas("tema.txt");
+	int puntero = 0;
+	for (int j = 0; j < tamanyo; j++){
+		char* codigoTema;
+		codigoTema = compararTemas(temas[j].nombre, temas);
+		for (int k = 0; k < 100; k++){
+			if(preguntas[k].enunciado == NULL){
+			}else{
+			if (preguntas[k].cod[0] == codigoTema[0] && preguntas[k].cod[1] == codigoTema[1]){
+				if (temas[j].actT == '0'){
+				}else{
+					preguntasFiltradas[puntero] = preguntas[k];
+					puntero++;
+				}
+			}
+			}
+		}
+	}
+	//CODIGO DEL JUEGO
 	printf("------------------------------------------------------------------- \n");
 	printf("JUGAR \n");
 	printf("1. Historia 1 \n");
@@ -78,31 +104,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 
 		//PREGUNTAS AQUI
 		cout << "Es hora del Trivial!" << endl;
-		Pregunta preguntas[100];
-		for(int h = 0; h < 100; h++){
-			preguntas[h].enunciado = NULL;
-		}
-		Pregunta preguntasFiltradas[100];
-		iniciarPreguntas(preguntas, db);
-		int tamanyo = contarLineas("tema.txt");
-		int puntero = 0;
-		for (int j = 0; j < tamanyo; j++){
-			char* codigoTema;
-			codigoTema = compararTemas(temas[j].nombre, temas);
-			for (int k = 0; k < 100; k++){
-				if(preguntas[k].enunciado == NULL){
-				}else{
-				if (preguntas[k].cod[0] == codigoTema[0] && preguntas[k].cod[1] == codigoTema[1]){
-					if (temas[j].actT == '0'){
 
-					}else{
-						preguntasFiltradas[puntero] = preguntas[k];
-						puntero++;
-					}
-				}
-				}
-			}
-		}
 		for (int b = 0; b < 10; b++){
 			int r = rand()% puntero;
 			char* respuesta = new char;

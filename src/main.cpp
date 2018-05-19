@@ -96,11 +96,31 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 				}
 			}
 		}
+		for (int b = 0; b < 10; b++){
+			int r = rand()% puntero;
+			char* respuesta;
+			cout << "Pregunta: " << endl;
+			cout << preguntasFiltradas[r].enunciado << endl;
+			cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
+			cout << "Respuesta B: " << preguntasFiltradas[r].respuestaB << endl;
+			cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
+			cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
+			cout << "¿Cual es tu respuesta? " << endl;
+			scanf("%c", respuesta);
+			if (respuesta == preguntasFiltradas[r].correcta){
+				cout << "¡Correcto!" << endl;
+				respuestas[b] = true;
+			}else{
+				cout << "¡Que pena! La respuesta correcta era la... " << preguntasFiltradas[r].correcta <<endl;
+				respuestas[b] = false;
+			}
+
+		}
 		//FIN DE LAS PREGUNTAS
 		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
-			cout << "Felicidades! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
+			cout << "¡Felicidades, has tenido suerte con la tombola! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
 			scanf("%c", &opcion);
 
 			if(opcion == 'q'){

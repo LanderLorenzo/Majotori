@@ -117,7 +117,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 
 		}
 		//FIN DE LAS PREGUNTAS
-		historia1.setRespuestas(respuestas);
+/*		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
 			cout << "¡Felicidades, has tenido suerte con la tombola! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
@@ -171,7 +171,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			}
 
 		}
-
+*/
 	}else if(eleccion == 2){
 		//Historia2
 	}else if(eleccion == 3){

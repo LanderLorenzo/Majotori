@@ -8,7 +8,6 @@
 #ifndef HISTORIA_H_
 #define HISTORIA_H_
 
-#include <string.h>
 class historia{
 
 protected:
@@ -23,18 +22,20 @@ public:
 	void mostrarTexto();
 };
 
-class historiaRamificada: public historia{
+class historiaRecorrida: public historia{
 
 private:
-	bool respuestas[10];
+    bool respuestas[10];
+    int rama;
 public:
-	historiaRamificada();
-	virtual ~historiaRamificada();
-	historiaRamificada(bool respuestas[], char* fichero);
-	historiaRamificada(historiaRamificada& hr);
-	bool tombola();
-	void setRespuestas(bool respuestas[]);
-	bool* getRespuestas();
+    historiaRecorrida();
+    virtual ~historiaRecorrida();
+    historiaRecorrida(bool respuestas[], char* fichero,int rama);
+    historiaRecorrida(historiaRecorrida& hr);
+    bool tombola();
+    void setRespuestas(bool respuestas[]);
+    bool* getRespuestas();
+
 };
 
 #endif /* HISTORIA_H_ */

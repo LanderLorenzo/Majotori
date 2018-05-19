@@ -65,36 +65,36 @@ historia::historia(const historia& h){
 
 void historia::setTexto(char* fichero){
 	delete[] this->texto;
-	ifstream f;
-	char paquete[100];
-	strcpy(paquete, "Historias/");
-	strcat(paquete, fichero);
-	f.open(paquete);
-	char text[1000];
-	int i = 0;
-	int tamanyo = 0;
+		ifstream f;
+		char paquete[100];
+		strcpy(paquete, "Historias/");
+		strcat(paquete, fichero);
+		f.open(paquete);
+		char text[1000];
+		int i = 0;
+		int tamanyo = 0;
 
-	while(!f.eof()){
-		f >> text[i];
-		if(text[i] == '_'){
-			text[i] = ' ';
-		}
-		if(text[i] == '/'){
-			text[i] = '\0';
-		}
-		if(text[i] == '.'){
-			i++;
+		while(!f.eof()){
+			f >> text[i];
+			if(text[i] == '_'){
+				text[i] = ' ';
+			}
+			if(text[i] == '/'){
+				text[i] = '\0';
+			}
+			if(text[i] == '.'){
+				i++;
+				tamanyo++;
+				text[i] = '\n';
+			}		i++;
 			tamanyo++;
-			text[i] = '\n';
-		}		i++;
-		tamanyo++;
-	}
+		}
 
-		this->texto = new char[tamanyo];
-		strcpy(this->texto, text);
+			this->texto = new char[tamanyo];
+			strcpy(this->texto, text);
 
 
-	f.close();
+		f.close();
 }
 
 char* historia::getTexto(){
@@ -107,50 +107,55 @@ void historia::mostrarTexto(){
 	cout << this->texto << endl;
 }
 
-historiaRamificada::historiaRamificada(){
+historiaRecorrida::historiaRecorrida(){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = false;
 	}
+	this->rama = NULL;
 }
 
-historiaRamificada::~historiaRamificada(){
+historiaRecorrida::~historiaRecorrida(){
+//	for (int i = 0; i < 9; i++){
+	delete[] this->respuestas;
+	delete this->rama;
+//	}
 
 
 }
 
-historiaRamificada::historiaRamificada(bool respuestas[], char* fichero):historia(fichero){
+historiaRecorrida::historiaRecorrida(bool respuestas[], char* fichero, int rama):historia(fichero){
 	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = respuestas[i];
+		this->respuestas[i] = respuestas;
 	}
-
+	this->rama = rama;
 
 }
 
-historiaRamificada::historiaRamificada(historiaRamificada& h){
+historiaRecorrida::historiaRecorrida(historiaRecorrida& h){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = h.respuestas;
 	}
-
+	this->rama = h.rama;
 }
 
-bool historiaRamificada::tombola(){
+int historiaRecorrida::tombola(){
 	int r = rand()% 10 + 1;
 	bool resultado;
 	if(this->respuestas[r] == true){
-		resultado = true;
+		rama = 1;
 	} else{
-		resultado = false;
+		rama = 2;
 	}
 
-	return resultado;
+	return rama;
 }
 
-void historiaRamificada::setRespuestas(bool respuestas[]){
+void historiaRecorrida::setRespuestas(bool respuestas[]){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = respuestas;
 	}
 
 }
-bool* historiaRamificada::getRespuestas(){
+bool* historiaRecorrida::getRespuestas(){
 	return this->respuestas;
 }

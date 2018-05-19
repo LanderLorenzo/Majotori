@@ -145,9 +145,9 @@ bool* historiaRecorrida::getRespuestas(){
 	return this->respuestas;
 }
 
-historial::historial(){
-	this->rama = new int[2];
-
+historial::historial():historia(){
+	this->rama[0] = 0;
+	this->rama[1] = 0;
 }
 
 historial::~historial(){

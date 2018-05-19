@@ -73,7 +73,7 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
-		historiaRecorrida historia1(respuestas, historiaAct,0);
+		historiaRecorrida historia1(respuestas, historiaAct);
 		historia1.mostrarTexto();
 
 		//PREGUNTAS AQUI

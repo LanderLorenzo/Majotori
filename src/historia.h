@@ -25,11 +25,10 @@ public:
 class historiaRecorrida: public historia{
 
 private:
-    bool respuestas[10];
+    bool* respuestas;
 public:
-    historiaRecorrida();
     virtual ~historiaRecorrida();
-    historiaRecorrida(bool respuestas[10], char* fichero);
+    historiaRecorrida(bool* respuestas, char* fichero);
     historiaRecorrida(historiaRecorrida& hr);
     bool tombola();
     void setRespuestas(bool respuestas[10]);
@@ -42,7 +41,6 @@ class historial: public historia{
 private:
     int rama[2];
 public:
-    historial();
     virtual ~historial();
     historial(int rama[2], char* fichero);
     historial(historial& hr);

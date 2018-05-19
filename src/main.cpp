@@ -73,32 +73,39 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 		char* historiaAct = new char();
 		historiaAct = "Historia1.txt";
 		bool* respuestas = new bool[10];
-		historiaRecorrida historia1(respuestas, historiaAct);
+		historiaRecorrida historia1( respuestas, historiaAct);
 		historia1.mostrarTexto();
 
 		//PREGUNTAS AQUI
-		cout << "Es hora del Trivial!\n" << endl;
-		Pregunta* preguntas = new Pregunta[100];
-		Pregunta* preguntasFiltradas = new Pregunta[100];
+		cout << "Es hora del Trivial!" << endl;
+		Pregunta preguntas[100];
+		for(int h = 0; h < 100; h++){
+			preguntas[h].enunciado = NULL;
+		}
+		Pregunta preguntasFiltradas[100];
 		iniciarPreguntas(preguntas, db);
 		int tamanyo = contarLineas("tema.txt");
 		int puntero = 0;
 		for (int j = 0; j < tamanyo; j++){
-			char* codigoTema = new char[3];
+			char* codigoTema;
 			codigoTema = compararTemas(temas[j].nombre, temas);
 			for (int k = 0; k < 100; k++){
+				if(preguntas[k].enunciado == NULL){
+				}else{
 				if (preguntas[k].cod[0] == codigoTema[0] && preguntas[k].cod[1] == codigoTema[1]){
 					if (temas[j].actT == '0'){
 
 					}else{
 						preguntasFiltradas[puntero] = preguntas[k];
+						puntero++;
 					}
+				}
 				}
 			}
 		}
 		for (int b = 0; b < 10; b++){
 			int r = rand()% puntero;
-			char* respuesta;
+			char* respuesta = new char;
 			cout << "Pregunta: " << endl;
 			cout << preguntasFiltradas[r].enunciado << endl;
 			cout << "Respuesta A: " << preguntasFiltradas[r].respuestaA << endl;
@@ -106,8 +113,12 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			cout << "Respuesta C: " << preguntasFiltradas[r].respuestaC << endl;
 			cout << "Respuesta D: " << preguntasFiltradas[r].respuestaD << endl;
 			cout << "¿Cual es tu respuesta? " << endl;
+			fflush(stdin);
+			fflush(stdout);
 			scanf("%c", respuesta);
-			if (respuesta == preguntasFiltradas[r].correcta){
+			char* correcta = new char;
+			correcta = preguntasFiltradas[r].correcta;
+			if (*respuesta == *correcta){
 				cout << "¡Correcto!" << endl;
 				respuestas[b] = true;
 			}else{
@@ -116,8 +127,8 @@ void MenuJugar(Tema *temas, sqlite3 *db){
 			}
 
 		}
-		//FIN DE LAS PREGUNTAS
-/*		historia1.setRespuestas(respuestas);
+	/*	//FIN DE LAS PREGUNTAS
+		historia1.setRespuestas(respuestas);
 		bool tombola = historia1.tombola();
 		if(tombola == true){
 			cout << "¡Felicidades, has tenido suerte con la tombola! 'q' para continuar o otra tecla alfabetica para guardar y salir:\n" << endl;
@@ -218,12 +229,6 @@ int main(int argc, char* argv[]) {
 */
 	MenuPrincipal(temas, db);
 
-	result = sqlite3_close(db);
-		if (result != SQLITE_OK) {
-			printf("Error opening database\n");
-			printf("%s\n", sqlite3_errmsg(db));
-			return result;
-		}
 	free(temas);
 	return 0;
 }

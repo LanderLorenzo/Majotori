@@ -107,26 +107,16 @@ void historia::mostrarTexto(){
 	cout << this->texto << endl;
 }
 
-historiaRecorrida::historiaRecorrida(){
-	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = false;
-	}
-}
 
 historiaRecorrida::~historiaRecorrida(){
 	delete[] this->respuestas;
 }
 
-historiaRecorrida::historiaRecorrida(bool respuestas[10], char* fichero):historia(fichero){
-	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = respuestas;
-	}
+historiaRecorrida::historiaRecorrida(bool* respuestas, char* fichero):historia(fichero),respuestas(respuestas){}
 
-}
 historiaRecorrida::historiaRecorrida(historiaRecorrida& h){
-	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = h.respuestas[i];
-	}
+	this->texto = h.texto;
+	this->respuestas = h.respuestas;
 }
 
 bool historiaRecorrida::tombola(){
@@ -145,10 +135,7 @@ bool* historiaRecorrida::getRespuestas(){
 	return this->respuestas;
 }
 
-historial::historial():historia(){
-	this->rama[0] = 0;
-	this->rama[1] = 0;
-}
+
 
 historial::~historial(){
 	delete[] this->rama;

@@ -111,50 +111,69 @@ historiaRecorrida::historiaRecorrida(){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = false;
 	}
-	this->rama = NULL;
 }
 
 historiaRecorrida::~historiaRecorrida(){
-//	for (int i = 0; i < 9; i++){
 	delete[] this->respuestas;
-//	}
-
-
 }
 
-historiaRecorrida::historiaRecorrida(bool respuestas[], char* fichero, int rama):historia(fichero){
+historiaRecorrida::historiaRecorrida(bool respuestas[10], char* fichero):historia(fichero){
 	for(int i = 0; i < 10; i++){
 		this->respuestas[i] = respuestas;
 	}
-	this->rama = rama;
 
 }
-
 historiaRecorrida::historiaRecorrida(historiaRecorrida& h){
 	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = h.respuestas;
+		this->respuestas[i] = h.respuestas[i];
 	}
-	this->rama = h.rama;
 }
 
 bool historiaRecorrida::tombola(){
-	int r = rand()% 10 + 1;
-	bool resultado;
-	if(this->respuestas[r] == true){
-		rama = 1;
-	} else{
-		rama = 2;
-	}
+	int r = rand()% 10;
 
-	return rama;
+	return respuestas[r];
 }
 
-void historiaRecorrida::setRespuestas(bool respuestas[]){
+void historiaRecorrida::setRespuestas(bool respuestas[10]){
 	for(int i = 0; i < 10; i++){
-		this->respuestas[i] = respuestas;
+		this->respuestas[i] = respuestas[i];
 	}
 
 }
 bool* historiaRecorrida::getRespuestas(){
 	return this->respuestas;
+}
+
+historial::historial(){
+	this->rama = new int[2];
+
+}
+
+historial::~historial(){
+	delete[] this->rama;
+}
+
+historial::historial(int ramas[2], char* fichero):historia(fichero){
+	for(int i = 0; i < 2; i++){
+		this->rama[i] = ramas[i];
+	}
+
+}
+historial::historial(historial& h){
+	for(int i = 0; i < 2; i++){
+		this->rama[i] = h.rama[i];
+	}
+}
+
+void historial::setRama(int set[2]){
+
+	this->rama[0] = set[0];
+	this->rama[1] = set[1];
+
+}
+
+int* historial::getRama(){
+
+	return this->rama;
 }

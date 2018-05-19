@@ -17,8 +17,8 @@ public:
 	virtual ~historia();
 	historia(char* fichero);
 	historia(const historia&);
-	void setTexto(char*);
-	char* getTexto();
+    void setTexto(char*);
+    char* getTexto();
 	void mostrarTexto();
 };
 
@@ -26,16 +26,28 @@ class historiaRecorrida: public historia{
 
 private:
     bool respuestas[10];
-    int rama;
 public:
     historiaRecorrida();
     virtual ~historiaRecorrida();
-    historiaRecorrida(bool respuestas[], char* fichero,int rama);
+    historiaRecorrida(bool respuestas[10], char* fichero);
     historiaRecorrida(historiaRecorrida& hr);
     bool tombola();
-    void setRespuestas(bool respuestas[]);
+    void setRespuestas(bool respuestas[10]);
     bool* getRespuestas();
 
+};
+
+class historial: public historia{
+
+private:
+    int rama[2];
+public:
+    historial();
+    virtual ~historial();
+    historial(int rama[2], char* fichero);
+    historial(historial& hr);
+    void setRama(int*);
+    int* getRama();
 };
 
 #endif /* HISTORIA_H_ */

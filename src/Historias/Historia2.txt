@@ -1,8 +1,5 @@
-Eres un niño nacido en los suburbios de una gran ciudad, no has llegado a conocer a tu padre y tu madre apenas
-se las apaña para manteneros a ambos con vida con su trabajo del cual no te quiere hablar.
-Tras vivir así toda tu corta vida de 15 años, comienzas a buscar salidas.
-Un día ves a un hombre que se aproxima hacia ti, va bien vestido, lo que lleva puesto vale más que la comida
-que has comido en el último año, una vez llega a tu lado comienza a hablarte.
--Hola pequeño, ¿quieres ganar algo de dinero? Uno de mis hombres me ha fallado y no va a poder seguir realizando su trabajo.
-Ganarías más de lo que has podido llegar a ver a lo largo de tu miserable vida. *Te extiende un fajo con más de 1000$
-y una bolsa con lo que parece ser un polvo blanco*.
+Eres_un_niño_nacido_en_los_suburbios_de_una_gran_ciudad,_no_has_llegado_a_conocer_a_tu_padre_y_tu_madre_apenas_se_las_apaña_para_manteneros_a_ambos_con_vida_con_su_trabajo_del_cual_no_te_quiere_hablar.
+Tras_vivir_así_toda_tu_corta_vida_de_15_años,_comienzas_a_buscar_salidas.
+Un_día_ves_a_un_hombre_que_se_aproxima_hacia_ti,_va_bien_vestido,_lo_que_lleva_puesto_vale_más_que_la_comida_que_has_comido_en_el_último_año,_una_vez_llega_a_tu_lado_comienza_a_hablarte.
+-Hola_pequeño,_¿quieres_ganar_algo_de_dinero?_Uno_de_mis_hombres_me_ha_fallado_y_no_va_a_poder_seguir_realizando_su_trabajo.
+Ganarías_más_de_lo_que_has_podido_llegar_a_ver_a_lo_largo_de_tu_miserable_vida._*Te_extiende_un_fajo_con_más_de_1000$_y_una_bolsa_con_lo_que_parece_ser_un_polvo_blanco*./

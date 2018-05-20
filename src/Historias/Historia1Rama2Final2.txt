@@ -1,4 +1,3 @@
-No aguantas más escondido y sales del lugar de donde estabas para llegar a una salida.
-Corres por todas la instalación esquivando a los guardias, pero finalmente te acaban acorralando en una sala.
-Te defiendes todo lo que puedes, pero finalmente acabas siendo capturado por el enemigo y te encierran para
-sacarte toda la información que tienes.
+No_aguantas_más_escondido_y_sales_del_lugar_de_donde_estabas_para_llegar_a_una_salida.
+Corres_por_todas_la_instalación_esquivando_a_los_guardias,_pero_finalmente_te_acaban_acorralando_en_una_sala.
+Te_defiendes_todo_lo_que_puedes,_pero_finalmente_acabas_siendo_capturado_por_el_enemigo_y_te_encierran_para_sacarte_toda_la_información_que_tienes./

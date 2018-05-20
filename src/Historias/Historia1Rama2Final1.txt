@@ -1,5 +1,5 @@
-Decides no permanecer más tiempo escondido y sales en busca de una ruta de escape.
-Por suerte encuentras un lugar por el que puedes escapar. Sin dudarlo no dudas en coger esa salida,
-por desgracia en ese momento llegan los guardias y tu única opción de salir con vida es dejando la mochila
-con los datos que has robado atrás. Finalmente huyes de ese lugar, pero sin la información que necesitabas.
-Has fracasado en tu misión.
+Decides_no_permanecer_más_tiempo_escondido_y_sales_en_busca_de_una_ruta_de_escape.
+Por_suerte_encuentras_un_lugar_por_el_que_puedes_escapar.
+Sin_dudarlo_no_dudas_en_coger_esa_salida,_por_desgracia_en_ese_momento_llegan_los_guardias_y_tu_única_opción_de_salir_con_vida_es_dejando_la_mochila_con_los_datos_que_has_robado_atrás.
+Finalmente_huyes_de_ese_lugar,_pero_sin_la_información_que_necesitabas.
+Has_fracasado_en_tu_misión./

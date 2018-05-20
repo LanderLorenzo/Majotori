@@ -1,7 +1,8 @@
-Vuelves a casa y ves una soga, la misma que tu madre guarda en su mesilla para un fin que te puedes imaginar.
-Piensas en acabar con todo, en poner fin a esta vida que no merece la pena vivir. Piensas en tu madre, no puedes hacerle eso.
-Ves el producto que has estado vendiendo a toda esa gente, a ese niño que ahora yace muerto a un par de manzanas,
-tirado en el suelo, solo. Sin pensarlo más comienzas a usar este producto para beneficio propio, te sientes mucho mejor al usarlo.
-Los años pasan, cumples los 17 años y decides celebrarlo por tu cuenta con tu viejo compañero, el polvo blanco.
-Te pasas de la raya, lo último que recuerdas es como consumiste más de lo habitual buscando algo de emoción.
-Has muerto por una sobredosis.
+Vuelves_a_casa_y_ves_una_soga,_la_misma_que_tu_madre_guarda_en_su_mesilla_para_un_fin_que_te_puedes_imaginar.
+Piensas_en_acabar_con_todo,_en_poner_fin_a_esta_vida_que_no_merece_la_pena_vivir.
+Piensas_en_tu_madre,_no_puedes_hacerle_eso.
+Ves_el_producto_que_has_estado_vendiendo_a_toda_esa_gente,_a_ese_niño_que_ahora_yace_muerto_a_un_par_de_manzanas,_tirado_en_el_suelo,_solo.
+Sin_pensarlo_más_comienzas_a_usar_este_producto_para_beneficio_propio,_te_sientes_mucho_mejor_al_usarlo.
+Los_años_pasan,_cumples_los_17_años_y_decides_celebrarlo_por_tu_cuenta_con_tu_viejo_compañero,_el_polvo_blanco.
+Te_pasas_de_la_raya,_lo_último_que_recuerdas_es_como_consumiste_más_de_lo_habitual_buscando_algo_de_emoción.
+Has_muerto_por_una_sobredosis./

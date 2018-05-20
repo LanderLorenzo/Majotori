@@ -1,6 +1,5 @@
-EL SEÑOR PARECE SOSPECHOSO, SIMPLEMENTE TE NIEGAS A SEGUIR HABLANDO CON EL.
-Ni siquiera tienes las fuerzas para responder a su pregunta, sabes bien lo que son esos polvos, has crecido rodeado de ellos
-y no son nada bueno. Te levantas de donde estás tirado y te alejas del hombre lentamente mientras observas
-cómo el hombre pierde el interés en comunicarse contigo. Aún así, la curiosidad y ese dinero que has visto te pueden,
-y acabas girando la cabeza solo para ver como cae del bolsillo de esa persona una cartera que a penas puede contener
-la cantidad de billetes que tiene dentro. El señor se sigue alejando de la cartera.
+EL_SEÑOR_PARECE_SOSPECHOSO,_SIMPLEMENTE_TE_NIEGAS_A_SEGUIR_HABLANDO_CON_EL.
+Ni_siquiera_tienes_las_fuerzas_para_responder_a_su_pregunta,_sabes_bien_lo_que_son_esos_polvos,_has_crecido_rodeado_de_ellos_y_no_son_nada_bueno.
+Te_levantas_de_donde_estás_tirado_y_te_alejas_del_hombre_lentamente_mientras_observas_cómo_el_hombre_pierde_el_interés_en_comunicarse_contigo.
+Aún_así,_la_curiosidad_y_ese_dinero_que_has_visto_te_pueden,_y_acabas_girando_la_cabeza_solo_para_ver_como_cae_del_bolsillo_de_esa_persona_una_cartera_que_a_penas_puede_contener_la_cantidad_de_billetes_que_tiene_dentro.
+El_señor_se_sigue_alejando_de_la_cartera./

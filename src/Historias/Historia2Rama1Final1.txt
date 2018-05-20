@@ -1,6 +1,6 @@
-TE ACERCAS LENTAMENTE Y SILENCIOSAMENTE A LA CARTERA PARA RECOGERLA Y ALEJARTE DEL LUGAR DISCRETAMENTE
-Decides ir a por la cartera, pero no precisamente para devolverla a su dueño original.
-Tras recogerla y salir de la escena del crimen de manera satisfactoria te dispones a examinar su contenido cuidadosamente.
-Comienzas a sumar hasta llegar a la suma de 150.000$ y decides usar este dinero para comenzar una nueva vida lejos de esta ciudad,
-con tu madre, en un lugar pacífico. Tras encontrar trabajo conoces a la que será la mujer de tu vida y formas una familia con ella.
-Vives el resto de tus días de forma pacífica y feliz en una casa alejada de las ciudades con tu mujer.
+TE_ACERCAS_LENTAMENTE_Y_SILENCIOSAMENTE_A_LA_CARTERA_PARA_RECOGERLA_Y_ALEJARTE_DEL_LUGAR_DISCRETAMENTE.
+Decides_ir_a_por_la_cartera,_pero_no_precisamente_para_devolverla_a_su_dueño_original.
+Tras_recogerla_y_salir_de_la_escena_del_crimen_de_manera_satisfactoria_te_dispones_a_examinar_su_contenido_cuidadosamente.
+Comienzas_a_sumar_hasta_llegar_a_la_suma_de_150.000$_y_decides_usar_este_dinero_para_comenzar_una_nueva_vida_lejos_de_esta_ciudad,_con_tu_madre,_en_un_lugar_pacífico.
+Tras_encontrar_trabajo_conoces_a_la_que_será_la_mujer_de_tu_vida_y_formas_una_familia_con_ella.
+Vives_el_resto_de_tus_días_de_forma_pacífica_y_feliz_en_una_casa_alejada_de_las_ciudades_con_tu_mujer./

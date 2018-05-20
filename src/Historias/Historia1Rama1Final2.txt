@@ -1,4 +1,4 @@
-Decides que no tienes tiempo que perder, y que tu misión principal era la de conseguir los datos.
-No te lo piensas dos veces y aunque te cueste decides dejar atrás las bombas y salir del centro con los datos.
-Consigues salir de las instalaciones con vida y con los datos que necesitabas. Vuelves a tu país y 
-entregas la información obtenida, has cumplido con tu misión pero sientes que podrías haber terminado con todo.
+Decides_que_no_tienes_tiempo_que_perder,_y_que_tu_misión_principal_era_la_de_conseguir_los_datos.
+No_te_lo_piensas_dos_veces_y_aunque_te_cueste_decides_dejar_atrás_las_bombas_y_salir_del_centro_con_los_datos.
+Consigues_salir_de_las_instalaciones_con_vida_y_con_los_datos_que_necesitabas.
+Vuelves_a_tu_país_y_entregas_la_información_obtenida,_has_cumplido_con_tu_misión_pero_sientes_que_podrías_haber_terminado_con_todo./

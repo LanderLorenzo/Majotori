@@ -1,4 +1,4 @@
-Cuando empiezas a correr para salir de ese lugar, llegas a una sala donde están las bombas que van a ser las utilizadas
-para los ataques planeados. Entonces decides activar una de las bombas para acabar con todo de raíz.
-Cuando vas activar una de las bombas, descubres que estas necesitan un código de activación.
-Entonces empiezas a pensar qué hacer ya que todavía te siguen buscando.
+Cuando_empiezas_a_correr_para_salir_de_ese_lugar,_llegas_a_una_sala_donde_están_las_bombas_que_van_a_ser_las_utilizadas_para_los_ataques_planeados.
+Entonces_decides_activar_una_de_las_bombas_para_acabar_con_todo_de_raíz.
+Cuando_vas_activar_una_de_las_bombas,_descubres_que_estas_necesitan_un_código_de_activación.
+Entonces_empiezas_a_pensar_qué_hacer_ya_que_todavía_te_siguen_buscando./

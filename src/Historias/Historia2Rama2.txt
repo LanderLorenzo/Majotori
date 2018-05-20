@@ -1,9 +1,7 @@
-COGES LA BOLSA Y EL DINERO Y CONTINUAS HABLANDO CON EL SEÑOR
-Decides recoger el dinero y el polvo; el cual perfectamente conoces pues has vivido rodeado del mismo desde tu nacimiento,
-y continuas tu charla con este hombre. Te explica lo que tienes que hacer, cómo hacerlo y cuando hacerlo, todo parece sencillo,
-el te pagará unas sumas de dinero que te parecen increíbles a cambio de que tu vendas este producto a compradores habituales
-del mismo, todo parece bueno. Tras dedicarte durante unos meses a esto tu vida ha mejorado notablemente, ahora tienes dinero
-suficiente para subsistir junto con tu madre, la cual se sigue preguntando día tras día de dónde viene el dinero que traes a casa;
-aunque dada la situación en la que estáis no se queja y no indaga demasiado. Un día cuando sales a la calle y te dispones a seguir
-con tu trabajo, ves a un niño en una esquina. Está muerto, es el niño de no más de 10 años al que le vendías tu producto, del cual
-se pueden apreciar rastros en su cara. Ha muerto de una sobredosis. El remordimiento te corroe.
+COGES_LA_BOLSA_Y_EL_DINERO_Y_CONTINUAS_HABLANDO_CON_EL_SEÑOR.
+Decides_recoger_el_dinero_y_el_polvo;_el_cual_perfectamente_conoces_pues_has_vivido_rodeado_del_mismo_desde_tu_nacimiento,_y_continuas_tu_charla_con_este_hombre.
+Te_explica_lo_que_tienes_que_hacer,_cómo_hacerlo_y_cuando_hacerlo,_todo_parece_sencillo,_el_te_pagará_unas_sumas_de_dinero_que_te_parecen_increíbles_a_cambio_de_que_tu_vendas_este_producto_a_compradores_habituales_del_mismo,_todo_parece_bueno.
+Tras_dedicarte_durante_unos_meses_a_esto_tu_vida_ha_mejorado_notablemente,_ahora_tienes_dinero_suficiente_para_subsistir_junto_con_tu_madre,_la_cual_se_sigue_preguntando_día_tras_día_de_dónde_viene_el_dinero_que_traes_a_casa;_aunque_dada_la_situación_en_la_que_estáis_no_se_queja_y_no_indaga_demasiado.
+Un_día_cuando_sales_a_la_calle_y_te_dispones_a_seguir_con_tu_trabajo,_ves_a_un_niño_en_una_esquina._Está_muerto,_es_el_niño_de_no_más_de_10_años_al_que_le_vendías_tu_producto,_del_cual_se_pueden_apreciar_rastros_en_su_cara.
+Ha_muerto_de_una_sobredosis.
+El_remordimiento_te_corroe./

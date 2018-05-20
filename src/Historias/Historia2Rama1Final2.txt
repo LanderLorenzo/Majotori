@@ -1,5 +1,4 @@
-TE ACERCAS CORRIENDO A LA CARTERA Y ACTO SEGUIDO AL HOMBRE QUE LA ACABA DE PERDER, CON ESPERANZA DE DEVOLVERLA
-Te acercas rápidamente a la cartera que yace en el suelo, a escasos metros del hombre que acaba de perderla.
-Tras recogerla y llamar su atención lo único que escuchas son unos gritos de este hombre acusándote de hurto,
-lo siguiente que ves es como este individuo saca un arma de fuego del bolsillo de su chaqueta y te apunta.
-Todo negro, te han matado.
+TE_ACERCAS_CORRIENDO_A_LA _CARTERA_Y_ACTO_SEGUIDO_AL_HOMBRE_QUE_LA_ACABA_DE_PERDER,_CON_ESPERANZA_DE_DEVOLVERLA.
+Te_acercas_rápidamente_a_la_cartera_que_yace_en_el_suelo,_a_escasos_metros_del_hombre_que_acaba_de_perderla.
+Tras_recogerla_y_llamar_su_atención_lo_único_que_escuchas_son_unos_gritos_de_este_hombre_acusándote_de_hurto,_lo_siguiente_que_ves_es_como_este_individuo_saca_un_arma_de_fuego_del_bolsillo_de_su_chaqueta_y_te_apunta.
+Todo_negro,_te_han_matado./

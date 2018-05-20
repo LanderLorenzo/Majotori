@@ -135,43 +135,30 @@ bool* historiaRecorrida::getRespuestas(){
 	return this->respuestas;
 }
 
-
+/*
 
 historial::~historial(){
-	delete[] this->rama;
+	delete[] this->textoHistorial;
 }
 
-historial::historial(int ramas[2], char* fichero):historia(fichero){
-	for(int i = 0; i < 2; i++){
-		this->rama[i] = ramas[i];
-	}
+historial::historial( char* fichero, char* textoHistorial):historia(fichero), textoHistorial(textoHistorial){
 
 }
 historial::historial(historial& h){
-	for(int i = 0; i < 2; i++){
-		this->rama[i] = h.rama[i];
-	}
+	this->texto = h.texto;
+	this->textoHistorial = h.textoHistorial;
 }
 
-void historial::setRama(int set[2]){
 
-	this->rama[0] = set[0];
-	this->rama[1] = set[1];
 
-}
-
-int* historial::getRama(){
-
-	return this->rama;
-}
-
-void historial::setRecorrido(char numeroHistoria){
+void historial::setTextoHistorial(char* historia){
 	char* textoHistorial;
 	int i = 0;
 	int xrama = 0;
 	ifstream f;
 	int lenght = 0;
 	textoHistorial = this->texto;
+
 
 	while (i < sizeof(textoHistorial)){
 
@@ -323,4 +310,4 @@ return this->textoHistorial;
 
 }
 
-
+*/

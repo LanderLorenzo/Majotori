@@ -164,3 +164,157 @@ int* historial::getRama(){
 
 	return this->rama;
 }
+
+void historial::getRecorrido(char numeroHistoria){
+	char* textoHistorial;
+	int i = 0;
+	int xrama = 0;
+	ifstream f;
+	int lenght = 0;
+	textoHistorial = this->texto;
+
+	while (i < sizeof(textoHistorial)){
+
+		if (textoHistorial[i] == "|"){
+
+			xrama++;
+
+		}
+
+	}
+
+	textoHistorial = textoHistorial + "|";
+
+	if (xrama = 0){
+
+		//función que coja el texto de la historiax y la escriba en textoHistorial
+
+		f.open("Historias/Historia" + numeroHistoria);
+		i=0;
+
+		while(!f.eof()){
+			f >> textoHistorial[i];
+			if(textoHistorial[i] == '_'){
+				textoHistorial[i] = ' ';
+			}
+			if(textoHistorial[i] == '/'){
+				textoHistorial[i] = '\0';
+			}
+			if(textoHistorial[i] == '.'){
+				i++;
+				lenght++;
+				textoHistorial[i] = '\n';
+			}		i++;
+			lenght++;
+		}
+
+		this->textoHistorial = new char[lenght];
+		this->texto = {};
+		strcat(this->textoHistorial, textoHistorial);
+
+		//guardar este textHistorial al fondo del fichero que vayamos a usar como historial?
+
+		f.close();
+
+	}else if (xrama = 1){
+
+		//función que coja el texto de la historiaxramax y la escriba en el final de textoHistorial
+
+		f.open("Historias/Historia" + numeroHistoria + "Rama" + this->rama[0]);
+
+		i=0;
+
+		while(!f.eof()){
+			f >> textoHistorial[i];
+			if(textoHistorial[i] == '_'){
+				textoHistorial[i] = ' ';
+			}
+			if(textoHistorial[i] == '/'){
+				textoHistorial[i] = '\0';
+			}
+			if(textoHistorial[i] == '.'){
+				i++;
+				lenght++;
+				textoHistorial[i] = '\n';
+			}		i++;
+			lenght++;
+		}
+
+		this->textoHistorial = new char[lenght];
+		strcat(this->textoHistorial, textoHistorial);
+
+		//guardar este textoHistorial al fondo del fichero que vayamos a usar como historial?
+
+		f.close();
+
+	}else if (xrama = 2){
+
+		//función que coja el texto de la historiaxramaxfinalx y la escriba en el final de textoHistorial
+
+		f.open("Historias/Historia" + numeroHistoria + "Rama" + this->rama[0] + "Final" + this->rama[1]);
+
+		i=0;
+
+		while(!f.eof()){
+			f >> textoHistorial[i];
+			if(textoHistorial[i] == '_'){
+				textoHistorial[i] = ' ';
+			}
+			if(textoHistorial[i] == '/'){
+				textoHistorial[i] = '\0';
+			}
+			if(textoHistorial[i] == '.'){
+				i++;
+				lenght++;
+				textoHistorial[i] = '\n';
+			}		i++;
+			lenght++;
+		}
+
+		this->textoHistorial = new char[lenght];
+		strcat(this->textoHistorial, textoHistorial);
+
+		//guardar este texto al fondo del fichero que vayamos a usar para el historial?
+
+		f.close();
+
+
+	}else{
+
+		//con 3 ramas ya habría acabado la historia, así que borramos el fichero y escribimos en blanco
+		//igual que con xrama = 0
+
+		f.open("Historias/Historia" + numeroHistoria);
+
+		i=0;
+
+		while(!f.eof()){
+			f >> textoHistorial[i];
+			if(textoHistorial[i] == '_'){
+				textoHistorial[i] = ' ';
+			}
+			if(textoHistorial[i] == '/'){
+				textoHistorial[i] = '\0';
+			}
+			if(textoHistorial[i] == '.'){
+				i++;
+				lenght++;
+				textoHistorial[i] = '\n';
+			}		i++;
+			lenght++;
+		}
+
+		this->textoHistorial = new char[lenght];
+		//this.textoHistorial = {}; ¿vacia el array?
+		this->textoHistorial = {};
+		strcat(this->textoHistorial, textoHistorial);
+
+		f.close();
+
+		//guardar este texto al principio del fichero que acabamos de vaciar
+
+	}
+
+}
+
+

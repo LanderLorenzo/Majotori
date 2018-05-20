@@ -40,12 +40,14 @@ class historial: public historia{
 
 private:
     int rama[2];
+    char* textoHistorial;
 public:
     virtual ~historial();
     historial(int rama[2], char* fichero);
     historial(historial& hr);
     void setRama(int*);
     int* getRama();
+    void getRecorrido(char numeroHistoria);
 };
 
 #endif /* HISTORIA_H_ */

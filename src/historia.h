@@ -47,7 +47,8 @@ public:
     historial(historial& hr);
     void setRama(int*);
     int* getRama();
-    void getRecorrido(char numeroHistoria);
+    void setRecorrido(char numeroHistoria);
+    char* getTextoHistorial();
 };
 
 #endif /* HISTORIA_H_ */

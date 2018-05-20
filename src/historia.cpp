@@ -165,7 +165,7 @@ int* historial::getRama(){
 	return this->rama;
 }
 
-void historial::getRecorrido(char numeroHistoria){
+void historial::setRecorrido(char numeroHistoria){
 	char* textoHistorial;
 	int i = 0;
 	int xrama = 0;
@@ -314,6 +314,12 @@ void historial::getRecorrido(char numeroHistoria){
 		//guardar este texto al principio del fichero que acabamos de vaciar
 
 	}
+
+}
+
+char* historial::getTextoHistorial(){
+
+return this->textoHistorial;
 
 }
 

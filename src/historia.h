@@ -35,18 +35,6 @@ public:
     bool* getRespuestas();
 
 };
-/*
-class historial: public historia{
 
-private:
-    char* textoHistorial;
-public:
-    virtual ~historial();
-    historial( char* fichero, char* textoHistorial);
-    historial(historial& hr);
-    void setTextoHistorial(char* historia);
-    char* getTextoHistorial();
-};
-*/
 
 #endif /* HISTORIA_H_ */
